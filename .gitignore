@@ -1,1 +1,8 @@
-/node_modules
+# Node modules
+node_modules/
+
+# Build output
+docs/.vitepress/dist/
+
+# Cache
+docs/.vitepress/cache/
