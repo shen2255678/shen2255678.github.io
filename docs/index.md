@@ -16,11 +16,11 @@ hero:
 
 features:
   - icon: 🛠️
-    title: Feature A
+    title: Travel
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - title: Coding
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: Life
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
