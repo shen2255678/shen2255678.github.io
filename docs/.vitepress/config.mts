@@ -8,7 +8,15 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Examples', link: '/markdown-examples' },
+      { 
+        text: 'Guide', 
+        items: [
+          { text: '1.3.2', link: '/guide/1.3.2' },
+          { text: '1.3.1', link: '/guide/1.3.1' },
+          { text: '1.3.0', link: '/guide/1.3.0' }
+        ]
+      },
     ],
 
     sidebar: [
@@ -17,7 +25,8 @@ export default defineConfig({
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'Coding ', link: '/coding/first-coding-post' }
+          { text: 'Coding ', link: '/coding/first-coding-post' },
+          { text: 'Vite Press Tutorial ', link: '/coding/vitepress-tutorial' },
         ]
       }
     ],
