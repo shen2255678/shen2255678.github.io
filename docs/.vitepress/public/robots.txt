@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shen2255678.github.io/sitemap.xml
+
+# Disallow admin or private areas
+Disallow: /admin/
