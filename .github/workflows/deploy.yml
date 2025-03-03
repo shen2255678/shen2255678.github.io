@@ -28,7 +28,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -36,33 +35,32 @@ jobs:
       # Clean install to avoid potential conflicts
       - name: Clean install dependencies
         run: |
-          npm ci || npm install
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm install
       
-      # Ensure sharp is installed for image processing
-      - name: Install Sharp for image processing
-        run: npm install sharp --save-dev
-      
-      # List installed packages for debugging
-      - name: List installed packages
-        run: npm list --depth=0
+      # Debug information
+      - name: VitePress version check
+        run: npx vitepress --version
       
       # Create necessary directories
       - name: Create VitePress directories
         run: mkdir -p docs/.vitepress/dist
       
-      # Debug output
-      - name: Debug - Show config files
+      # Copy config to ensure it's found
+      - name: Copy config files
         run: |
           ls -la docs/.vitepress/
-          cat docs/.vitepress/config.mts || echo "Config file not found"
+          cat docs/.vitepress/config.mjs
       
-      # Build VitePress site with increased memory allocation and verbose logging
+      # Build VitePress site with debugging
       - name: Build
-        run: npm run docs:build --loglevel verbose
+        run: |
+          echo "Building site..."
+          npm run docs:build
         env:
-          NODE_OPTIONS: --max-old-space-size=4096
+          NODE_OPTIONS: --max-old-space-size=4096 --trace-warnings
+          DEBUG: vitepress*
       
       # Check build output
       - name: Check build output
