@@ -73,44 +73,133 @@ Producer專注於處理各種類型的輸出，使得添加新的輸出格式（
 
 ## MCP架構實現示例
 
-以下是一個簡化的Python實現，展示MCP架構如何應用於AI聊天機器人：
+以下是一個基於 JavaScript/TypeScript 的實現，展示MCP架構如何應用於AI聊天機器人：
 
-```python
-# Model
-class ChatModel:
-    def __init__(self, api_key):
-        self.api_key = api_key
-        # 初始化AI服務客戶端
-        
-    def generate_response(self, prompt, context):
-        # 與AI模型通信並獲取原始響應
-        # 返回原始AI輸出
-        pass
+```javascript
+// Model
+class ChatModel {
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+    // 初始化AI服務客戶端
+  }
+  
+  async generateResponse(prompt, context) {
+    // 與AI模型通信並獲取原始響應
+    try {
+      // 例如使用 OpenAI API
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.apiKey}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4',
+          messages: [
+            ...context,
+            { role: 'user', content: prompt }
+          ]
+        })
+      });
+      
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error generating response:', error);
+      throw error;
+    }
+  }
+}
 
-# Controller
-class ChatController:
-    def __init__(self, model, producer):
-        self.model = model
-        self.producer = producer
-        
-    def process_message(self, user_message, conversation_history):
-        # 處理用戶輸入
-        # 調用model生成響應
-        raw_response = self.model.generate_response(user_message, conversation_history)
-        
-        # 將原始響應傳遞給producer
-        return self.producer.format_response(raw_response)
+// Controller
+class ChatController {
+  constructor(model, producer) {
+    this.model = model;
+    this.producer = producer;
+  }
+  
+  async processMessage(userMessage, conversationHistory) {
+    try {
+      // 處理用戶輸入
+      const context = conversationHistory.map(msg => ({
+        role: msg.isUser ? 'user' : 'assistant',
+        content: msg.content
+      }));
+      
+      // 調用model生成響應
+      const rawResponse = await this.model.generateResponse(userMessage, context);
+      
+      // 將原始響應傳遞給producer
+      return this.producer.formatResponse(rawResponse);
+    } catch (error) {
+      return this.producer.generateErrorMessage(error);
+    }
+  }
+}
 
-# Producer
-class ChatProducer:
-    def format_response(self, raw_response):
-        # 格式化AI輸出為用戶友好的響應
-        # 可以添加markdown格式、突出顯示程式碼等
-        pass
+// Producer
+class ChatProducer {
+  formatResponse(rawResponse) {
+    try {
+      // 格式化AI輸出為用戶友好的響應
+      if (rawResponse && rawResponse.choices && rawResponse.choices.length > 0) {
+        const content = rawResponse.choices[0].message.content;
         
-    def generate_error_message(self, error):
-        # 生成用戶友好的錯誤訊息
-        pass
+        // 可以進行額外的格式化處理
+        // 例如：使用markdown渲染、突出顯示代碼等
+        return {
+          type: 'text',
+          content: content,
+          markdown: true // 指示內容應使用markdown渲染
+        };
+      }
+      
+      throw new Error('Invalid response format');
+    } catch (error) {
+      return this.generateErrorMessage(error);
+    }
+  }
+  
+  generateErrorMessage(error) {
+    console.error('Error in chat response:', error);
+    return {
+      type: 'error',
+      content: '抱歉，處理您的請求時出錯。請稍後再試。',
+      technical: error.message // 對開發者提供技術錯誤訊息
+    };
+  }
+  
+  // 可以添加其他的輸出形式
+  generateImageResponse(imageUrl) {
+    return {
+      type: 'image',
+      content: imageUrl
+    };
+  }
+  
+  generateCodeResponse(code, language) {
+    return {
+      type: 'code',
+      content: code,
+      language: language
+    };
+  }
+}
+
+// 使用示例
+const runChat = async () => {
+  const model = new ChatModel('your-api-key');
+  const producer = new ChatProducer();
+  const controller = new ChatController(model, producer);
+  
+  const history = [
+    { isUser: true, content: '您好！' },
+    { isUser: false, content: '您好！我能幫您什麼忙嗎？' }
+  ];
+  
+  const response = await controller.processMessage('請告訴我關MCP架構的資訊', history);
+  console.log(response);
+};
 ```
 
 ## MCP與其他架構的比較
