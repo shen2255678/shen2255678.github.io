@@ -1,9 +1,8 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: blog
+layout: home
 
 hero:
-  name: "Haowei Blog"
+  name: "Haowei's Blog"
   text: "程式開發與AI技術探索"
   tagline: 經營自己的同時，紀錄生活上的點滴
   image:
@@ -47,12 +46,6 @@ features:
 
 探討AI技術如何在企業環境中落地應用並創造實際價值...
 
-## 精選攝影
-
-在旅途中捕捉的美麗瞬間，分享世界各地的獨特風景。
-
-<ImageSlider />
-
 ## 技術棧
 
 以下是我日常使用的一些技術工具：
@@ -61,16 +54,6 @@ features:
 - **後端**：Node.js, .NET, Python, Go
 - **AI開發**：LangChain, OpenAI API, HuggingFace
 - **DevOps**：Docker, GitHub Actions, AWS, Azure
-
-<ImageSlider1 />
-<BackToTop />
-
-<script setup>
-import { ref } from 'vue'
-import ImageSlider  from '../components/photoWall.vue'
-import ImageSlider1  from '../components/Swiper1.vue'
-import BackToTop from '../components/BackToTop.vue'
-</script>
 
 <style>
 :root {
