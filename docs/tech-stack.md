@@ -1,212 +1,274 @@
 ---
-title: 我的技術棧
-description: 探索我日常使用的技術工具和框架
+layout: doc
+title: 技術棧
 ---
 
 # 我的技術棧
 
-作為一名全棧開發者和AI愛好者，我使用多種技術和工具來構建應用程序和解決問題。以下是我的技術棧概覽：
+這裡展示了我日常工作和個人項目中使用的主要技術工具和框架。
 
 ## 前端開發
 
-<div class="tech-category">
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" />
-    <span>Vue.js</span>
+<div class="tech-section">
+  <div class="tech-card">
+    <div class="tech-icon">⚛️</div>
+    <div class="tech-details">
+      <h3>React</h3>
+      <p>用於構建用戶界面的JavaScript庫</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 90%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-    <span>React</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🟢</div>
+    <div class="tech-details">
+      <h3>Vue.js</h3>
+      <p>漸進式JavaScript框架</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
-    <span>TypeScript</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🔷</div>
+    <div class="tech-details">
+      <h3>TypeScript</h3>
+      <p>JavaScript的超集，添加靜態類型</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" />
-    <span>Tailwind CSS</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
-    <span>HTML5</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
-    <span>CSS3</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🎨</div>
+    <div class="tech-details">
+      <h3>TailwindCSS</h3>
+      <p>實用優先的CSS框架</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 80%"></div>
+      </div>
+    </div>
   </div>
 </div>
 
 ## 後端開發
 
-<div class="tech-category">
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-    <span>Node.js</span>
+<div class="tech-section">
+  <div class="tech-card">
+    <div class="tech-icon">🟩</div>
+    <div class="tech-details">
+      <h3>Node.js</h3>
+      <p>基於V8引擎的JavaScript運行環境</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 90%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET" />
-    <span>.NET</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🐍</div>
+    <div class="tech-details">
+      <h3>Python</h3>
+      <p>通用編程語言，廣泛用於數據科學和AI</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 80%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-    <span>Python</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🔷</div>
+    <div class="tech-details">
+      <h3>.NET</h3>
+      <p>微軟開發的跨平台框架</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 75%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="Go" />
-    <span>Go</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" />
-    <span>Express.js</span>
-  </div>
-</div>
-
-## 數據庫
-
-<div class="tech-category">
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
-    <span>MongoDB</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
-    <span>PostgreSQL</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
-    <span>MySQL</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />
-    <span>Redis</span>
-  </div>
-</div>
-
-## AI 和機器學習
-
-<div class="tech-category">
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" />
-    <span>TensorFlow</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" />
-    <span>PyTorch</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace" />
-    <span>HuggingFace</span>
-  </div>
-  <div class="tech-item">
-    <span class="tech-logo-text">LangChain</span>
-    <span>LangChain</span>
-  </div>
-  <div class="tech-item">
-    <span class="tech-logo-text">OpenAI</span>
-    <span>OpenAI API</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🗄️</div>
+    <div class="tech-details">
+      <h3>SQL/NoSQL</h3>
+      <p>關係型和非關係型數據庫</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
   </div>
 </div>
 
-## DevOps 和雲服務
+## AI開發
 
-<div class="tech-category">
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-    <span>Docker</span>
+<div class="tech-section">
+  <div class="tech-card">
+    <div class="tech-icon">🔄</div>
+    <div class="tech-details">
+      <h3>LangChain</h3>
+      <p>構建基於LLM的應用程序框架</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" />
-    <span>Kubernetes</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🤖</div>
+    <div class="tech-details">
+      <h3>OpenAI API</h3>
+      <p>包括GPT系列模型的API</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 90%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Actions" />
-    <span>GitHub Actions</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🧠</div>
+    <div class="tech-details">
+      <h3>HuggingFace</h3>
+      <p>開源機器學習模型和數據集</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 75%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" />
-    <span>AWS</span>
-  </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
-    <span>Azure</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🧮</div>
+    <div class="tech-details">
+      <h3>PyTorch</h3>
+      <p>深度學習框架</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 70%"></div>
+      </div>
+    </div>
   </div>
 </div>
 
-## 工具和其他
+## DevOps和雲服務
 
-<div class="tech-category">
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-    <span>Git</span>
+<div class="tech-section">
+  <div class="tech-card">
+    <div class="tech-icon">🐳</div>
+    <div class="tech-details">
+      <h3>Docker</h3>
+      <p>容器化平台</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
-    <span>VS Code</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">☸️</div>
+    <div class="tech-details">
+      <h3>Kubernetes</h3>
+      <p>容器編排系統</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 70%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" />
-    <span>Figma</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">☁️</div>
+    <div class="tech-details">
+      <h3>AWS</h3>
+      <p>Amazon Web Services</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 80%"></div>
+      </div>
+    </div>
   </div>
-  <div class="tech-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" alt="Jest" />
-    <span>Jest</span>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🔄</div>
+    <div class="tech-details">
+      <h3>CI/CD</h3>
+      <p>持續集成和持續部署</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
   </div>
 </div>
 
-## 持續學習中的技術
+## 工具和開發環境
 
-我始終保持學習的態度，目前正在深入研究：
+- **代碼編輯器**：VS Code, JetBrains IDE
+- **版本控制**：Git, GitHub
+- **項目管理**：Jira, Notion, Trello
+- **設計工具**：Figma, Adobe XD
+- **文檔**：Markdown, LaTeX
 
-- 大型語言模型 (LLM) 應用開發
-- MCP 架構設計
-- Web3 和區塊鏈技術
-- 分佈式系統
+## 正在學習
 
-## 技術選擇理念
+我始終保持學習新技術的熱情，目前正在學習：
 
-我相信選擇正確的工具對於每個項目都至關重要。我的技術選擇通常基於：
-
-1. **項目需求和用例**：根據項目的特定需求選擇最合適的技術
-2. **可維護性和可擴展性**：考慮長期維護和擴展的便利性
-3. **社區支持和生態系統**：優先考慮有活躍社區和良好文檔的技術
-4. **性能和效率**：根據性能需求選擇適當的解決方案
-5. **學習曲線和團隊熟悉度**：平衡新技術的優勢與團隊適應性
-
-<BackToTop />
-<script setup>
-import BackToTop from '../components/BackToTop.vue'
-</script>
+- **向量數據庫**：Pinecone, Milvus
+- **邊緣AI**：TensorFlow Lite, ONNX
+- **區塊鏈開發**：Solidity, Web3.js
 
 <style>
-.tech-category {
+.tech-section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  margin: 20px 0 40px;
+  margin: 30px 0;
 }
 
-.tech-item {
+.tech-card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--vp-c-divider);
 }
 
-.tech-item img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.tech-logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  width: 50px;
-  height: 50px;
+.tech-icon {
+  font-size: 2rem;
+  margin-right: 15px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  color: var(--vp-c-brand);
+}
+
+.tech-details {
+  flex: 1;
+}
+
+.tech-details h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.tech-details p {
+  margin: 0 0 10px 0;
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+}
+
+.tech-level {
+  height: 8px;
+  background-color: var(--vp-c-bg-alt);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.level-bar {
+  height: 100%;
+  background-color: var(--vp-c-brand);
+  border-radius: 4px;
 }
 </style>
