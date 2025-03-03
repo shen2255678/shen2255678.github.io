@@ -35,33 +35,33 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       
-      # 清除舊的node_modules以避免潛在衝突
+      # Clean install to avoid potential conflicts
       - name: Clean install
-        run: rm -rf node_modules
+        run: rm -rf node_modules package-lock.json
       
-      # 使用clean-install確保依賴項完全匹配package.json
+      # Install dependencies with clean npm install
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm install
       
-      # 確保安裝sharp用於圖片處理
+      # Ensure sharp is installed for image processing
       - name: Install Sharp for image processing
         run: npm install sharp --save-dev
       
-      # 顯示安裝的依賴項，用於調試
+      # List installed packages for debugging
       - name: List installed packages
         run: npm list --depth=0
       
-      # 創建必要的目錄結構，以防它不存在
+      # Create necessary directories
       - name: Create VitePress directories
         run: mkdir -p docs/.vitepress/dist
       
-      # 構建VitePress站點
+      # Build VitePress site with increased memory allocation
       - name: Build
         run: npm run docs:build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
       
-      # 上傳構建產物
+      # Upload build artifacts
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
