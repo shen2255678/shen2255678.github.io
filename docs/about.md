@@ -1,0 +1,62 @@
+---
+title: 關於我
+description: 了解更多關於Haowei的信息
+---
+
+# 關於我
+
+## 👋 您好，我是Haowei
+
+我是一名熱愛技術的開發者和寫作者，專注於AI和網頁開發領域。這個部落格是我記錄思考、分享知識和連接志同道合朋友的地方。
+
+## 👨‍💻 專業領域
+
+- **前端開發**：Vue.js, React, TypeScript
+- **後端開發**：Node.js, .NET, Python
+- **AI開發**：LLM應用開發, 機器學習模型整合
+- **DevOps**：CI/CD, 自動化測試, 雲端部署
+
+## 🌱 正在學習
+
+目前我正在深入研究大語言模型的應用開發和企業級AI架構，特別是如何將AI技術實際應用到企業解決方案中。
+
+## 📝 寫作與分享
+
+除了編程，我也喜歡寫作和分享知識。在這個部落格上，您可以找到關於：
+
+- 技術教程和最佳實踐
+- AI和機器學習的見解
+- 個人成長和生產力提升的思考
+- 旅行和生活體驗
+
+## 🏆 項目和成就
+
+- 參與開發多個大型企業AI應用
+- 貢獻開源項目
+- 技術演講和工作坊
+
+## 📫 聯繫我
+
+如果您有任何問題、建議或合作機會，請隨時通過以下方式聯繫我：
+
+- 電子郵件：haowei@example.com
+- LinkedIn：[Haowei Lu](https://www.linkedin.com/in/haowei-lu/)
+- GitHub：[shen2255678](https://github.com/shen2255678)
+- Twitter：[@haoweitech](https://twitter.com/haoweitech)
+
+感謝您訪問我的部落格！希望您能找到有價值的內容，也歡迎留下評論和建議。
+
+## 💡 座右銘
+
+> "經營自己的同時，紀錄生活上的點滴。人的一生中有兩個時期不應投機；無力投機時，以及有能力投機時。"
+
+<style>
+  img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+</style>
