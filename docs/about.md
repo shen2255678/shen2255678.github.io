@@ -1,62 +1,95 @@
 ---
+layout: doc
 title: 關於我
-description: 了解更多關於Haowei的信息
 ---
 
 # 關於我
 
-## 👋 您好，我是Haowei
+## 自我介紹
 
-我是一名熱愛技術的開發者和寫作者，專注於AI和網頁開發領域。這個部落格是我記錄思考、分享知識和連接志同道合朋友的地方。
+嗨，我是 Haowei Lu！我是一名熱衷於技術和創新的軟體工程師，專注於AI開發和網頁應用程式。
 
-## 👨‍💻 專業領域
+我擁有豐富的前後端開發經驗，對人工智能和機器學習充滿熱情。在專業領域外，我也是一個攝影愛好者和旅行愛好者，喜歡探索不同的文化和風景。
+
+## 專業經歷
+
+我曾在多家科技公司擔任軟體工程師和AI開發者的角色，參與過各種規模的專案開發，從初創公司的產品原型到大型企業的AI解決方案。
+
+### 技術專長
 
 - **前端開發**：Vue.js, React, TypeScript
 - **後端開發**：Node.js, .NET, Python
-- **AI開發**：LLM應用開發, 機器學習模型整合
-- **DevOps**：CI/CD, 自動化測試, 雲端部署
+- **AI開發**：LangChain, OpenAI API, HuggingFace
+- **雲服務**：AWS, Azure, GCP
+- **DevOps**：Docker, Kubernetes, CI/CD
 
-## 🌱 正在學習
+## 教育背景
 
-目前我正在深入研究大語言模型的應用開發和企業級AI架構，特別是如何將AI技術實際應用到企業解決方案中。
+- **碩士學位**：人工智能與數據科學
+- **學士學位**：計算機科學
 
-## 📝 寫作與分享
+## 個人項目
 
-除了編程，我也喜歡寫作和分享知識。在這個部落格上，您可以找到關於：
+除了工作之外，我也積極參與開源社區並維護一些個人項目：
 
-- 技術教程和最佳實踐
-- AI和機器學習的見解
-- 個人成長和生產力提升的思考
-- 旅行和生活體驗
+1. **AI助手框架**：基於MCP架構的大型語言模型應用框架
+2. **數據可視化工具**：用於簡化企業數據呈現的網頁工具包
+3. **攝影作品集**：個人攝影網站和圖片處理工具
 
-## 🏆 項目和成就
+## 聯繫方式
 
-- 參與開發多個大型企業AI應用
-- 貢獻開源項目
-- 技術演講和工作坊
+如果您對我的文章有任何問題，或者希望討論合作機會，歡迎通過以下方式聯繫我：
 
-## 📫 聯繫我
+- **GitHub**：[shen2255678](https://github.com/shen2255678)
+- **LinkedIn**：[Haowei Lu](https://www.linkedin.com/in/haowei-lu/)
+- **Twitter**：[@haoweitech](https://twitter.com/haoweitech)
+- **Email**：haowei.tech@example.com（替換為您的實際郵箱）
 
-如果您有任何問題、建議或合作機會，請隨時通過以下方式聯繫我：
+## 關於本站
 
-- 電子郵件：haowei@example.com
-- LinkedIn：[Haowei Lu](https://www.linkedin.com/in/haowei-lu/)
-- GitHub：[shen2255678](https://github.com/shen2255678)
-- Twitter：[@haoweitech](https://twitter.com/haoweitech)
+這個博客使用 VitePress 構建，主要用於分享我在技術開發、AI研究和生活感悟方面的經驗和見解。
 
-感謝您訪問我的部落格！希望您能找到有價值的內容，也歡迎留下評論和建議。
+內容主要涵蓋以下方面：
 
-## 💡 座右銘
+- AI技術研究和應用案例
+- 前後端開發技術和最佳實踐
+- 生活隨筆和旅行見聞
+- 閱讀筆記和個人成長
 
-> "經營自己的同時，紀錄生活上的點滴。人的一生中有兩個時期不應投機；無力投機時，以及有能力投機時。"
+感謝您訪問我的博客！希望這裡的內容能對您有所幫助或啟發。
 
 <style>
-  img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin: 0 auto;
-    display: block;
-  }
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.contact-item {
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contact-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-value {
+  color: var(--vp-c-text-2);
+}
 </style>
