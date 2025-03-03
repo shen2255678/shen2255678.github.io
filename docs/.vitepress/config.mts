@@ -77,14 +77,14 @@ export default defineConfig({
       { icon: 'twitter', link: 'https://twitter.com/haoweitech' }
     ],
     
-    // 添加評論系統
-    comments: {
-      provider: 'giscus',
-      repo: 'shen2255678/shen2255678.github.io',
-      repoId: 'your-repo-id',
-      category: 'Announcements',
-      categoryId: 'your-category-id'
-    },
+    // 添加評論系統 - 移除評論功能直到正確配置
+    // comments: {
+    //   provider: 'giscus',
+    //   repo: 'shen2255678/shen2255678.github.io',
+    //   repoId: 'your-repo-id',
+    //   category: 'Announcements',
+    //   categoryId: 'your-category-id'
+    // },
     
     footer: {
       message: 'Released under the MIT License.',
