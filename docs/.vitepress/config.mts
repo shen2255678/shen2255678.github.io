@@ -7,21 +7,38 @@ export default defineConfig({
   title: "Haowei's Tech Blog",
   description: "程式開發、AI技術與生活分享的個人博客",
   lastUpdated: true,
+  lang: 'zh-TW',
+  
+  // Base public path (important for GitHub Pages)
+  base: '/',
+  
+  // Better SEO
+  sitemap: {
+    hostname: 'https://shen2255678.github.io',
+  },
   
   head: [
+    // Basic meta tags
     ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['meta', { name: 'keywords', content: 'vitepress, blog, tech, AI, programming, 程式開發, 人工智能, MCP, 架構' }],
     ['meta', { name: 'author', content: 'Haowei Lu' }],
-    ['meta', { property: 'og:title', content: "Haowei's Tech Blog" }],
-    ['meta', { property: 'og:description', content: '程式開發、AI技術與生活分享的個人博客' }],
+    ['meta', { name: 'keywords', content: 'vitepress, blog, tech, AI, programming, 程式開發, 人工智能, MCP, 架構' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    
+    // Open Graph / Facebook
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: 'https://shen2255678.github.io' }],
+    ['meta', { property: 'og:title', content: "Haowei's Tech Blog" }],
+    ['meta', { property: 'og:description', content: '程式開發、AI技術與生活分享的個人博客' }],
     ['meta', { property: 'og:image', content: 'https://i.pinimg.com/736x/5b/f6/a9/5bf6a9efe2bac9f12b42fa41fa78a979.jpg' }],
+    
+    // Twitter
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:site', content: '@haoweitech' }],
     ['meta', { name: 'twitter:creator', content: '@haoweitech' }],
-    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }]
+    
+    // RSS feed
+    ['link', { rel: 'alternate', type: 'application/rss+xml', href: '/feed.xml', title: "Haowei's Tech Blog RSS Feed" }],
   ],
 
   themeConfig: {
@@ -77,7 +94,7 @@ export default defineConfig({
       { icon: 'twitter', link: 'https://twitter.com/haoweitech' }
     ],
     
-    // 添加評論系統 - 移除評論功能直到正確配置
+    // Comments will be added later when properly configured
     // comments: {
     //   provider: 'giscus',
     //   repo: 'shen2255678/shen2255678.github.io',
@@ -101,12 +118,12 @@ export default defineConfig({
       text: '在GitHub上編輯此頁面'
     },
     
-    // 添加分析工具
-    analytics: {
-      gtag: {
-        id: 'G-XXXXXXXXXX'
-      }
-    },
+    // 添加分析工具 (Can be added later with proper tracking ID)
+    // analytics: {
+    //   gtag: {
+    //     id: 'G-XXXXXXXXXX'
+    //   }
+    // },
     
     // 深色模式切換
     appearance: true,
@@ -121,6 +138,32 @@ export default defineConfig({
     
     // 返回頂部按鈕
     returnToTopButton: true,
+    
+    // Enable search
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: '搜索',
+                buttonAriaLabel: '搜索'
+              },
+              modal: {
+                noResultsText: '找不到相關結果',
+                resetButtonTitle: '清除查詢條件',
+                footer: {
+                  selectText: '選擇',
+                  navigateText: '切換',
+                  closeText: '關閉'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     
     // 側邊欄設置
     sidebar: {
