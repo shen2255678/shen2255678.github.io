@@ -14,7 +14,7 @@ permissions:
 # Allow one concurrent deployment
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   # Build job
@@ -29,21 +29,39 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
           cache: 'npm'
       
       - name: Setup Pages
         uses: actions/configure-pages@v3
       
-      - name: Install dependencies
-        run: npm ci
+      # 清除舊的node_modules以避免潛在衝突
+      - name: Clean install
+        run: rm -rf node_modules
       
+      # 使用clean-install確保依賴項完全匹配package.json
+      - name: Install dependencies
+        run: npm ci || npm install
+      
+      # 確保安裝sharp用於圖片處理
       - name: Install Sharp for image processing
         run: npm install sharp --save-dev
       
+      # 顯示安裝的依賴項，用於調試
+      - name: List installed packages
+        run: npm list --depth=0
+      
+      # 創建必要的目錄結構，以防它不存在
+      - name: Create VitePress directories
+        run: mkdir -p docs/.vitepress/dist
+      
+      # 構建VitePress站點
       - name: Build
         run: npm run docs:build
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
       
+      # 上傳構建產物
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
