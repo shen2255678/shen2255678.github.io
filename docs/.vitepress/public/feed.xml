@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haowei's Tech Blog</title>
+    <description>程式開發、AI技術與生活分享的個人博客</description>
+    <link>https://shen2255678.github.io/</link>
+    <atom:link href="https://shen2255678.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <language>zh-TW</language>
+    <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+    <lastBuildDate>Mon, 03 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <generator>VitePress</generator>
+    
+    <item>
+      <title>MCP架構：現代AI開發的新範式</title>
+      <description><![CDATA[深入探討Model-Controller-Producer架構及其在AI應用開發中的優勢]]></description>
+      <link>https://shen2255678.github.io/posts/ai/mcp-introduction</link>
+      <guid isPermaLink="true">https://shen2255678.github.io/posts/ai/mcp-introduction</guid>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>Architecture</category>
+      <category>MCP</category>
+      <category>軟體設計</category>
+    </item>
+    
+    <item>
+      <title>企業級AI應用：從理論到實踐</title>
+      <description><![CDATA[探討AI技術如何在企業環境中落地應用並創造實際價值]]></description>
+      <link>https://shen2255678.github.io/posts/ai/enterprise-ai</link>
+      <guid isPermaLink="true">https://shen2255678.github.io/posts/ai/enterprise-ai</guid>
+      <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>Enterprise</category>
+      <category>實踐</category>
+      <category>商業價值</category>
+    </item>
+    
+    <item>
+      <title>VitePress 進階教程</title>
+      <description><![CDATA[深入了解如何使用VitePress建立專業的技術文檔和個人博客網站]]></description>
+      <link>https://shen2255678.github.io/coding/vitepress-tutorial</link>
+      <guid isPermaLink="true">https://shen2255678.github.io/coding/vitepress-tutorial</guid>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <category>VitePress</category>
+      <category>前端</category>
+      <category>教程</category>
+    </item>
+    
+    <item>
+      <title>VitePress 入門教程</title>
+      <description><![CDATA[從零開始學習使用VitePress搭建個人技術博客]]></description>
+      <link>https://shen2255678.github.io/coding/first-coding-post</link>
+      <guid isPermaLink="true">https://shen2255678.github.io/coding/first-coding-post</guid>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
+      <category>VitePress</category>
+      <category>前端</category>
+      <category>教程</category>
+    </item>
+    
+  </channel>
+</rss>
