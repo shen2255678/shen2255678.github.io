@@ -1,16 +1,13 @@
-import DefaultTheme from 'vitepress/theme';
-import "./tailwind.css";
-import NotFound from './NotFound.vue';
+// .vitepress/theme/index.js
+import DefaultTheme from 'vitepress/theme'
+import './tailwind.css'
 
-// DefaultTheme is an object with some properties
 export default {
-  ...DefaultTheme,
-  // Override the NotFound component
-  NotFound,
+  // extend the default theme
+  extends: DefaultTheme,
+  
+  // override components
   enhanceApp({ app }) {
-    // Register global components if needed
-    // app.component('MyGlobalComponent', MyGlobalComponent)
-    
-    // We're not registering components globally because they're imported directly in the .md files
+    // register global components if needed
   }
 }
