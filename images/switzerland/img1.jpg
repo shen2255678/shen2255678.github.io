@@ -1,0 +1,2 @@
+
+base64_encode(readFileSync("E:\Claude用\shen2255678.github.io\docs\image\swiss_train1.jpg"))
