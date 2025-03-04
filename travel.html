@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>呂浩維的旅行紀錄</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .travel-gallery {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .travel-card {
+            text-align: center;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .travel-card:hover {
+            transform: scale(1.05);
+        }
+        .travel-card img {
+            max-width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於</a>
+            <a href="projects.html">專案</a>
+            <a href="resume.html">履歷</a>
+            <a href="travel.html">旅行</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>我的旅行足跡</h1>
+        
+        <div class="travel-gallery">
+            <div class="travel-card">
+                <a href="switzerland.html">
+                    <img src="images/switzerland/cover.jpg" alt="瑞士旅行">
+                    <h2>瑞士之旅</h2>
+                </a>
+                <p>阿爾卑斯山的壯麗風光</p>
+            </div>
+            
+            <div class="travel-card">
+                <a href="japan.html">
+                    <img src="images/japan/cover.jpg" alt="日本旅行">
+                    <h2>日本之旅</h2>
+                </a>
+                <p>傳統與現代的完美融合</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
