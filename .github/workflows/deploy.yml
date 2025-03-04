@@ -5,22 +5,22 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# 設置 GITHUB_TOKEN 權限以允許部署到 GitHub Pages
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 只允許一個並發部署
+# Force cancellation of any running workflow when a new one is triggered
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # 構建工作
+  # Build job
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # 設置明確的超時時間避免無限執行
+    timeout-minutes: 15  # Shorter timeout to fail fast if there are issues
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,47 +34,90 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
-      # 清理安裝以避免潛在衝突
+      # Clean install approach
       - name: Clean install dependencies
         run: |
           rm -rf node_modules
-          rm -f package-lock.json
-          npm install
+          npm cache clean --force
+          npm install --no-fund --no-audit
       
-      # 創建必要的目錄
-      - name: Create VitePress directories
-        run: mkdir -p docs/.vitepress/dist
+      # Display versions for debugging
+      - name: Display dependency versions
+        run: |
+          node -v
+          npm -v
+          npx vitepress --version || echo "VitePress version not available"
       
-      # 構建 VitePress 站點 - 添加 --force 選項跳過一些可能導致超時的檢查
+      # Create specific vitepress.config.js file for build
+      - name: Create VitePress config for build
+        run: |
+          cat > docs/.vitepress/config.js << 'EOF'
+          import { defineConfig } from 'vitepress'
+
+          export default defineConfig({
+            title: "Haowei's Tech Blog",
+            description: "程式開發、AI技術與生活分享的個人博客",
+            base: '/',
+            themeConfig: {
+              nav: [
+                { text: '首頁', link: '/' },
+                { text: '程式開發', link: '/coding/' },
+                { text: 'AI技術', link: '/posts/ai/' },
+                { text: '關於', link: '/about' }
+              ],
+              socialLinks: [
+                { icon: 'github', link: 'https://github.com/shen2255678' }
+              ]
+            }
+          })
+          EOF
+      
+      # Create basic theme file
+      - name: Setup minimal theme
+        run: |
+          mkdir -p docs/.vitepress/theme
+          cat > docs/.vitepress/theme/index.js << 'EOF'
+          import DefaultTheme from 'vitepress/theme'
+          export default {
+            ...DefaultTheme
+          }
+          EOF
+      
+      # Build with extra options to diagnose issues
       - name: Build
-        run: npm run docs:build -- --force
+        run: |
+          echo "Starting build process..."
+          npm run docs:build -- --debug
         env:
-          NODE_OPTIONS: --max-old-space-size=4096 --max-http-header-size=16384
-          # 添加環境變數以改善構建過程
-          VITE_CJS_IGNORE_WARNING: true
-          VITE_CJS_TRACE: false
+          NODE_OPTIONS: "--max-old-space-size=4096 --no-warnings"
+          DEBUG: "vitepress:*"
       
-      # 檢查構建輸出
-      - name: Check build output
-        run: ls -la docs/.vitepress/dist
+      # List files in dist directory to ensure build completed
+      - name: Verify build output
+        run: |
+          if [ -d "docs/.vitepress/dist" ]; then
+            echo "Build succeeded - output directory exists"
+            ls -la docs/.vitepress/dist
+          else
+            echo "Build failed - output directory does not exist"
+            exit 1
+          fi
       
-      # 上傳構建產物
+      # Upload build artifacts
       - name: Upload artifact
+        if: success()
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
 
-  # 部署工作
+  # Deployment job
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 10  # 部署不應該需要太長時間
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          timeout: 600000  # 增加部署超時時間（毫秒）
