@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>日本旅行紀錄</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .photo-gallery img {
+            max-width: 300px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="travel.html">返回旅行</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>日本旅行日記</h1>
+        
+        <section>
+            <h2>旅行概況</h2>
+            <p>日本，一個傳統與現代完美交融的國度，充滿令人驚嘆的文化、科技和自然之美。</p>
+        </section>
+
+        <section>
+            <h2>旅行相簿</h2>
+            <div class="photo-gallery">
+                <img src="images/japan/img1.jpg" alt="日本風景1">
+                <img src="images/japan/img2.jpg" alt="日本風景2">
+                <img src="images/japan/img3.jpg" alt="日本風景3">
+                <img src="images/japan/img4.jpg" alt="日本風景4">
+                <img src="images/japan/img5.jpg" alt="日本風景5">
+            </div>
+        </section>
+
+        <section>
+            <h2>行程亮點</h2>
+            <ul>
+                <li>東京都市風光</li>
+                <li>京都古蹟</li>
+                <li>富士山景色</li>
+                <li>大阪美食之旅</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
