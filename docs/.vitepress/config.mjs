@@ -1,14 +1,38 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
+// 基本配置
 export default defineConfig({
   title: "Haowei's Tech Blog",
   description: "程式開發、AI技術與生活分享的個人博客",
+  lang: 'zh-TW',
   
-  // Base public path for GitHub Pages
+  // 基本路徑（對GitHub Pages很重要）
   base: '/',
   
+  // 設置構建選項以提高效率
+  vite: {
+    ssr: {
+      noExternal: ['vitepress-theme-open17']
+    },
+    build: {
+      chunkSizeWarningLimit: 1600,
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+          }
+        }
+      }
+    },
+    optimizeDeps: {
+      include: ['vue', 'vitepress-theme-open17']
+    }
+  },
+
   head: [
+    // 基本meta標籤
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
   ],
@@ -17,7 +41,7 @@ export default defineConfig({
     logo: '',
     
     nav: [
-      { text: 'Home', link: '/' },
+      { text: '首頁', link: '/' },
       { text: '程式開發', link: '/coding/' },
       { text: 'AI技術', link: '/posts/ai/' },
       { text: '生活', link: '/life/' },
