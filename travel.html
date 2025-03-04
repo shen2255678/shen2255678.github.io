@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>呂浩維的旅行紀錄</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <style>
         .travel-gallery {
             display: flex;
@@ -38,40 +38,59 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">首頁</a>
-            <a href="about.html">關於</a>
-            <a href="projects.html">專案</a>
-            <a href="resume.html">履歷</a>
-            <a href="travel.html">旅行</a>
-        </nav>
-    </header>
+    <div id="app">
+        <header>
+            <nav>
+                <a href="index.html">首頁</a>
+                <a href="about.html">關於</a>
+                <a href="projects.html">專案</a>
+                <a href="resume.html">履歷</a>
+                <a href="travel.html">旅行</a>
+            </nav>
+        </header>
 
-    <main>
-        <h1 class="region-title">我的旅行足跡</h1>
-        
-        <h2 class="region-title">歐洲</h2>
-        <div class="travel-gallery">
-            <div class="travel-card">
-                <a href="switzerland.html">
-                    <img src="images/switzerland/cover.jpg" alt="瑞士旅行">
-                    <h3>瑞士</h3>
-                    <p>阿爾卑斯山的壯麗風光</p>
-                </a>
+        <main>
+            <h1 class="region-title">我的旅行足跡</h1>
+            
+            <div v-for="(region, regionName) in travelDestinations" :key="regionName">
+                <h2 class="region-title">{{ regionName }}</h2>
+                <div class="travel-gallery">
+                    <div v-for="destination in region" :key="destination.name" class="travel-card">
+                        <a :href="destination.link">
+                            <img :src="destination.coverImage" :alt="destination.name + '旅行'">
+                            <h3>{{ destination.name }}</h3>
+                            <p>{{ destination.description }}</p>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
+    </div>
 
-        <h2 class="region-title">亞洲</h2>
-        <div class="travel-gallery">
-            <div class="travel-card">
-                <a href="tokyo.html">
-                    <img src="images/japan/cover.jpg" alt="東京旅行">
-                    <h3>東京</h3>
-                    <p>現代與傳統交融的城市</p>
-                </a>
-            </div>
-        </div>
-    </main>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                travelDestinations: {
+                    '歐洲': [
+                        {
+                            name: '瑞士',
+                            link: 'switzerland.html',
+                            coverImage: 'images/switzerland/cover.jpg',
+                            description: '阿爾卑斯山的壯麗風光'
+                        }
+                    ],
+                    '亞洲': [
+                        {
+                            name: '東京',
+                            link: 'tokyo.html',
+                            coverImage: 'images/japan/cover.jpg',
+                            description: '現代與傳統交融的城市'
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
 </body>
 </html>
