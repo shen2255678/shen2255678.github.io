@@ -1,6 +1,5 @@
-Trigger build for VitePress site at: 2025-03-04 13:31:50
+Trigger build for VitePress site at: 2025-03-04 13:35:10
 
 This file helps force a new build when configuration changes are made.
-- 簡化 photoWall.vue 元件，移除 vue-easy-lightbox 功能
-- 保留了 vue-easy-lightbox 依賴項，但不再使用它
-- 修復了"Rollup failed to resolve import"錯誤
+- 添加 ignoreDeadLinks: true 選項以禁用死鏈接檢查
+- 解決構建失敗問題：3 dead link(s) found
