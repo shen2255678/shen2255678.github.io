@@ -1,6 +1,6 @@
-Trigger build for VitePress site at: 2025-03-04 13:17:00
+Trigger build for VitePress site at: 2025-03-04 13:28:30
 
 This file helps force a new build when configuration changes are made.
-- 更新 GitHub Actions 工作流程使用 Node.js 20
-- 更新 package.json 要求 Node.js >= 20.0.0
-- 添加更多除錯訊息以找出構建問題
+- 修改部署工作流程使用 npm install 而不是 npm ci
+- 更新 Font Awesome 依賴項版本以修復版本不匹配問題
+- 解決 package.json 與 package-lock.json 不同步的問題
