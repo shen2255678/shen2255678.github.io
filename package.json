@@ -20,6 +20,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@giscus/vue": "^3.0.0",
     "swiper": "^11.1.9",
+    "vitepress-theme-open17": "^0.2.6",
     "vue-easy-lightbox": "^1.19.0"
   },
   "engines": {
