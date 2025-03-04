@@ -2,25 +2,16 @@
 import DefaultTheme from 'vitepress/theme'
 import './tailwind.css'
 
-// Try to import the custom theme components if available
-let CustomTheme = {}
-try {
-  CustomTheme = require('vitepress-theme-open17/theme')
-} catch (e) {
-  console.warn('Could not load vitepress-theme-open17/theme - using default theme')
-  CustomTheme = DefaultTheme
-}
-
-// Import custom components
+// 引入自定義組件
 import NotFound from './NotFound.vue'
+import Layout from './Layout.vue'
 
 export default {
-  ...CustomTheme,
-  NotFound, // Override the NotFound component
+  ...DefaultTheme,
+  // 覆蓋 NotFound 組件
+  NotFound,
+  Layout,
   enhanceApp({ app }) {
-    // Register additional components if needed
-    if (CustomTheme.enhanceApp) {
-      CustomTheme.enhanceApp({ app })
-    }
+    // 註冊其他組件（如果需要）
   }
 }
