@@ -1,13 +1,10 @@
-// .vitepress/theme/index.js
+// docs/.vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme'
 import './tailwind.css'
 
 export default {
-  // extend the default theme
-  extends: DefaultTheme,
-  
-  // override components
+  ...DefaultTheme,
   enhanceApp({ app }) {
-    // register global components if needed
+    // 註冊組件（如果需要）
   }
 }
