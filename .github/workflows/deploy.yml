@@ -1,4 +1,4 @@
-name: Deploy VitePress site to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -10,81 +10,15 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v3
       
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Install dependencies
-        run: |
-          echo "Installing dependencies..."
-          # 使用 npm install 而不是 npm ci，這樣會更新 package-lock.json
-          npm install --verbose
-      
-      - name: Debug environment
-        run: |
-          echo "Node version:"
-          node -v
-          echo "NPM version:"
-          npm -v
-          echo "Listing project files:"
-          ls -la
-          echo "Listing docs directory:"
-          ls -la docs
-          echo "Checking config file:"
-          cat docs/.vitepress/config.js || echo "Config file not found"
-      
-      - name: Build with VitePress
-        run: |
-          echo "Building with VitePress..."
-          npm run docs:build --verbose
-          echo "Adding .nojekyll file..."
-          touch docs/.vitepress/dist/.nojekyll
-        env:
-          DEBUG: vitepress:*
-          NODE_OPTIONS: --max-old-space-size=4096
-      
-      - name: Check build output
-        run: |
-          echo "Checking build output..."
-          if [ -d "docs/.vitepress/dist" ]; then
-            echo "Build directory exists, listing files:"
-            ls -la docs/.vitepress/dist
-          else
-            echo "Build directory does not exist!"
-            exit 1
-          fi
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/.vitepress/dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
