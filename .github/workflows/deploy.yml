@@ -1,54 +1,81 @@
-# 部署到 GitHub Pages 的 Sample workflow
 name: Deploy VitePress site to Pages
 
 on:
-  # 在以下活動後觸發工作流程
   push:
     branches: [main]
-
-  # 允許您從 Actions 選項卡手動觸發此工作流程
   workflow_dispatch:
 
-# 設置 GITHUB_TOKEN 的權限，以允許部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 只允許同時進行一次部署，跳過正在運行或最新隊列之間的運行隊列
-# 但是，不要取消正在進行的運行，因為我們希望允許這些生產部署完成
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  # 構建作業
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 如果未啟用 lastUpdated，則不需要
+          fetch-depth: 0
+      
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20  # 更新為 Node.js 20
           cache: npm
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      
       - name: Install dependencies
-        run: npm ci
+        run: |
+          echo "Installing dependencies..."
+          npm ci --verbose
+      
+      - name: Debug environment
+        run: |
+          echo "Node version:"
+          node -v
+          echo "NPM version:"
+          npm -v
+          echo "Listing project files:"
+          ls -la
+          echo "Listing docs directory:"
+          ls -la docs
+          echo "Checking config file:"
+          cat docs/.vitepress/config.js || echo "Config file not found"
+      
       - name: Build with VitePress
         run: |
-          npm run docs:build
+          echo "Building with VitePress..."
+          npm run docs:build --verbose
+          echo "Adding .nojekyll file..."
           touch docs/.vitepress/dist/.nojekyll
+        env:
+          DEBUG: vitepress:*
+          NODE_OPTIONS: --max-old-space-size=4096
+      
+      - name: Check build output
+        run: |
+          echo "Checking build output..."
+          if [ -d "docs/.vitepress/dist" ]; then
+            echo "Build directory exists, listing files:"
+            ls -la docs/.vitepress/dist
+          else
+            echo "Build directory does not exist!"
+            exit 1
+          fi
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
 
-  # 部署作業
   deploy:
     environment:
       name: github-pages
