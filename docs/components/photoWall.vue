@@ -6,23 +6,14 @@
         :key="index" 
         :src="image.src" 
         :alt="image.alt || 'Photo ' + (index + 1)" 
-        @click="() => showLightbox(index)"
         class="photo"
       />
     </div>
-    
-    <vue-easy-lightbox
-      :visible="visibleRef"
-      :imgs="images"
-      :index="indexRef"
-      @hide="onHide"
-    ></vue-easy-lightbox>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import VueEasyLightbox from 'vue-easy-lightbox';
 
 // Sample images - replace with your own
 const images = [
@@ -32,18 +23,6 @@ const images = [
   { src: 'https://images.unsplash.com/photo-1504567961542-e24d9439a724', alt: 'Lake view' },
   { src: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e', alt: 'Mountain lake' },
 ];
-
-const visibleRef = ref(false);
-const indexRef = ref(0);
-
-const showLightbox = (index) => {
-  indexRef.value = index;
-  visibleRef.value = true;
-};
-
-const onHide = () => {
-  visibleRef.value = false;
-};
 </script>
 
 <style scoped>
