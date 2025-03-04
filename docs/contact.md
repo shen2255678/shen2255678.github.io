@@ -33,17 +33,6 @@ title: 聯繫我
     <p><a href="https://www.linkedin.com/in/haowei-lu/" target="_blank">Haowei Lu</a></p>
     <p class="contact-desc">了解我的職業經歷和專業網絡</p>
   </div>
-  
-  <div class="contact-card">
-    <div class="contact-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-      </svg>
-    </div>
-    <h3>Twitter</h3>
-    <p><a href="https://twitter.com/haoweitech" target="_blank">@haoweitech</a></p>
-    <p class="contact-desc">關注我的技術分享和動態</p>
-  </div>
 </div>
 
 ## 電子郵件
@@ -57,24 +46,29 @@ title: 聯繫我
       <polyline points="22,6 12,13 2,6"></polyline>
     </svg>
   </div>
-  <p class="email-address">haowei.tech@example.com</p>
-  <p class="email-note">（請替換為實際郵箱）</p>
+  <p class="email-address">shen2255678@gmail.com</p>
 </div>
 
 ## 合作機會
 
 我對以下領域的合作特別感興趣：
 
-- AI應用開發和諮詢
+- 自動化解決方案開發
+- 企業資產管理系統
+- 數據可視化和報表系統
+- 安全漏洞管理平台
 - 技術寫作和教程創作
-- 開源項目協作
-- 技術分享和演講機會
 
 如果您有相關的合作提案，請不要猶豫，隨時與我聯繫。
 
-## 留言
+## 專業顧問服務
 
-您也可以通過以下表單留言，我會盡快回復。
+我提供以下專業領域的顧問服務：
+
+- 企業內部系統自動化
+- Vue.js 和 C# 企業應用開發
+- 數據可視化和儀表板設計
+- API整合和系統間互聯
 
 <div class="contact-form-placeholder">
   <p>留言表單即將上線，敬請期待！</p>
