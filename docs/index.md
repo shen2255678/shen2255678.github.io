@@ -2,9 +2,12 @@
 layout: home
 
 hero:
-  name: "Haowei's Blog"
+  name: "Haowei Blog"
   text: "程式開發與AI技術探索"
   tagline: 經營自己的同時，紀錄生活上的點滴
+  image:
+    src: https://i.pinimg.com/736x/5b/f6/a9/5bf6a9efe2bac9f12b42fa41fa78a979.jpg
+    alt: Blog Logo
   actions:
     - theme: brand
       text: 閱讀文章
@@ -32,6 +35,8 @@ features:
 ---
 
 ## 最新文章
+
+這裡是我最近的一些思考和技術分享，希望能對您有所啟發。
 
 ### [MCP架構：現代AI開發的新範式](/posts/ai/mcp-introduction)
 
