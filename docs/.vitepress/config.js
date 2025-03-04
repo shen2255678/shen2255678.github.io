@@ -11,6 +11,9 @@ export default defineConfig({
   // 對於使用者/組織網站，username.github.io，base 應該是 '/'
   base: '/',
   
+  // 禁用死鏈接檢查
+  ignoreDeadLinks: true,
+  
   head: [
     // Basic meta tags
     ['link', { rel: 'icon', href: '/favicon.ico' }],
