@@ -1,23 +1,14 @@
 import { defineConfig } from 'vitepress'
 
-// Try to import the theme config but have a fallback for GitHub Actions
-let baseConfig = {}
-try {
-  baseConfig = require('vitepress-theme-open17/config')
-} catch (e) {
-  console.warn('Could not load vitepress-theme-open17/config - using fallback config')
-  baseConfig = {}
-}
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  extends: baseConfig,
   title: "Haowei's Tech Blog",
   description: "程式開發、AI技術與生活分享的個人博客",
   lastUpdated: true,
   lang: 'zh-TW',
   
-  // Base public path (important for GitHub Pages)
+  // Base public path 
+  // 對於使用者/組織網站，username.github.io，base 應該是 '/'
   base: '/',
   
   head: [
@@ -62,7 +53,7 @@ export default defineConfig({
       },
     ],
     
-    blog: baseConfig.themeConfig?.blog || {
+    blog: {
       ornateStyle: true, 
       title: "Haowei Blog",
       desc: "經營自己的同時，紀錄生活上的點滴。人的一生中有兩個時期不應投機；無力投機時，以及有能力投機時",
