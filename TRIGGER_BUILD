@@ -1,6 +1,6 @@
-Trigger build for VitePress site at: 2025-03-04 13:28:30
+Trigger build for VitePress site at: 2025-03-04 13:31:50
 
 This file helps force a new build when configuration changes are made.
-- 修改部署工作流程使用 npm install 而不是 npm ci
-- 更新 Font Awesome 依賴項版本以修復版本不匹配問題
-- 解決 package.json 與 package-lock.json 不同步的問題
+- 簡化 photoWall.vue 元件，移除 vue-easy-lightbox 功能
+- 保留了 vue-easy-lightbox 依賴項，但不再使用它
+- 修復了"Rollup failed to resolve import"錯誤
