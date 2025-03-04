@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>東京旅行紀錄</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <style>
         .photo-gallery {
             display: flex;
@@ -25,42 +25,65 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">首頁</a>
-            <a href="travel.html">返回旅行</a>
-        </nav>
-    </header>
+    <div id="app">
+        <header>
+            <nav>
+                <a href="index.html">首頁</a>
+                <a href="travel.html">返回旅行</a>
+            </nav>
+        </header>
 
-    <main>
-        <h1>東京旅行日記</h1>
-        
-        <section>
-            <h2>旅行概況</h2>
-            <p>東京，一個現代與傳統完美交融的世界級都市。高科技與古老文化在這裡共存，展現出獨特的魅力與活力。</p>
-        </section>
+        <main>
+            <h1>{{ title }}</h1>
+            
+            <section>
+                <h2>旅行概況</h2>
+                <p>{{ description }}</p>
+            </section>
 
-        <section>
-            <h2>旅行相簿</h2>
-            <div class="photo-gallery">
-                <img src="images/japan/img1.jpg" alt="東京風景1">
-                <img src="images/japan/img2.jpg" alt="東京風景2">
-                <img src="images/japan/img3.jpg" alt="東京風景3">
-                <img src="images/japan/img4.jpg" alt="東京風景4">
-                <img src="images/japan/img5.jpg" alt="東京風景5">
-            </div>
-        </section>
+            <section>
+                <h2>旅行相簿</h2>
+                <div class="photo-gallery">
+                    <img v-for="(image, index) in images" 
+                         :key="index" 
+                         :src="image.src" 
+                         :alt="image.alt">
+                </div>
+            </section>
 
-        <section>
-            <h2>行程亮點</h2>
-            <ul>
-                <li>新宿與澀谷的現代都市風光</li>
-                <li>淺草寺的傳統文化體驗</li>
-                <li>秋葉原的電子文化</li>
-                <li>東京鐵塔與晴空塔景觀</li>
-                <li>築地市場美食之旅</li>
-            </ul>
-        </section>
-    </main>
+            <section>
+                <h2>行程亮點</h2>
+                <ul>
+                    <li v-for="(highlight, index) in highlights" :key="index">
+                        {{ highlight }}
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: '東京旅行日記',
+                description: '東京，一個現代與傳統完美交融的世界級都市。高科技與古老文化在這裡共存，展現出獨特的魅力與活力。',
+                images: [
+                    { src: 'images/japan/img1.jpg', alt: '東京風景1' },
+                    { src: 'images/japan/img2.jpg', alt: '東京風景2' },
+                    { src: 'images/japan/img3.jpg', alt: '東京風景3' },
+                    { src: 'images/japan/img4.jpg', alt: '東京風景4' },
+                    { src: 'images/japan/img5.jpg', alt: '東京風景5' }
+                ],
+                highlights: [
+                    '新宿與澀谷的現代都市風光',
+                    '淺草寺的傳統文化體驗',
+                    '秋葉原的電子文化',
+                    '東京鐵塔與晴空塔景觀',
+                    '築地市場美食之旅'
+                ]
+            }
+        });
+    </script>
 </body>
 </html>
