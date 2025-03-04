@@ -7,14 +7,14 @@ title: 技術棧
 
 這裡展示了我日常工作和個人項目中使用的主要技術工具和框架。
 
-## 前端開發
+## 程式語言
 
 <div class="tech-section">
   <div class="tech-card">
-    <div class="tech-icon">⚛️</div>
+    <div class="tech-icon">🔷</div>
     <div class="tech-details">
-      <h3>React</h3>
-      <p>用於構建用戶界面的JavaScript庫</p>
+      <h3>JavaScript / TypeScript</h3>
+      <p>網頁和應用程式開發的核心語言</p>
       <div class="tech-level">
         <div class="level-bar" style="width: 90%"></div>
       </div>
@@ -22,47 +22,10 @@ title: 技術棧
   </div>
   
   <div class="tech-card">
-    <div class="tech-icon">🟢</div>
-    <div class="tech-details">
-      <h3>Vue.js</h3>
-      <p>漸進式JavaScript框架</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 85%"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="tech-card">
     <div class="tech-icon">🔷</div>
     <div class="tech-details">
-      <h3>TypeScript</h3>
-      <p>JavaScript的超集，添加靜態類型</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 85%"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="tech-card">
-    <div class="tech-icon">🎨</div>
-    <div class="tech-details">
-      <h3>TailwindCSS</h3>
-      <p>實用優先的CSS框架</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 80%"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-## 後端開發
-
-<div class="tech-section">
-  <div class="tech-card">
-    <div class="tech-icon">🟩</div>
-    <div class="tech-details">
-      <h3>Node.js</h3>
-      <p>基於V8引擎的JavaScript運行環境</p>
+      <h3>C#</h3>
+      <p>Microsoft開發的強類型程式語言</p>
       <div class="tech-level">
         <div class="level-bar" style="width: 90%"></div>
       </div>
@@ -73,18 +36,7 @@ title: 技術棧
     <div class="tech-icon">🐍</div>
     <div class="tech-details">
       <h3>Python</h3>
-      <p>通用編程語言，廣泛用於數據科學和AI</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 80%"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="tech-card">
-    <div class="tech-icon">🔷</div>
-    <div class="tech-details">
-      <h3>.NET</h3>
-      <p>微軟開發的跨平台框架</p>
+      <p>通用編程語言，廣泛用於數據科學和自動化</p>
       <div class="tech-level">
         <div class="level-bar" style="width: 75%"></div>
       </div>
@@ -92,36 +44,25 @@ title: 技術棧
   </div>
   
   <div class="tech-card">
-    <div class="tech-icon">🗄️</div>
+    <div class="tech-icon">💻</div>
     <div class="tech-details">
-      <h3>SQL/NoSQL</h3>
-      <p>關係型和非關係型數據庫</p>
+      <h3>PowerShell</h3>
+      <p>Windows自動化和系統管理腳本語言</p>
       <div class="tech-level">
-        <div class="level-bar" style="width: 85%"></div>
+        <div class="level-bar" style="width: 70%"></div>
       </div>
     </div>
   </div>
 </div>
 
-## AI開發
+## 前端開發
 
 <div class="tech-section">
   <div class="tech-card">
-    <div class="tech-icon">🔄</div>
+    <div class="tech-icon">🟢</div>
     <div class="tech-details">
-      <h3>LangChain</h3>
-      <p>構建基於LLM的應用程序框架</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 85%"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="tech-card">
-    <div class="tech-icon">🤖</div>
-    <div class="tech-details">
-      <h3>OpenAI API</h3>
-      <p>包括GPT系列模型的API</p>
+      <h3>Vue.js</h3>
+      <p>漸進式JavaScript框架</p>
       <div class="tech-level">
         <div class="level-bar" style="width: 90%"></div>
       </div>
@@ -129,10 +70,21 @@ title: 技術棧
   </div>
   
   <div class="tech-card">
-    <div class="tech-icon">🧠</div>
+    <div class="tech-icon">📊</div>
     <div class="tech-details">
-      <h3>HuggingFace</h3>
-      <p>開源機器學習模型和數據集</p>
+      <h3>Chart.js</h3>
+      <p>簡單靈活的JavaScript圖表庫</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">📈</div>
+    <div class="tech-details">
+      <h3>D3.js</h3>
+      <p>強大的數據可視化JavaScript庫</p>
       <div class="tech-level">
         <div class="level-bar" style="width: 75%"></div>
       </div>
@@ -140,47 +92,10 @@ title: 技術棧
   </div>
   
   <div class="tech-card">
-    <div class="tech-icon">🧮</div>
+    <div class="tech-icon">⚡</div>
     <div class="tech-details">
-      <h3>PyTorch</h3>
-      <p>深度學習框架</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 70%"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-## DevOps和雲服務
-
-<div class="tech-section">
-  <div class="tech-card">
-    <div class="tech-icon">🐳</div>
-    <div class="tech-details">
-      <h3>Docker</h3>
-      <p>容器化平台</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 85%"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="tech-card">
-    <div class="tech-icon">☸️</div>
-    <div class="tech-details">
-      <h3>Kubernetes</h3>
-      <p>容器編排系統</p>
-      <div class="tech-level">
-        <div class="level-bar" style="width: 70%"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="tech-card">
-    <div class="tech-icon">☁️</div>
-    <div class="tech-details">
-      <h3>AWS</h3>
-      <p>Amazon Web Services</p>
+      <h3>Vite</h3>
+      <p>現代前端構建工具</p>
       <div class="tech-level">
         <div class="level-bar" style="width: 80%"></div>
       </div>
@@ -188,10 +103,10 @@ title: 技術棧
   </div>
   
   <div class="tech-card">
-    <div class="tech-icon">🔄</div>
+    <div class="tech-icon">🎨</div>
     <div class="tech-details">
-      <h3>CI/CD</h3>
-      <p>持續集成和持續部署</p>
+      <h3>CSS</h3>
+      <p>網頁樣式和設計</p>
       <div class="tech-level">
         <div class="level-bar" style="width: 85%"></div>
       </div>
@@ -199,21 +114,144 @@ title: 技術棧
   </div>
 </div>
 
+## 數據庫技術
+
+<div class="tech-section">
+  <div class="tech-card">
+    <div class="tech-icon">📊</div>
+    <div class="tech-details">
+      <h3>MSSQL</h3>
+      <p>Microsoft SQL Server關係型數據庫</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🍃</div>
+    <div class="tech-details">
+      <h3>MongoDB</h3>
+      <p>文檔型NoSQL數據庫</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 75%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🔄</div>
+    <div class="tech-details">
+      <h3>Redis</h3>
+      <p>高性能內存數據庫和緩存</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 70%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## 自動化與工具
+
+<div class="tech-section">
+  <div class="tech-card">
+    <div class="tech-icon">⚙️</div>
+    <div class="tech-details">
+      <h3>Power Automate</h3>
+      <p>Microsoft的工作流自動化工具</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🔄</div>
+    <div class="tech-details">
+      <h3>Azure DevOps</h3>
+      <p>開發與運維協作平台</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 80%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🔌</div>
+    <div class="tech-details">
+      <h3>API整合</h3>
+      <p>如Nessus, Tenable等第三方API</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 90%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## 專業領域
+
+<div class="tech-section">
+  <div class="tech-card">
+    <div class="tech-icon">🔐</div>
+    <div class="tech-details">
+      <h3>漏洞管理</h3>
+      <p>網絡安全漏洞監測與管理</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 85%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">📦</div>
+    <div class="tech-details">
+      <h3>資產管理</h3>
+      <p>企業資產生命週期與條碼追蹤</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 90%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">📊</div>
+    <div class="tech-details">
+      <h3>數據可視化</h3>
+      <p>數據圖表和儀表板開發</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 90%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-card">
+    <div class="tech-icon">🤝</div>
+    <div class="tech-details">
+      <h3>技能管理</h3>
+      <p>人才分配和技能追蹤系統</p>
+      <div class="tech-level">
+        <div class="level-bar" style="width: 80%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 ## 工具和開發環境
 
-- **代碼編輯器**：VS Code, JetBrains IDE
+- **代碼編輯器**：VS Code, Visual Studio
 - **版本控制**：Git, GitHub
-- **項目管理**：Jira, Notion, Trello
-- **設計工具**：Figma, Adobe XD
-- **文檔**：Markdown, LaTeX
+- **項目管理**：Azure DevOps, Trello
+- **通訊協作**：Microsoft Teams
+- **文檔**：Markdown, Microsoft Office
 
 ## 正在學習
 
 我始終保持學習新技術的熱情，目前正在學習：
 
-- **向量數據庫**：Pinecone, Milvus
-- **邊緣AI**：TensorFlow Lite, ONNX
-- **區塊鏈開發**：Solidity, Web3.js
+- **雲原生應用**：Kubernetes, Docker
+- **人工智能整合**：LangChain, OpenAI API
+- **高級數據視覺化**：高級D3.js技術
+- **跨平台開發**：.NET MAUI
 
 <style>
 .tech-section {
