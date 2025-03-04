@@ -1,6 +1,6 @@
-Trigger build for VitePress site at: 2025-03-04 13:07:00
+Trigger build for VitePress site at: 2025-03-04 13:07:20
 
 This file helps force a new build when configuration changes are made.
-- 更新 GitHub Actions 工作流程至最新版本
-- 簡化首頁為標準 VitePress 格式
-- 移除自定義主題依賴
+- 移除 Layout.vue 文件引用
+- 進一步簡化首頁配置
+- 確保使用完全標準的 VitePress 配置
