@@ -2,12 +2,13 @@
   "name": "haowei-tech-blog",
   "version": "1.0.0",
   "description": "Haowei's Tech Blog - 程式開發、AI技術與生活分享",
+  "type": "module",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.9",
     "vitepress": "^1.0.0-rc.36",
-    "sharp": "^0.33.2"
+    "vue": "^3.3.8"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -18,17 +19,9 @@
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
-    "@giscus/vue": "^3.0.0",
-    "swiper": "^11.1.9",
-    "vitepress-theme-open17": "^0.2.6",
-    "vue-easy-lightbox": "^1.19.0"
+    "swiper": "^11.1.9"
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "overrides": {
-    "vitepress-theme-open17": {
-      "vue": "^3.3.8"
-    }
   }
 }
