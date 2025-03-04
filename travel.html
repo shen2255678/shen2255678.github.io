@@ -8,12 +8,13 @@
     <style>
         .travel-gallery {
             display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
         .travel-card {
             text-align: center;
-            max-width: 300px;
+            width: 300px;
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 10px;
@@ -29,6 +30,11 @@
             object-fit: cover;
             border-radius: 10px;
         }
+        .region-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -43,23 +49,27 @@
     </header>
 
     <main>
-        <h1>我的旅行足跡</h1>
+        <h1 class="region-title">我的旅行足跡</h1>
         
+        <h2 class="region-title">歐洲</h2>
         <div class="travel-gallery">
             <div class="travel-card">
                 <a href="switzerland.html">
                     <img src="images/switzerland/cover.jpg" alt="瑞士旅行">
-                    <h2>瑞士之旅</h2>
+                    <h3>瑞士</h3>
+                    <p>阿爾卑斯山的壯麗風光</p>
                 </a>
-                <p>阿爾卑斯山的壯麗風光</p>
             </div>
-            
+        </div>
+
+        <h2 class="region-title">亞洲</h2>
+        <div class="travel-gallery">
             <div class="travel-card">
-                <a href="japan.html">
-                    <img src="images/japan/cover.jpg" alt="日本旅行">
-                    <h2>日本之旅</h2>
+                <a href="tokyo.html">
+                    <img src="images/japan/cover.jpg" alt="東京旅行">
+                    <h3>東京</h3>
+                    <p>現代與傳統交融的城市</p>
                 </a>
-                <p>傳統與現代的完美融合</p>
             </div>
         </div>
     </main>
