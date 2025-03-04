@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper last updated times
       
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -34,12 +36,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
-      # Clean install approach
-      - name: Clean install dependencies
+      # Clean install dependencies
+      - name: Install dependencies
         run: |
-          rm -rf node_modules
-          npm cache clean --force
-          npm install --no-fund --no-audit
+          npm ci
+
+      # Install additional theme packages if needed
+      - name: Install theme packages
+        run: |
+          if ! npm list vitepress-theme-open17; then
+            npm install vitepress-theme-open17 --no-fund --no-audit
+          fi
       
       # Display versions for debugging
       - name: Display dependency versions
@@ -47,47 +54,13 @@ jobs:
           node -v
           npm -v
           npx vitepress --version || echo "VitePress version not available"
+          ls -la node_modules/vitepress-theme-open17 || echo "Theme not installed"
       
-      # Create specific vitepress.config.js file for build
-      - name: Create VitePress config for build
-        run: |
-          cat > docs/.vitepress/config.js << 'EOF'
-          import { defineConfig } from 'vitepress'
-
-          export default defineConfig({
-            title: "Haowei's Tech Blog",
-            description: "程式開發、AI技術與生活分享的個人博客",
-            base: '/',
-            themeConfig: {
-              nav: [
-                { text: '首頁', link: '/' },
-                { text: '程式開發', link: '/coding/' },
-                { text: 'AI技術', link: '/posts/ai/' },
-                { text: '關於', link: '/about' }
-              ],
-              socialLinks: [
-                { icon: 'github', link: 'https://github.com/shen2255678' }
-              ]
-            }
-          })
-          EOF
-      
-      # Create basic theme file
-      - name: Setup minimal theme
-        run: |
-          mkdir -p docs/.vitepress/theme
-          cat > docs/.vitepress/theme/index.js << 'EOF'
-          import DefaultTheme from 'vitepress/theme'
-          export default {
-            ...DefaultTheme
-          }
-          EOF
-      
-      # Build with extra options to diagnose issues
+      # Build site
       - name: Build
         run: |
           echo "Starting build process..."
-          npm run docs:build -- --debug
+          npm run docs:build
         env:
           NODE_OPTIONS: "--max-old-space-size=4096 --no-warnings"
           DEBUG: "vitepress:*"
