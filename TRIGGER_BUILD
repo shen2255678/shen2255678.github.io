@@ -1,6 +1,6 @@
-Trigger build for VitePress site at: 2025-03-04 13:09:15
+Trigger build for VitePress site at: 2025-03-04 13:17:00
 
 This file helps force a new build when configuration changes are made.
-- 清空 Layout.vue 文件內容
-- 使用最新的 GitHub Actions 版本
-- 簡化為標準 VitePress 配置
+- 更新 GitHub Actions 工作流程使用 Node.js 20
+- 更新 package.json 要求 Node.js >= 20.0.0
+- 添加更多除錯訊息以找出構建問題
