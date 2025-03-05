@@ -66,9 +66,13 @@ const japanDescriptions = [
 
 東京是一座充滿活力的國際大都市，這裡有著高聳的摩天大樓、先進的科技和豐富的購物體驗。淺草寺、東京鐵塔、秋葉原電器街、澀谷十字路口等都是不容錯過的景點。
 
+<img src="../image/japan/college.jpg" alt="東京大學" class="highlight-image" />
+
 ### 京都古寺與文化
 
 京都作為日本的古都，保留了大量的傳統寺廟和庭園。金閣寺、清水寺、伏見稻荷大社的千本鳥居都是我行程中的重點。在這裡，你可以感受到濃厚的日本傳統文化氛圍。
+
+<img src="../image/japan/river.jpg" alt="京都河景" class="highlight-image" />
 
 ### 大阪美食之旅
 
@@ -130,5 +134,19 @@ const japanDescriptions = [
 
 .meta-value {
   font-weight: 500;
+}
+
+.highlight-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Dark mode adjustments */
+.dark .highlight-image {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 </style>
