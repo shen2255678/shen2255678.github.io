@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>日本旅行紀錄</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <style>
         .photo-gallery {
             display: flex;
@@ -79,88 +78,117 @@
         </header>
 
         <main>
-            <h1>{{ title }}</h1>
+            <h1>日本旅行日記</h1>
             
             <section>
                 <h2>旅行概況</h2>
-                <p>{{ description }}</p>
+                <p>日本，一個傳統與現代完美交融的國度，充滿令人驚嘆的文化、科技和自然之美。這裡有著迷人的櫻花季節，美麗的富士山風景，以及充滿活力的東京和歷史悠久的京都。</p>
             </section>
 
             <section>
                 <h2>旅行相簿</h2>
-                <!-- 幻燈片展示 -->
-                <div class="slideshow-container" v-if="currentSlideIndex !== null">
-                    <div v-for="(image, index) in images" :key="index" 
-                         class="slide" :class="{ active: index === currentSlideIndex }">
-                        <img :src="image.src" :alt="image.alt">
-                        <div class="slide-caption">{{ image.alt }}</div>
+                <div class="slideshow-container" id="slideshow-container">
+                    <div class="slide" id="slide1">
+                        <img src="images/japan/img1.jpg" alt="東京都市風景">
+                        <div class="slide-caption">東京都市風景</div>
                     </div>
-                    <button class="prev" @click="prevSlide">&lt;</button>
-                    <button class="next" @click="nextSlide">&gt;</button>
+                    <div class="slide" id="slide2">
+                        <img src="images/japan/img2.jpg" alt="京都古寺">
+                        <div class="slide-caption">京都古寺</div>
+                    </div>
+                    <div class="slide" id="slide3">
+                        <img src="images/japan/img3.jpg" alt="富士山雪景">
+                        <div class="slide-caption">富士山雪景</div>
+                    </div>
+                    <div class="slide" id="slide4">
+                        <img src="images/japan/img4.jpg" alt="大阪城景色">
+                        <div class="slide-caption">大阪城景色</div>
+                    </div>
+                    <div class="slide" id="slide5">
+                        <img src="images/japan/img5.jpg" alt="日本櫻花季">
+                        <div class="slide-caption">日本櫻花季</div>
+                    </div>
+                    <button class="prev" onclick="prevSlide()">&lt;</button>
+                    <button class="next" onclick="nextSlide()">&gt;</button>
                 </div>
                 
                 <!-- 縮略圖畫廊 -->
                 <div class="photo-gallery">
-                    <img v-for="(image, index) in images" 
-                         :key="index" 
-                         :src="image.src" 
-                         :alt="image.alt"
-                         @click="openSlideshow(index)">
+                    <img src="images/japan/img1.jpg" alt="東京都市風景" onclick="openSlideshow(0)">
+                    <img src="images/japan/img2.jpg" alt="京都古寺" onclick="openSlideshow(1)">
+                    <img src="images/japan/img3.jpg" alt="富士山雪景" onclick="openSlideshow(2)">
+                    <img src="images/japan/img4.jpg" alt="大阪城景色" onclick="openSlideshow(3)">
+                    <img src="images/japan/img5.jpg" alt="日本櫻花季" onclick="openSlideshow(4)">
                 </div>
             </section>
 
             <section>
                 <h2>行程亮點</h2>
                 <ul>
-                    <li v-for="(highlight, index) in highlights" :key="index">
-                        {{ highlight }}
-                    </li>
+                    <li>東京都市風光與購物之旅</li>
+                    <li>京都古寺與文化體驗</li>
+                    <li>富士山遠眺與自然探索</li>
+                    <li>大阪美食與城市風情</li>
                 </ul>
             </section>
         </main>
     </div>
 
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                title: '日本旅行日記',
-                description: '日本，一個傳統與現代完美交融的國度，充滿令人驚嘆的文化、科技和自然之美。這裡有著迷人的櫻花季節，美麗的富士山風景，以及充滿活力的東京和歷史悠久的京都。',
-                currentSlideIndex: null,
-                images: [
-                    { src: 'images/japan/img1.jpg', alt: '東京都市風景' },
-                    { src: 'images/japan/img2.jpg', alt: '京都古寺' },
-                    { src: 'images/japan/img3.jpg', alt: '富士山雪景' },
-                    { src: 'images/japan/img4.jpg', alt: '大阪城景色' },
-                    { src: 'images/japan/img5.jpg', alt: '日本櫻花季' }
-                ],
-                highlights: [
-                    '東京都市風光與購物之旅',
-                    '京都古寺與文化體驗',
-                    '富士山遠眺與自然探索',
-                    '大阪美食與城市風情'
-                ]
-            },
-            methods: {
-                openSlideshow(index) {
-                    this.currentSlideIndex = index;
-                },
-                prevSlide() {
-                    if (this.currentSlideIndex > 0) {
-                        this.currentSlideIndex--;
-                    } else {
-                        this.currentSlideIndex = this.images.length - 1;
-                    }
-                },
-                nextSlide() {
-                    if (this.currentSlideIndex < this.images.length - 1) {
-                        this.currentSlideIndex++;
-                    } else {
-                        this.currentSlideIndex = 0;
-                    }
-                }
-            }
+        // 初始化幻燈片
+        document.addEventListener('DOMContentLoaded', function() {
+            // 隱藏所有幻燈片
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(function(slide) {
+                slide.style.display = 'none';
+            });
+            // 隱藏幻燈片容器
+            document.getElementById('slideshow-container').style.display = 'none';
         });
+
+        // 當前幻燈片索引
+        let currentSlideIndex = 0;
+
+        // 打開幻燈片顯示
+        function openSlideshow(index) {
+            currentSlideIndex = index;
+            const slideshowContainer = document.getElementById('slideshow-container');
+            slideshowContainer.style.display = 'block';
+
+            // 顯示當前幻燈片
+            showSlide(currentSlideIndex);
+        }
+
+        // 顯示指定索引的幻燈片
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            // 隱藏所有幻燈片
+            slides.forEach(function(slide) {
+                slide.style.display = 'none';
+            });
+            // 顯示當前索引的幻燈片
+            slides[index].style.display = 'block';
+        }
+
+        // 顯示上一張幻燈片
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+            } else {
+                currentSlideIndex = 4; // 最後一張
+            }
+            showSlide(currentSlideIndex);
+        }
+
+        // 顯示下一張幻燈片
+        function nextSlide() {
+            if (currentSlideIndex < 4) {
+                currentSlideIndex++;
+            } else {
+                currentSlideIndex = 0; // 第一張
+            }
+            showSlide(currentSlideIndex);
+        }
     </script>
 </body>
 </html>
