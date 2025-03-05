@@ -82,6 +82,7 @@ title: 旅行見聞
   <div class="photo-buttons">
     <a href="./switzerland#精選照片" class="photo-button">瑞士照片集</a>
     <a href="./japan#精選照片" class="photo-button">日本照片集</a>
+    <a href="./gallery-demo" class="photo-button highlight">照片畫廊示例</a>
   </div>
 </div>
 
@@ -246,5 +247,25 @@ title: 旅行見聞
 
 .photo-button:hover {
   background-color: var(--vp-c-brand-dark);
+}
+
+.photo-button.highlight {
+  background-color: #ff5722;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-button.highlight::after {
+  content: "NEW";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ffeb3b;
+  color: #333;
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding: 2px 5px;
+  transform: rotate(45deg);
+  border-radius: 2px;
 }
 </style>
