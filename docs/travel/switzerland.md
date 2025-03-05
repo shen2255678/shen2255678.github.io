@@ -6,35 +6,35 @@ title: 瑞士旅行紀錄
 <script setup>
 import ImageSlider from '../components/ImageSlider.vue'
 
-// 使用完整路徑引用圖片
+// 使用與 first-coding-post.md 相同的圖片路徑格式
 const swissImages = [
   { 
-    src: '/docs/image/switzerland/swiss_train1.jpg', 
+    src: '../image/switzerland/swiss_train1.jpg', 
     alt: '瑞士火車',
     caption: '穿越阿爾卑斯山脈的瑞士火車'
   },
   { 
-    src: '/docs/image/switzerland/swiss_train2.jpg', 
+    src: '../image/switzerland/swiss_train2.jpg', 
     alt: '冰河列車',
     caption: '瑞士著名的冰河列車'
   },
   { 
-    src: '/docs/image/switzerland/swiss_m.jpg', 
+    src: '../image/switzerland/swiss_m.jpg', 
     alt: '馬特洪峰',
     caption: '馬特洪峰 - 瑞士最著名的山峰之一'
   },
   { 
-    src: '/docs/image/switzerland/cableCar.jpg', 
+    src: '../image/switzerland/cableCar.jpg', 
     alt: '纜車',
     caption: '阿爾卑斯山纜車體驗'
   },
   { 
-    src: '/docs/image/switzerland/resort.jpg', 
+    src: '../image/switzerland/resort.jpg', 
     alt: '度假村',
     caption: '瑞士高級山間度假村'
   },
   { 
-    src: '/docs/image/switzerland/sky.jpg', 
+    src: '../image/switzerland/sky.jpg', 
     alt: '瑞士天空',
     caption: '瑞士壯麗的自然風光'
   }
@@ -64,9 +64,18 @@ const swissImages = [
 
 我的瑞士之旅橫跨了該國多個著名城市，從蘇黎世的現代都市風光，到琉森的中世紀魅力，再到馬特洪峰的壯麗景色。每一步都充滿了驚喜和美好的回憶。
 
+## 瑞士風景預覽
+
+以下是使用直接 HTML 標籤的圖片引用方式：
+
+<div class="preview-images">
+  <img src="../image/switzerland/cableCar.jpg" alt="瑞士纜車" width="300" height="200" />
+  <img src="../image/switzerland/resort.jpg" alt="瑞士度假村" width="300" height="200" />
+</div>
+
 ## 精選照片
 
-下面是我在瑞士拍攝的一些精選照片：
+下面是我在瑞士拍攝的一些精選照片（使用 Vue 組件）：
 
 <ImageSlider :images="swissImages" height="500px" />
 
@@ -135,5 +144,18 @@ const swissImages = [
 
 .meta-value {
   font-weight: 500;
+}
+
+.preview-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.preview-images img {
+  border-radius: 8px;
+  object-fit: cover;
 }
 </style>
