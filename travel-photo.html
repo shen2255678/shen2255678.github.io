@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>旅行攝影</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .photo-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+            color: #fff;
+        }
+        
+        .blue-button {
+            background-color: #3f51b5;
+        }
+        
+        .blue-button:hover {
+            background-color: #303f9f;
+        }
+        
+        .orange-button {
+            background-color: #ff5722;
+        }
+        
+        .orange-button:hover {
+            background-color: #e64a19;
+        }
+        
+        /* 修正按鈕文字被蓋住的問題 */
+        .photo-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            line-height: 1.2;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* 在小屏幕上調整按鈕 */
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .photo-button {
+                width: 80%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>旅行攝影</h1>
+    
+    <div class="container">
+        <p class="intro-text">
+            探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。
+        </p>
+        
+        <div class="button-container">
+            <a href="landscape.html" class="photo-button blue-button">風景攝影</a>
+            <a href="culture.html" class="photo-button blue-button">人文攝影</a>
+            <a href="gallery-example.html" class="photo-button orange-button">照片畫廊示例</a>
+        </div>
+    </div>
+</body>
+</html>
