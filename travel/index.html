@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #fff;
         }
         
         /* 移除所有超連結的底線 */
@@ -21,65 +21,67 @@
             text-decoration: none !important;
         }
         
+        /* 主內容區背景 */
+        .main-container {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 50px 30px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
         /* 按鈕通用樣式 */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-block;
             min-width: 200px;
-            height: 60px;
+            height: 50px;
+            line-height: 50px;
             padding: 0 20px;
-            font-weight: 500;
             border-radius: 50px;
-            transition: all 0.3s ease;
             text-decoration: none;
-            white-space: nowrap;
-            overflow: visible; /* 確保內容不被裁剪 */
             text-align: center;
-            color: white;
-            margin: 0 10px;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* 替換藍色按鈕為深綠色 */
-        .btn-primary {
-            background-color: #2a9d8f; /* 深綠色 */
+            font-weight: normal;
+            margin: 10px;
+            transition: transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: relative;
-            z-index: 1;
+            color: white;
         }
         
-        .btn-primary:hover {
-            background-color: #1e7d7a; /* 更深的綠色 */
+        /* 藍色按鈕樣式 */
+        .btn-blue {
+            background-color: #4c6ef5; /* 鮮亮的藍色 */
+        }
+        
+        .btn-blue:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
         /* 橙色高亮按鈕 */
-        .btn-highlight {
+        .btn-orange {
             background-color: #ff5722; /* 明亮的橙色 */
             position: relative;
         }
         
-        .btn-highlight:hover {
-            background-color: #e64a19; /* 深橙色 */
+        .btn-orange:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
         /* NEW標籤樣式 */
-        .btn-highlight::after {
+        .btn-orange::after {
             content: "NEW";
             position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #ffd166; /* 淺黃色 */
-            color: #333;
-            font-size: 11px;
+            top: -12px;
+            right: -12px;
+            background-color: #ffd000; /* 鮮黃色 */
+            color: #111;
+            font-size: 12px;
             font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 4px;
-            transform: rotate(12deg);
+            padding: 3px 8px;
+            border-radius: 30px;
+            transform: rotate(8deg);
             z-index: 2;
         }
         
@@ -102,16 +104,17 @@
             color: #e9c46a; /* 金黃色 */
         }
         
-        /* 容器樣式 */
-        .content-container {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            padding: 2rem;
+        /* 頁面標題 */
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
         }
         
-        h1 {
-            color: #264653; /* 與頁首相同的深藍綠色 */
+        /* 描述文字 */
+        .description {
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -124,15 +127,15 @@
     </header>
     
     <main class="max-w-6xl mx-auto px-4 py-8">
-        <h1 class="text-4xl text-center font-bold mb-10">旅行攝影</h1>
+        <h1 class="text-4xl text-center font-bold">旅行攝影</h1>
         
-        <div class="content-container">
-            <p class="text-center text-lg mb-8">探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。</p>
+        <div class="main-container">
+            <p class="description">探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。</p>
             
-            <div class="flex flex-wrap justify-center gap-6 my-4">
-                <a href="../switzerland.html" class="btn btn-primary">瑞士照片集</a>
-                <a href="../japan.html" class="btn btn-primary">日本照片集</a>
-                <a href="gallery.html" class="btn btn-highlight">照片畫廊示例</a>
+            <div class="button-container">
+                <a href="../switzerland.html" class="btn btn-blue">瑞士照片集</a>
+                <a href="../japan.html" class="btn btn-blue">日本照片集</a>
+                <a href="gallery.html" class="btn btn-orange">照片畫廊示例</a>
             </div>
         </div>
     </main>
