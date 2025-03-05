@@ -310,13 +310,3 @@ a {
   }
 }
 </style>
-
-<script>
-// 確保所有鏈接沒有底線
-document.addEventListener('DOMContentLoaded', function() {
-  const allLinks = document.querySelectorAll('a');
-  allLinks.forEach(link => {
-    link.style.textDecoration = 'none';
-  });
-});
-</script>
