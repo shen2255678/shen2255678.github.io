@@ -6,16 +6,15 @@ title: 日本旅行紀錄
 <script setup>
 import ImageSlider from '../components/ImageSlider.vue'
 
-// 日本旅行照片
-// 使用直接引用圖片文件的方式
+// 使用與 first-coding-post.md 相同的圖片路徑格式
 const japanImages = [
   { 
-    src: '/docs/image/japan/college.jpg', 
+    src: '../image/japan/college.jpg', 
     alt: '日本大學風景',
     caption: '日本傳統大學建築'
   },
   { 
-    src: '/docs/image/japan/river.jpg', 
+    src: '../image/japan/river.jpg', 
     alt: '日本河川風景',
     caption: '寧靜的日本河景'
   }
@@ -45,9 +44,18 @@ const japanImages = [
 
 我的日本之旅橫跨了東京的現代都市，京都的古老寺廟，大阪的美食文化，以及奈良的自然風光。每一個地方都給我留下了深刻的印象。
 
+## 日本風景預覽
+
+以下是使用直接 HTML 標籤的圖片引用方式：
+
+<div class="preview-images">
+  <img src="../image/japan/college.jpg" alt="日本大學" width="300" height="200" />
+  <img src="../image/japan/river.jpg" alt="日本河景" width="300" height="200" />
+</div>
+
 ## 精選照片
 
-以下是我在日本拍攝的一些精選照片：
+以下是我在日本拍攝的一些精選照片（使用 Vue 組件）：
 
 <ImageSlider :images="japanImages" height="500px" />
 
@@ -121,5 +129,18 @@ const japanImages = [
 
 .meta-value {
   font-weight: 500;
+}
+
+.preview-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.preview-images img {
+  border-radius: 8px;
+  object-fit: cover;
 }
 </style>
