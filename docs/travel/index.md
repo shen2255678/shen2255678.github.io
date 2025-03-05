@@ -101,6 +101,11 @@ title: 旅行見聞
 - 訂閱 [RSS Feed](/feed.xml)
 
 <style>
+/* 移除所有鏈接的底線 */
+a {
+  text-decoration: none !important;
+}
+
 .travel-banner {
   background-color: var(--vp-c-brand-dimm);
   border-radius: 8px;
@@ -217,6 +222,7 @@ title: 旅行見聞
   margin-top: 10px;
   font-weight: 500;
   color: var(--vp-c-brand);
+  text-decoration: none !important;
 }
 
 .photo-preview {
@@ -230,43 +236,51 @@ title: 旅行見聞
 .photo-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
-/* 修正按鈕的CSS，使用Tailwind CSS風格的類名命名方式 */
+/* 統一按鈕樣式，確保文字始終可見 */
 .photo-button {
-  @apply inline-flex items-center justify-center;
-  background-color: var(--vp-c-brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4263eb; /* 更鮮明的藍色 */
   color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
-  /* 確保文字顯示 */
+  min-width: 140px;
+  min-height: 40px;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none !important;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
   position: relative;
-  z-index: 10;
-  min-width: 120px;
-  min-height: 36px;
-  /* 防止文字過長被截斷 */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  z-index: 1;
+  text-align: center;
+  overflow: visible; /* 確保標籤可以溢出顯示 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
 .photo-button:hover {
-  background-color: var(--vp-c-brand-dark);
+  background-color: #3b5bdb;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* 高亮按鈕樣式 */
 .photo-button.highlight {
   background-color: #ff5722;
   position: relative;
-  overflow: visible; /* 更改為visible以確保標籤顯示 */
 }
 
-/* 修改NEW標籤避免覆蓋文字 */
+.photo-button.highlight:hover {
+  background-color: #e64a19;
+}
+
+/* 重新設計NEW標籤，確保不覆蓋文字 */
 .photo-button.highlight::after {
   content: "NEW";
   position: absolute;
@@ -276,9 +290,33 @@ title: 旅行見聞
   color: #333;
   font-size: 0.6rem;
   font-weight: bold;
-  padding: 2px 5px;
-  transform: rotate(30deg);
-  border-radius: 2px;
-  z-index: 20; /* 確保標籤在文字上方 */
+  padding: 2px 6px;
+  border-radius: 4px;
+  transform: rotate(15deg);
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 確保按鈕在移動設備上也能正常顯示 */
+@media (max-width: 640px) {
+  .photo-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .photo-button {
+    width: 80%;
+    max-width: 240px;
+  }
 }
 </style>
+
+<script>
+// 確保所有鏈接沒有底線
+document.addEventListener('DOMContentLoaded', function() {
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach(link => {
+    link.style.textDecoration = 'none';
+  });
+});
+</script>
