@@ -94,7 +94,11 @@ const currentImage = computed(() => props.images[currentIndex.value]);
           class="slide"
           :class="{ active: index === currentIndex }"
         >
-          <img :src="image.src" :alt="image.alt || `圖片 ${index + 1}`">
+          <img 
+            :src="image.src" 
+            :alt="image.alt || `圖片 ${index + 1}`"
+            @error="console.error(`圖片加載失敗: ${image.src}`)"
+          >
           <div class="caption" v-if="image.caption">{{ image.caption }}</div>
         </div>
       </div>
@@ -121,7 +125,11 @@ const currentImage = computed(() => props.images[currentIndex.value]);
         :class="{ active: index === currentIndex }"
         @click="goToImage(index)"
       >
-        <img :src="image.src" :alt="`縮略圖 ${index + 1}`">
+        <img 
+          :src="image.src" 
+          :alt="`縮略圖 ${index + 1}`"
+          @error="console.error(`縮略圖加載失敗: ${image.src}`)"
+        >
       </div>
     </div>
   </div>
@@ -138,6 +146,7 @@ const currentImage = computed(() => props.images[currentIndex.value]);
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 10px;
+  background-color: #f3f3f3;
 }
 
 .slides {
@@ -153,16 +162,20 @@ const currentImage = computed(() => props.images[currentIndex.value]);
   height: 100%;
   opacity: 0;
   transition: opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide.active {
   opacity: 1;
+  z-index: 1;
 }
 
 .slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .caption {
@@ -174,6 +187,7 @@ const currentImage = computed(() => props.images[currentIndex.value]);
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   text-align: center;
+  z-index: 2;
 }
 
 .prev, .next {
@@ -189,6 +203,7 @@ const currentImage = computed(() => props.images[currentIndex.value]);
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s;
+  z-index: 3;
 }
 
 .prev:hover, .next:hover {
@@ -239,6 +254,7 @@ const currentImage = computed(() => props.images[currentIndex.value]);
   border-radius: 4px;
   overflow: hidden;
   transition: border-color 0.3s;
+  background-color: #f3f3f3;
 }
 
 .thumbnail.active {
