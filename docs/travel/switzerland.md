@@ -5,8 +5,28 @@ title: 瑞士旅行紀錄
 
 <script setup>
 import ImageSlider from '../components/ImageSlider.vue'
+import GallerySwiper from '../components/GallerySwiper.vue' 
+import ImportedGallery from '../components/ImportedGallery.vue'
 
-// 使用與 first-coding-post.md 相同的圖片路徑格式
+// 引入圖片文件
+import cableCar from '../image/switzerland/cableCar.jpg'
+import resort from '../image/switzerland/resort.jpg'
+import sky from '../image/switzerland/sky.jpg'
+import swiss_m from '../image/switzerland/swiss_m.jpg'
+import swiss_train1 from '../image/switzerland/swiss_train1.jpg'
+import swiss_train2 from '../image/switzerland/swiss_train2.jpg'
+
+// 引入方式的圖片數組
+const importedImages = [
+  cableCar,
+  resort,
+  sky,
+  swiss_m,
+  swiss_train1,
+  swiss_train2
+]
+
+// 路徑引用方式的圖片數組
 const swissImages = [
   { 
     src: '../image/switzerland/swiss_train1.jpg', 
@@ -64,7 +84,7 @@ const swissImages = [
 
 我的瑞士之旅橫跨了該國多個著名城市，從蘇黎世的現代都市風光，到琉森的中世紀魅力，再到馬特洪峰的壯麗景色。每一步都充滿了驚喜和美好的回憶。
 
-## 瑞士風景預覽
+## 直接 HTML 標籤引用的圖片
 
 以下是使用直接 HTML 標籤的圖片引用方式：
 
@@ -73,11 +93,17 @@ const swissImages = [
   <img src="../image/switzerland/resort.jpg" alt="瑞士度假村" width="300" height="200" />
 </div>
 
-## 精選照片
+## 引入模塊方式的圖片
 
-下面是我在瑞士拍攝的一些精選照片（使用 Vue 組件）：
+以下是使用 import 引入圖片的方式（與您之前成功的案例相似）：
 
-<ImageSlider :images="swissImages" height="500px" />
+<ImportedGallery :images="importedImages" />
+
+## 相對路徑引用的圖片
+
+以下是使用相對路徑的圖片引用方式（使用我們創建的新組件）：
+
+<GallerySwiper :images="swissImages" />
 
 ## 行程亮點
 
