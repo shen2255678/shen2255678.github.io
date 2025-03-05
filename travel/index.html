@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background-color: #f9f9f9;
         }
         
         /* 移除所有超連結的底線 */
@@ -33,7 +34,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             white-space: nowrap;
-            overflow: visible; /* 改為 visible 確保內容不被裁剪 */
+            overflow: visible; /* 確保內容不被裁剪 */
             text-align: center;
             color: white;
             margin: 0 10px;
@@ -41,27 +42,27 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        /* 主要藍色按鈕 */
+        /* 替換藍色按鈕為深綠色 */
         .btn-primary {
-            background-color: #4263eb;
+            background-color: #2a9d8f; /* 深綠色 */
             position: relative;
             z-index: 1;
         }
         
         .btn-primary:hover {
-            background-color: #3b5bdb;
+            background-color: #1e7d7a; /* 更深的綠色 */
             transform: translateY(-3px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
         
         /* 橙色高亮按鈕 */
         .btn-highlight {
-            background-color: #ff5722;
+            background-color: #ff5722; /* 明亮的橙色 */
             position: relative;
         }
         
         .btn-highlight:hover {
-            background-color: #e64a19;
+            background-color: #e64a19; /* 深橙色 */
             transform: translateY(-3px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
@@ -72,7 +73,7 @@
             position: absolute;
             top: -8px;
             right: -8px;
-            background-color: #ffeb3b;
+            background-color: #ffd166; /* 淺黃色 */
             color: #333;
             font-size: 11px;
             font-weight: bold;
@@ -83,6 +84,10 @@
         }
         
         /* 樣式應用於所有頁面導航連結 */
+        header {
+            background-color: #264653; /* 深藍綠色 */
+        }
+        
         header nav a {
             color: white;
             text-decoration: none;
@@ -94,11 +99,24 @@
         
         header nav a:hover {
             opacity: 1;
+            color: #e9c46a; /* 金黃色 */
+        }
+        
+        /* 容器樣式 */
+        .content-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+        }
+        
+        h1 {
+            color: #264653; /* 與頁首相同的深藍綠色 */
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <header class="bg-gray-800 text-white py-4">
+<body>
+    <header class="py-4">
         <nav class="flex justify-center space-x-6">
             <a href="../index.html">首頁</a>
             <a href="../travel.html">所有旅行</a>
@@ -108,12 +126,12 @@
     <main class="max-w-6xl mx-auto px-4 py-8">
         <h1 class="text-4xl text-center font-bold mb-10">旅行攝影</h1>
         
-        <div class="bg-white p-8 rounded-lg shadow-sm">
+        <div class="content-container">
             <p class="text-center text-lg mb-8">探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。</p>
             
             <div class="flex flex-wrap justify-center gap-6 my-4">
-                <a href="landscape.html" class="btn btn-primary">風景攝影</a>
-                <a href="culture.html" class="btn btn-primary">人文攝影</a>
+                <a href="landscape.html" class="btn btn-primary">瑞士照片集</a>
+                <a href="culture.html" class="btn btn-primary">日本照片集</a>
                 <a href="gallery.html" class="btn btn-highlight">照片畫廊示例</a>
             </div>
         </div>
