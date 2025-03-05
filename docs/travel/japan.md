@@ -7,15 +7,15 @@ title: 日本旅行紀錄
 import ImageSlider from '../components/ImageSlider.vue'
 
 // 日本旅行照片
-// 使用實際存在的照片路徑
+// 使用絕對路徑引用圖片
 const japanImages = [
   { 
-    src: '../image/japan/college.jpg', 
+    src: '/image/japan/college.jpg', 
     alt: '日本大學風景',
     caption: '日本傳統大學建築'
   },
   { 
-    src: '../image/japan/river.jpg', 
+    src: '/image/japan/river.jpg', 
     alt: '日本河川風景',
     caption: '寧靜的日本河景'
   }
