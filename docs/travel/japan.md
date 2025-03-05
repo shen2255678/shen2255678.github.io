@@ -5,8 +5,20 @@ title: 日本旅行紀錄
 
 <script setup>
 import ImageSlider from '../components/ImageSlider.vue'
+import GallerySwiper from '../components/GallerySwiper.vue'
+import ImportedGallery from '../components/ImportedGallery.vue'
 
-// 使用與 first-coding-post.md 相同的圖片路徑格式
+// 直接引入圖片
+import collegeImg from '../image/japan/college.jpg'
+import riverImg from '../image/japan/river.jpg'
+
+// 引入方式的圖片數組
+const importedImages = [
+  collegeImg,
+  riverImg
+]
+
+// 路徑引用方式的圖片數組
 const japanImages = [
   { 
     src: '../image/japan/college.jpg', 
@@ -44,7 +56,7 @@ const japanImages = [
 
 我的日本之旅橫跨了東京的現代都市，京都的古老寺廟，大阪的美食文化，以及奈良的自然風光。每一個地方都給我留下了深刻的印象。
 
-## 日本風景預覽
+## 直接 HTML 標籤引用的圖片
 
 以下是使用直接 HTML 標籤的圖片引用方式：
 
@@ -53,11 +65,17 @@ const japanImages = [
   <img src="../image/japan/river.jpg" alt="日本河景" width="300" height="200" />
 </div>
 
-## 精選照片
+## 引入模塊方式的圖片
 
-以下是我在日本拍攝的一些精選照片（使用 Vue 組件）：
+以下是使用 import 引入圖片的方式（與您之前成功的案例相似）：
 
-<ImageSlider :images="japanImages" height="500px" />
+<ImportedGallery :images="importedImages" />
+
+## 相對路徑引用的圖片
+
+以下是使用相對路徑的圖片引用方式（使用我們創建的新組件）：
+
+<GallerySwiper :images="japanImages" />
 
 ## 行程亮點
 
