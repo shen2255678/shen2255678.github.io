@@ -15,38 +15,93 @@
             color: #333;
         }
         
+        /* 移除所有超連結的底線 */
+        a {
+            text-decoration: none !important;
+        }
+        
         /* 按鈕通用樣式 */
         .btn {
-            @apply inline-flex items-center justify-center px-5 py-3 font-medium rounded-full transition-all duration-300;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             min-width: 200px;
+            height: 60px;
+            padding: 0 20px;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
             text-decoration: none;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            overflow: visible; /* 改為 visible 確保內容不被裁剪 */
+            text-align: center;
+            color: white;
+            margin: 0 10px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         /* 主要藍色按鈕 */
         .btn-primary {
-            @apply bg-blue-700 text-white hover:bg-blue-800;
+            background-color: #4263eb;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3b5bdb;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
         
         /* 橙色高亮按鈕 */
         .btn-highlight {
-            @apply bg-orange-500 text-white hover:bg-orange-600 relative;
+            background-color: #ff5722;
+            position: relative;
+        }
+        
+        .btn-highlight:hover {
+            background-color: #e64a19;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
         
         /* NEW標籤樣式 */
         .btn-highlight::after {
             content: "NEW";
-            @apply absolute -top-2 -right-2 bg-yellow-300 text-gray-800 text-xs font-bold py-0.5 px-1.5 rounded transform rotate-12 z-20;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ffeb3b;
+            color: #333;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transform: rotate(12deg);
+            z-index: 2;
+        }
+        
+        /* 樣式應用於所有頁面導航連結 */
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        
+        header nav a:hover {
+            opacity: 1;
         }
     </style>
 </head>
 <body class="bg-gray-50">
     <header class="bg-gray-800 text-white py-4">
         <nav class="flex justify-center space-x-6">
-            <a href="../index.html" class="font-medium hover:text-gray-300">首頁</a>
-            <a href="../travel.html" class="font-medium hover:text-gray-300">所有旅行</a>
+            <a href="../index.html">首頁</a>
+            <a href="../travel.html">所有旅行</a>
         </nav>
     </header>
     
@@ -56,7 +111,7 @@
         <div class="bg-white p-8 rounded-lg shadow-sm">
             <p class="text-center text-lg mb-8">探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。</p>
             
-            <div class="flex flex-wrap justify-center gap-6">
+            <div class="flex flex-wrap justify-center gap-6 my-4">
                 <a href="landscape.html" class="btn btn-primary">風景攝影</a>
                 <a href="culture.html" class="btn btn-primary">人文攝影</a>
                 <a href="gallery.html" class="btn btn-highlight">照片畫廊示例</a>
@@ -65,62 +120,13 @@
     </main>
 
     <script>
-        // 確保Tailwind CSS正確加載
-        if (typeof tailwind === 'undefined') {
-            console.log('Tailwind CSS未正確加載，使用備用樣式');
-            document.head.insertAdjacentHTML('beforeend', `
-                <style>
-                    .btn {
-                        display: inline-flex;
-                        align-items: center;
-                        justify-content: center;
-                        min-width: 200px;
-                        padding: 0.75rem 1.25rem;
-                        font-weight: 500;
-                        border-radius: 9999px;
-                        transition: all 0.3s;
-                        text-decoration: none;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-                    
-                    .btn-primary {
-                        background-color: #3f51b5;
-                        color: white;
-                    }
-                    
-                    .btn-primary:hover {
-                        background-color: #303f9f;
-                    }
-                    
-                    .btn-highlight {
-                        background-color: #ff5722;
-                        color: white;
-                        position: relative;
-                    }
-                    
-                    .btn-highlight:hover {
-                        background-color: #e64a19;
-                    }
-                    
-                    .btn-highlight::after {
-                        content: "NEW";
-                        position: absolute;
-                        top: -8px;
-                        right: -8px;
-                        background-color: #ffeb3b;
-                        color: #333;
-                        font-size: 0.6rem;
-                        font-weight: bold;
-                        padding: 2px 5px;
-                        border-radius: 2px;
-                        transform: rotate(12deg);
-                        z-index: 20;
-                    }
-                </style>
-            `);
-        }
+        // 確保所有鏈接沒有底線
+        document.addEventListener('DOMContentLoaded', function() {
+            const allLinks = document.querySelectorAll('a');
+            allLinks.forEach(link => {
+                link.style.textDecoration = 'none';
+            });
+        });
     </script>
 </body>
 </html>
