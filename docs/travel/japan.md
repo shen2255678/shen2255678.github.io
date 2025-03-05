@@ -4,32 +4,28 @@ title: 日本旅行紀錄
 ---
 
 <script setup>
-import ImageSlider from '../components/ImageSlider.vue'
-import GallerySwiper from '../components/GallerySwiper.vue'
-import ImportedGallery from '../components/ImportedGallery.vue'
+import TravelGallery from '../components/TravelGallery.vue'
 
-// 直接引入圖片
+// 引入圖片文件
 import collegeImg from '../image/japan/college.jpg'
 import riverImg from '../image/japan/river.jpg'
 
-// 引入方式的圖片數組
-const importedImages = [
-  collegeImg,
-  riverImg
+// 日本照片數組
+const japanImages = [
+  riverImg,
+  collegeImg
 ]
 
-// 路徑引用方式的圖片數組
-const japanImages = [
-  { 
-    src: '../image/japan/college.jpg', 
-    alt: '日本大學風景',
-    caption: '日本傳統大學建築'
-  },
-  { 
-    src: '../image/japan/river.jpg', 
-    alt: '日本河川風景',
-    caption: '寧靜的日本河景'
-  }
+// 照片標題
+const japanTitles = [
+  '松本 上高地',
+  '東京 東京大學'
+]
+
+// 照片描述
+const japanDescriptions = [
+  '冬天，上高地雖然封山，但請嚮導帶領還是可以入山健行，田代池，雖然不大但陽光灑落到水池跟空氣的樣子，配著山景也別有風味。',
+  '上野附近的東京大學，幅員廣大擁有許多歷史感的建築，漫步校園裡可以花上數個小時，其中赤門是在災難中倖存下來的珍貴歷史建築。'
 ]
 </script>
 
@@ -56,26 +52,13 @@ const japanImages = [
 
 我的日本之旅橫跨了東京的現代都市，京都的古老寺廟，大阪的美食文化，以及奈良的自然風光。每一個地方都給我留下了深刻的印象。
 
-## 直接 HTML 標籤引用的圖片
+## 精選照片
 
-以下是使用直接 HTML 標籤的圖片引用方式：
-
-<div class="preview-images">
-  <img src="../image/japan/college.jpg" alt="日本大學" width="300" height="200" />
-  <img src="../image/japan/river.jpg" alt="日本河景" width="300" height="200" />
-</div>
-
-## 引入模塊方式的圖片
-
-以下是使用 import 引入圖片的方式（與您之前成功的案例相似）：
-
-<ImportedGallery :images="importedImages" />
-
-## 相對路徑引用的圖片
-
-以下是使用相對路徑的圖片引用方式（使用我們創建的新組件）：
-
-<GallerySwiper :images="japanImages" />
+<TravelGallery 
+  :images="japanImages" 
+  :titles="japanTitles" 
+  :descriptions="japanDescriptions" 
+/>
 
 ## 行程亮點
 
@@ -147,18 +130,5 @@ const japanImages = [
 
 .meta-value {
   font-weight: 500;
-}
-
-.preview-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.preview-images img {
-  border-radius: 8px;
-  object-fit: cover;
 }
 </style>
