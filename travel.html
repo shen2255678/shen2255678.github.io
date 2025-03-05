@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>呂浩維的旅行紀錄</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <style>
         .travel-gallery {
             display: flex;
@@ -52,45 +51,34 @@
         <main>
             <h1 class="region-title">我的旅行足跡</h1>
             
-            <div v-for="(region, regionName) in travelDestinations" :key="regionName">
-                <h2 class="region-title">{{ regionName }}</h2>
+            <!-- 歐洲區域 -->
+            <div>
+                <h2 class="region-title">歐洲</h2>
                 <div class="travel-gallery">
-                    <div v-for="destination in region" :key="destination.name" class="travel-card">
-                        <a :href="destination.link">
-                            <img :src="destination.coverImage" :alt="destination.name + '旅行'">
-                            <h3>{{ destination.name }}</h3>
-                            <p>{{ destination.description }}</p>
+                    <div class="travel-card">
+                        <a href="europe.html">
+                            <img src="images/switzerland/img1.jpg" alt="歐洲旅行">
+                            <h3>歐洲旅行</h3>
+                            <p>探索歐洲各國美景與文化</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 亞洲區域 -->
+            <div>
+                <h2 class="region-title">亞洲</h2>
+                <div class="travel-gallery">
+                    <div class="travel-card">
+                        <a href="japan.html">
+                            <img src="images/japan/img1.jpg" alt="日本旅行">
+                            <h3>日本</h3>
+                            <p>現代與傳統交融的國度</p>
                         </a>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                travelDestinations: {
-                    '歐洲': [
-                        {
-                            name: '歐洲旅行',
-                            link: 'europe.html',
-                            coverImage: 'images/switzerland/img1.jpg',
-                            description: '探索歐洲各國美景與文化'
-                        }
-                    ],
-                    '亞洲': [
-                        {
-                            name: '日本',
-                            link: 'japan.html',
-                            coverImage: 'images/japan/img1.jpg',
-                            description: '現代與傳統交融的國度'
-                        }
-                    ]
-                }
-            }
-        });
-    </script>
 </body>
 </html>
