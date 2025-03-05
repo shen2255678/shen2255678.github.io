@@ -4,9 +4,7 @@ title: 瑞士旅行紀錄
 ---
 
 <script setup>
-import ImageSlider from '../components/ImageSlider.vue'
-import GallerySwiper from '../components/GallerySwiper.vue' 
-import ImportedGallery from '../components/ImportedGallery.vue'
+import TravelGallery from '../components/TravelGallery.vue'
 
 // 引入圖片文件
 import cableCar from '../image/switzerland/cableCar.jpg'
@@ -16,48 +14,31 @@ import swiss_m from '../image/switzerland/swiss_m.jpg'
 import swiss_train1 from '../image/switzerland/swiss_train1.jpg'
 import swiss_train2 from '../image/switzerland/swiss_train2.jpg'
 
-// 引入方式的圖片數組
-const importedImages = [
-  cableCar,
-  resort,
-  sky,
+// 瑞士照片數組
+const swissImages = [
   swiss_m,
   swiss_train1,
-  swiss_train2
+  swiss_train2,
+  cableCar,
+  resort
 ]
 
-// 路徑引用方式的圖片數組
-const swissImages = [
-  { 
-    src: '../image/switzerland/swiss_train1.jpg', 
-    alt: '瑞士火車',
-    caption: '穿越阿爾卑斯山脈的瑞士火車'
-  },
-  { 
-    src: '../image/switzerland/swiss_train2.jpg', 
-    alt: '冰河列車',
-    caption: '瑞士著名的冰河列車'
-  },
-  { 
-    src: '../image/switzerland/swiss_m.jpg', 
-    alt: '馬特洪峰',
-    caption: '馬特洪峰 - 瑞士最著名的山峰之一'
-  },
-  { 
-    src: '../image/switzerland/cableCar.jpg', 
-    alt: '纜車',
-    caption: '阿爾卑斯山纜車體驗'
-  },
-  { 
-    src: '../image/switzerland/resort.jpg', 
-    alt: '度假村',
-    caption: '瑞士高級山間度假村'
-  },
-  { 
-    src: '../image/switzerland/sky.jpg', 
-    alt: '瑞士天空',
-    caption: '瑞士壯麗的自然風光'
-  }
+// 照片標題
+const swissTitles = [
+  '馬特洪峰',
+  '瑞士火車',
+  '冰河列車',
+  '策馬特登山纜車',
+  '瑞士高級度假村'
+]
+
+// 照片描述
+const swissDescriptions = [
+  '馬特洪峰是瑞士最著名的山峰之一，其獨特的金字塔形狀使其成為世界上最上鏡的山峰。',
+  '瑞士的火車系統聞名世界，不僅準時高效，更因其穿越阿爾卑斯山脈的壯麗路線而吸引無數遊客。',
+  '冰河列車是一條連接聖莫里茨和策馬特的景觀鐵路線，沿途可以欣賞到瑞士最美麗的自然風光。',
+  '策馬特是瑞士著名的滑雪勝地，搭乘纜車可以欣賞到馬特洪峰的壯麗景色。',
+  '瑞士的度假村通常融合了現代設施與自然環境，讓您在舒適的環境中享受阿爾卑斯山脈的壯麗景色。'
 ]
 </script>
 
@@ -84,26 +65,13 @@ const swissImages = [
 
 我的瑞士之旅橫跨了該國多個著名城市，從蘇黎世的現代都市風光，到琉森的中世紀魅力，再到馬特洪峰的壯麗景色。每一步都充滿了驚喜和美好的回憶。
 
-## 直接 HTML 標籤引用的圖片
+## 精選照片
 
-以下是使用直接 HTML 標籤的圖片引用方式：
-
-<div class="preview-images">
-  <img src="../image/switzerland/cableCar.jpg" alt="瑞士纜車" width="300" height="200" />
-  <img src="../image/switzerland/resort.jpg" alt="瑞士度假村" width="300" height="200" />
-</div>
-
-## 引入模塊方式的圖片
-
-以下是使用 import 引入圖片的方式（與您之前成功的案例相似）：
-
-<ImportedGallery :images="importedImages" />
-
-## 相對路徑引用的圖片
-
-以下是使用相對路徑的圖片引用方式（使用我們創建的新組件）：
-
-<GallerySwiper :images="swissImages" />
+<TravelGallery 
+  :images="swissImages" 
+  :titles="swissTitles" 
+  :descriptions="swissDescriptions" 
+/>
 
 ## 行程亮點
 
@@ -170,18 +138,5 @@ const swissImages = [
 
 .meta-value {
   font-weight: 500;
-}
-
-.preview-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.preview-images img {
-  border-radius: 8px;
-  object-fit: cover;
 }
 </style>
