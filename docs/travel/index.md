@@ -7,44 +7,13 @@ title: 旅行見聞
 
 在這個部分，我分享旅行中的所見所聞、攝影作品以及文化體驗。透過旅行，探索世界的多樣性和美麗。
 
-## 即將推出
-
-<div class="travel-banner">
-  <div class="banner-content">
-    <h2>旅行專欄即將上線</h2>
-    <p>我正在整理日本、歐洲和東南亞的旅行筆記和照片，即將與大家分享。</p>
-  </div>
-</div>
-
-## 計劃內容
-
-這個欄目將涵蓋以下內容：
-
-- **旅行遊記**：詳細的旅行經歷和文化體驗
-- **實用攻略**：行前準備、交通、住宿等實用信息
-- **攝影作品**：旅途中的風景和人文攝影
-- **文化觀察**：不同地區的文化差異和特色
-
-## 熱門目的地預覽
+## 目的地導航
 
 <div class="destination-grid">
-  <div class="destination-card">
-    <div class="destination-image">🗾</div>
-    <div class="destination-info">
-      <h4>日本</h4>
-      <p>東京、京都、大阪、北海道</p>
-      <div class="destination-tags">
-        <span>美食</span>
-        <span>文化</span>
-        <span>城市</span>
-      </div>
-    </div>
-  </div>
-  
-  <div class="destination-card">
+  <a href="./europe" class="destination-card">
     <div class="destination-image">🏰</div>
     <div class="destination-info">
-      <h4>歐洲</h4>
+      <h3>歐洲</h3>
       <p>法國、德國、瑞士、義大利</p>
       <div class="destination-tags">
         <span>歷史</span>
@@ -52,26 +21,68 @@ title: 旅行見聞
         <span>建築</span>
       </div>
     </div>
-  </div>
+  </a>
   
-  <div class="destination-card">
+  <a href="./switzerland" class="destination-card">
+    <div class="destination-image">🏔️</div>
+    <div class="destination-info">
+      <h3>瑞士</h3>
+      <p>阿爾卑斯山脈、湖泊與雪景</p>
+      <div class="destination-tags">
+        <span>自然</span>
+        <span>山區</span>
+        <span>湖泊</span>
+      </div>
+    </div>
+  </a>
+  
+  <a href="./japan" class="destination-card">
+    <div class="destination-image">🗾</div>
+    <div class="destination-info">
+      <h3>日本</h3>
+      <p>東京、京都、大阪、奈良</p>
+      <div class="destination-tags">
+        <span>美食</span>
+        <span>文化</span>
+        <span>城市</span>
+      </div>
+    </div>
+  </a>
+  
+  <div class="destination-card coming-soon">
     <div class="destination-image">🏝️</div>
     <div class="destination-info">
-      <h4>東南亞</h4>
+      <h3>東南亞</h3>
       <p>泰國、越南、新加坡、馬來西亞</p>
       <div class="destination-tags">
         <span>海灘</span>
         <span>美食</span>
         <span>自然</span>
       </div>
+      <div class="coming-soon-label">即將推出</div>
     </div>
+  </div>
+</div>
+
+## 最新旅行
+
+<div class="latest-travel">
+  <div class="travel-card">
+    <h3>瑞士阿爾卑斯山脈之旅</h3>
+    <p class="travel-date">2023年8月</p>
+    <p>探索瑞士壯麗的山脈、湖泊和小鎮，體驗世界級的火車旅行和纜車景觀。</p>
+    <a href="./switzerland" class="read-more">閱讀全文 →</a>
   </div>
 </div>
 
 ## 旅行攝影
 
 <div class="photo-preview">
-  <p class="photo-coming-soon">攝影作品集即將上線，敬請期待！</p>
+  <p>探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。</p>
+  <div class="photo-buttons">
+    <a href="./switzerland#精選照片" class="photo-button">瑞士照片集</a>
+    <a href="./japan#精選照片" class="photo-button">日本照片集</a>
+  </div>
 </div>
 
 ## 旅行資源推薦
@@ -116,6 +127,8 @@ title: 旅行見聞
   padding: 15px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: 1px solid var(--vp-c-divider);
+  text-decoration: none;
+  color: inherit;
 }
 
 .destination-card:hover {
@@ -135,7 +148,7 @@ title: 旅行見聞
   flex: 1;
 }
 
-.destination-info h4 {
+.destination-info h3 {
   margin: 0 0 5px 0;
   font-size: 1.1rem;
 }
@@ -160,17 +173,78 @@ title: 旅行見聞
   border-radius: 20px;
 }
 
+.coming-soon {
+  opacity: 0.7;
+  position: relative;
+  cursor: not-allowed;
+}
+
+.coming-soon-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--vp-c-gray);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.latest-travel {
+  margin: 30px 0;
+}
+
+.travel-card {
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.travel-card h3 {
+  margin-top: 0;
+}
+
+.travel-date {
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 500;
+  color: var(--vp-c-brand);
+}
+
 .photo-preview {
   background-color: var(--vp-c-bg-soft);
   border-radius: 8px;
-  padding: 40px;
+  padding: 25px;
   margin: 30px 0;
   text-align: center;
-  border: 1px dashed var(--vp-c-divider);
 }
 
-.photo-coming-soon {
-  font-size: 1.1rem;
-  color: var(--vp-c-text-2);
+.photo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.photo-button {
+  background-color: var(--vp-c-brand);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.photo-button:hover {
+  background-color: var(--vp-c-brand-dark);
 }
 </style>
