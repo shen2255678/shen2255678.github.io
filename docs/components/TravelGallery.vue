@@ -1,7 +1,9 @@
 <template>
   <div class="gallery">
     <div v-for="(img, index) in images" :key="index" class="gallery-item">
-      <img :src="img" @click="showLightbox(index)" alt="Image" />
+      <div class="img-container">
+        <img :src="img" @click="showLightbox(index)" alt="Image" />
+      </div>
       <h3>{{ titles[index] }}</h3>
       <span>{{ descriptions[index] }}</span>
     </div>
@@ -63,11 +65,14 @@ const handleHide = () => {
   max-width: 30%;
   text-align: center;
   margin-bottom: 20px;
-  /* Add background color with transparency to ensure text is visible in both light and dark modes */
-  background-color: rgba(var(--vp-c-bg-rgb), 0.7);
+  background-color: var(--vp-c-bg-soft);
   border-radius: 8px;
   padding-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-item:hover {
@@ -75,24 +80,38 @@ const handleHide = () => {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.gallery-item .img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
 .gallery-item img {
   width: 100%;
-  border-radius: 8px 8px 0 0;
+  height: 100%;
+  object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
 }
 
 .gallery-item h3 {
   margin: 15px 0 5px;
   font-size: 1.2em;
-  color: var(--vp-c-text-1); /* Use VitePress text color variables for dark mode compatibility */
+  color: var(--vp-c-text-1);
+  padding: 0 10px;
 }
 
 .gallery-item span {
   display: block;
   font-size: 0.9em;
-  color: var(--vp-c-text-2); /* Use VitePress text color variables for dark mode compatibility */
+  color: var(--vp-c-text-2);
   padding: 0 10px;
+  flex-grow: 1;
 }
 
 /* Responsive adjustments */
@@ -113,6 +132,7 @@ const handleHide = () => {
 /* Dark mode specific adjustments */
 .dark .gallery-item {
   background-color: rgba(39, 39, 42, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .dark .gallery-item h3 {
@@ -121,5 +141,26 @@ const handleHide = () => {
 
 .dark .gallery-item span {
   color: rgba(235, 235, 235, 0.6);
+}
+
+/* Custom styles for vue-easy-lightbox */
+:deep(.vel-modal) {
+  z-index: 1000;
+}
+
+:deep(.vel-img-title) {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+:deep(.vel-btn) {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+:deep(.vel-btn:hover) {
+  background-color: rgba(255, 255, 255, 0.4) !important;
 }
 </style>
