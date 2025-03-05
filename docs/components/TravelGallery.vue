@@ -63,31 +63,39 @@ const handleHide = () => {
   max-width: 30%;
   text-align: center;
   margin-bottom: 20px;
+  /* Add background color with transparency to ensure text is visible in both light and dark modes */
+  background-color: rgba(var(--vp-c-bg-rgb), 0.7);
+  border-radius: 8px;
+  padding-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.gallery-item img:hover {
-  transform: scale(1.03);
-}
-
 .gallery-item h3 {
-  margin: 10px 0 5px;
+  margin: 15px 0 5px;
   font-size: 1.2em;
+  color: var(--vp-c-text-1); /* Use VitePress text color variables for dark mode compatibility */
 }
 
 .gallery-item span {
   display: block;
   font-size: 0.9em;
-  color: #666;
+  color: var(--vp-c-text-2); /* Use VitePress text color variables for dark mode compatibility */
   padding: 0 10px;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .gallery-item {
     min-width: 45%;
@@ -100,5 +108,18 @@ const handleHide = () => {
     min-width: 100%;
     max-width: 100%;
   }
+}
+
+/* Dark mode specific adjustments */
+.dark .gallery-item {
+  background-color: rgba(39, 39, 42, 0.5);
+}
+
+.dark .gallery-item h3 {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.dark .gallery-item span {
+  color: rgba(235, 235, 235, 0.6);
 }
 </style>
