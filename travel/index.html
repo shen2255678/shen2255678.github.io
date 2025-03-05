@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旅行攝影</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 基礎樣式 */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -13,123 +15,112 @@
             color: #333;
         }
         
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: center;
-            padding: 0.5rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .travel-container {
-            background-color: #f5f5f5;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        /* 修正按鈕的CSS問題 */
-        .travel-button {
-            display: inline-block;
+        /* 按鈕通用樣式 */
+        .btn {
+            @apply inline-flex items-center justify-center px-5 py-3 font-medium rounded-full transition-all duration-300;
             min-width: 200px;
-            height: 60px;
-            line-height: 60px;
-            text-align: center;
-            background-color: #3f51b5;
-            color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            padding: 0 20px;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-            /* 確保文字不會被截斷 */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         
-        .travel-button:hover {
-            background-color: #303f9f;
-            transform: scale(1.05);
+        /* 主要藍色按鈕 */
+        .btn-primary {
+            @apply bg-blue-700 text-white hover:bg-blue-800;
         }
         
-        .orange-button {
-            background-color: #ff5722;
+        /* 橙色高亮按鈕 */
+        .btn-highlight {
+            @apply bg-orange-500 text-white hover:bg-orange-600 relative;
         }
         
-        .orange-button:hover {
-            background-color: #e64a19;
-        }
-        
-        /* 手機版響應式設計 */
-        @media (max-width: 768px) {
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .travel-button {
-                width: 80%;
-                max-width: 300px;
-            }
+        /* NEW標籤樣式 */
+        .btn-highlight::after {
+            content: "NEW";
+            @apply absolute -top-2 -right-2 bg-yellow-300 text-gray-800 text-xs font-bold py-0.5 px-1.5 rounded transform rotate-12 z-20;
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="../index.html">首頁</a>
-            <a href="../travel.html">所有旅行</a>
+<body class="bg-gray-50">
+    <header class="bg-gray-800 text-white py-4">
+        <nav class="flex justify-center space-x-6">
+            <a href="../index.html" class="font-medium hover:text-gray-300">首頁</a>
+            <a href="../travel.html" class="font-medium hover:text-gray-300">所有旅行</a>
         </nav>
     </header>
     
-    <main>
-        <h1>旅行攝影</h1>
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <h1 class="text-4xl text-center font-bold mb-10">旅行攝影</h1>
         
-        <div class="travel-container">
-            <p>探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。</p>
+        <div class="bg-white p-8 rounded-lg shadow-sm">
+            <p class="text-center text-lg mb-8">探索我在各地拍攝的精選照片，捕捉世界各地的美麗風景和文化。</p>
             
-            <div class="button-container">
-                <a href="landscape.html" class="travel-button">風景攝影</a>
-                <a href="culture.html" class="travel-button">人文攝影</a>
-                <a href="gallery.html" class="travel-button orange-button">照片畫廊示例</a>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="landscape.html" class="btn btn-primary">風景攝影</a>
+                <a href="culture.html" class="btn btn-primary">人文攝影</a>
+                <a href="gallery.html" class="btn btn-highlight">照片畫廊示例</a>
             </div>
         </div>
     </main>
+
+    <script>
+        // 確保Tailwind CSS正確加載
+        if (typeof tailwind === 'undefined') {
+            console.log('Tailwind CSS未正確加載，使用備用樣式');
+            document.head.insertAdjacentHTML('beforeend', `
+                <style>
+                    .btn {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 200px;
+                        padding: 0.75rem 1.25rem;
+                        font-weight: 500;
+                        border-radius: 9999px;
+                        transition: all 0.3s;
+                        text-decoration: none;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    
+                    .btn-primary {
+                        background-color: #3f51b5;
+                        color: white;
+                    }
+                    
+                    .btn-primary:hover {
+                        background-color: #303f9f;
+                    }
+                    
+                    .btn-highlight {
+                        background-color: #ff5722;
+                        color: white;
+                        position: relative;
+                    }
+                    
+                    .btn-highlight:hover {
+                        background-color: #e64a19;
+                    }
+                    
+                    .btn-highlight::after {
+                        content: "NEW";
+                        position: absolute;
+                        top: -8px;
+                        right: -8px;
+                        background-color: #ffeb3b;
+                        color: #333;
+                        font-size: 0.6rem;
+                        font-weight: bold;
+                        padding: 2px 5px;
+                        border-radius: 2px;
+                        transform: rotate(12deg);
+                        z-index: 20;
+                    }
+                </style>
+            `);
+        }
+    </script>
 </body>
 </html>
