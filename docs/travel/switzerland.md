@@ -79,17 +79,25 @@ const swissDescriptions = [
 
 琉森是瑞士最美麗的城市之一，其中世紀建築和湖泊風光相得益彰。卡佩爾木橋（Chapel Bridge）是琉森的標誌性建築，這座有蓋的木橋建於14世紀，是歐洲最古老的有蓋木橋之一。
 
+<img src="../image/switzerland/sky.jpg" alt="琉森湖畔風光" class="highlight-image" />
+
 ### 策馬特滑雪勝地
 
 策馬特是瑞士著名的滑雪度假勝地，也是觀賞馬特洪峰的最佳地點。這裡全年都能滑雪，夏季還可以進行徒步旅行，欣賞高山草甸和冰川美景。
+
+<img src="../image/switzerland/cableCar.jpg" alt="策馬特滑雪勝地" class="highlight-image" />
 
 ### 冰河列車之旅
 
 乘坐著名的冰河列車穿越阿爾卑斯山脈，這是一次難忘的體驗。列車沿途經過壯麗的山谷、瀑布和冰川，是欣賞瑞士自然風光的絕佳方式。
 
+<img src="../image/switzerland/swiss_train1.jpg" alt="冰河列車之旅" class="highlight-image" />
+
 ### 蘇黎世藝術之旅
 
 蘇黎世不僅是瑞士的金融中心，也是一個充滿藝術氣息的城市。巴恩霍夫大街上的精品店、蘇黎世美術館和歷史悠久的老城區都是不可錯過的景點。
+
+<img src="../image/switzerland/resort.jpg" alt="蘇黎世藝術之旅" class="highlight-image" />
 
 ## 實用信息
 
@@ -138,5 +146,19 @@ const swissDescriptions = [
 
 .meta-value {
   font-weight: 500;
+}
+
+.highlight-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Dark mode adjustments */
+.dark .highlight-image {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 </style>
