@@ -4,12 +4,48 @@ title: 歐洲旅行紀錄
 ---
 
 <script setup>
-// 您也可以為該頁面添加特定的 Vue 組件或數據
+import TravelGallery from '../components/TravelGallery.vue'
+
+// 引入圖片文件
+import swiss_train1 from '../image/switzerland/swiss_train1.jpg'
+import cableCar from '../image/switzerland/cableCar.jpg'
+import resort from '../image/switzerland/resort.jpg'
+
+// 瑞士照片數組
+const europeImages = [
+  swiss_train1,
+  cableCar,
+  resort
+]
+
+// 照片標題
+const europeTitles = [
+  '瑞士 蘇拉瓦',
+  '策馬特 登山纜車',
+  '瑞士 高級度假村'
+]
+
+// 照片描述
+const europeDescriptions = [
+  '伯爾尼納快車是瑞士的三大著名景觀列車，連接瑞士庫爾與波斯基亞沃及義大利蒂拉諾，穿梭在阿爾卑斯山脈中，其中的美無法言喻。',
+  '策馬特是瑞士著名的滑雪勝地，搭乘纜車可以欣賞到馬特洪峰的壯麗景色。這裡的纜車系統完善，能夠帶您到達各個絕佳的觀景點。',
+  '瑞士的度假村通常融合了現代設施與自然環境，讓您在舒適的環境中享受阿爾卑斯山脈的壯麗景色。'
+]
 </script>
 
 # 歐洲旅行紀錄
 
 歐洲是一個充滿歷史、文化和自然美景的大陸。從北歐的挪威峽灣到地中海的希臘島嶼，從西歐的法國葡萄園到東歐的捷克古城，每個國家都有其獨特的魅力。
+
+## 我的歐洲照片
+
+目前我主要探索了瑞士，以下是一些精選照片：
+
+<TravelGallery 
+  :images="europeImages" 
+  :titles="europeTitles" 
+  :descriptions="europeDescriptions" 
+/>
 
 ## 我的歐洲目的地
 
@@ -151,5 +187,14 @@ title: 歐洲旅行紀錄
   font-size: 0.75rem;
   padding: 2px 8px;
   border-radius: 20px;
+}
+
+/* Dark mode adjustments */
+.dark .tag {
+  background-color: rgba(23, 77, 108, 0.5);
+}
+
+.dark .coming-soon-badge {
+  color: rgba(235, 235, 235, 0.8);
 }
 </style>
