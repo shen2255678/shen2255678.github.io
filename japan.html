@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>日本旅行紀錄</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <style>
         .photo-gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
+            margin-bottom: 30px;
         }
         .photo-gallery img {
             max-width: 300px;
@@ -18,48 +19,148 @@
             object-fit: cover;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
         .photo-gallery img:hover {
             transform: scale(1.05);
         }
+        
+        /* 幻燈片樣式 */
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .slide {
+            display: none;
+            text-align: center;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide img {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 10px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .slide-caption {
+            margin-top: 10px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">首頁</a>
-            <a href="travel.html">返回旅行</a>
-        </nav>
-    </header>
+    <div id="app">
+        <header>
+            <nav>
+                <a href="index.html">首頁</a>
+                <a href="travel.html">返回旅行</a>
+            </nav>
+        </header>
 
-    <main>
-        <h1>日本旅行日記</h1>
-        
-        <section>
-            <h2>旅行概況</h2>
-            <p>日本，一個傳統與現代完美交融的國度，充滿令人驚嘆的文化、科技和自然之美。</p>
-        </section>
+        <main>
+            <h1>{{ title }}</h1>
+            
+            <section>
+                <h2>旅行概況</h2>
+                <p>{{ description }}</p>
+            </section>
 
-        <section>
-            <h2>旅行相簿</h2>
-            <div class="photo-gallery">
-                <img src="images/japan/img1.jpg" alt="日本風景1">
-                <img src="images/japan/img2.jpg" alt="日本風景2">
-                <img src="images/japan/img3.jpg" alt="日本風景3">
-                <img src="images/japan/img4.jpg" alt="日本風景4">
-                <img src="images/japan/img5.jpg" alt="日本風景5">
-            </div>
-        </section>
+            <section>
+                <h2>旅行相簿</h2>
+                <!-- 幻燈片展示 -->
+                <div class="slideshow-container" v-if="currentSlideIndex !== null">
+                    <div v-for="(image, index) in images" :key="index" 
+                         class="slide" :class="{ active: index === currentSlideIndex }">
+                        <img :src="image.src" :alt="image.alt">
+                        <div class="slide-caption">{{ image.alt }}</div>
+                    </div>
+                    <button class="prev" @click="prevSlide">&lt;</button>
+                    <button class="next" @click="nextSlide">&gt;</button>
+                </div>
+                
+                <!-- 縮略圖畫廊 -->
+                <div class="photo-gallery">
+                    <img v-for="(image, index) in images" 
+                         :key="index" 
+                         :src="image.src" 
+                         :alt="image.alt"
+                         @click="openSlideshow(index)">
+                </div>
+            </section>
 
-        <section>
-            <h2>行程亮點</h2>
-            <ul>
-                <li>東京都市風光</li>
-                <li>京都古蹟</li>
-                <li>富士山景色</li>
-                <li>大阪美食之旅</li>
-            </ul>
-        </section>
-    </main>
+            <section>
+                <h2>行程亮點</h2>
+                <ul>
+                    <li v-for="(highlight, index) in highlights" :key="index">
+                        {{ highlight }}
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: '日本旅行日記',
+                description: '日本，一個傳統與現代完美交融的國度，充滿令人驚嘆的文化、科技和自然之美。這裡有著迷人的櫻花季節，美麗的富士山風景，以及充滿活力的東京和歷史悠久的京都。',
+                currentSlideIndex: null,
+                images: [
+                    { src: 'images/japan/img1.jpg', alt: '東京都市風景' },
+                    { src: 'images/japan/img2.jpg', alt: '京都古寺' },
+                    { src: 'images/japan/img3.jpg', alt: '富士山雪景' },
+                    { src: 'images/japan/img4.jpg', alt: '大阪城景色' },
+                    { src: 'images/japan/img5.jpg', alt: '日本櫻花季' }
+                ],
+                highlights: [
+                    '東京都市風光與購物之旅',
+                    '京都古寺與文化體驗',
+                    '富士山遠眺與自然探索',
+                    '大阪美食與城市風情'
+                ]
+            },
+            methods: {
+                openSlideshow(index) {
+                    this.currentSlideIndex = index;
+                },
+                prevSlide() {
+                    if (this.currentSlideIndex > 0) {
+                        this.currentSlideIndex--;
+                    } else {
+                        this.currentSlideIndex = this.images.length - 1;
+                    }
+                },
+                nextSlide() {
+                    if (this.currentSlideIndex < this.images.length - 1) {
+                        this.currentSlideIndex++;
+                    } else {
+                        this.currentSlideIndex = 0;
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
