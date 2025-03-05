@@ -6,36 +6,35 @@ title: 瑞士旅行紀錄
 <script setup>
 import ImageSlider from '../components/ImageSlider.vue'
 
-// 在 VitePress 中，可以使用 import.meta.url 來獲取基於文件的相對路徑
-// 但在 Markdown 文件中，我們仍然使用相對路徑的方式
+// 使用完整路徑引用圖片
 const swissImages = [
   { 
-    src: '/image/switzerland/swiss_train1.jpg', 
+    src: '/docs/image/switzerland/swiss_train1.jpg', 
     alt: '瑞士火車',
     caption: '穿越阿爾卑斯山脈的瑞士火車'
   },
   { 
-    src: '/image/switzerland/swiss_train2.jpg', 
+    src: '/docs/image/switzerland/swiss_train2.jpg', 
     alt: '冰河列車',
     caption: '瑞士著名的冰河列車'
   },
   { 
-    src: '/image/switzerland/swiss_m.jpg', 
+    src: '/docs/image/switzerland/swiss_m.jpg', 
     alt: '馬特洪峰',
     caption: '馬特洪峰 - 瑞士最著名的山峰之一'
   },
   { 
-    src: '/image/switzerland/cableCar.jpg', 
+    src: '/docs/image/switzerland/cableCar.jpg', 
     alt: '纜車',
     caption: '阿爾卑斯山纜車體驗'
   },
   { 
-    src: '/image/switzerland/resort.jpg', 
+    src: '/docs/image/switzerland/resort.jpg', 
     alt: '度假村',
     caption: '瑞士高級山間度假村'
   },
   { 
-    src: '/image/switzerland/sky.jpg', 
+    src: '/docs/image/switzerland/sky.jpg', 
     alt: '瑞士天空',
     caption: '瑞士壯麗的自然風光'
   }
