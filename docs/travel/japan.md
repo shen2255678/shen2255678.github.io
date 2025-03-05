@@ -7,19 +7,17 @@ title: 日本旅行紀錄
 import ImageSlider from '../components/ImageSlider.vue'
 
 // 日本旅行照片
-// 注意：這裡使用了 docs/image/japan 目錄中的圖片
-// 如果您沒有這些照片，請替換為您自己的照片路徑
+// 使用實際存在的照片路徑
 const japanImages = [
   { 
-    src: '../image/japan/cover.jpg', 
-    alt: '東京全景',
-    caption: '東京都市全景'
+    src: '../image/japan/college.jpg', 
+    alt: '日本大學風景',
+    caption: '日本傳統大學建築'
   },
-  // 您可以根據實際情況添加更多圖片
   { 
-    src: '../image/japan/cover.jpg', 
-    alt: '東京街景',
-    caption: '繁華的東京街道'
+    src: '../image/japan/river.jpg', 
+    alt: '日本河川風景',
+    caption: '寧靜的日本河景'
   }
 ]
 </script>
