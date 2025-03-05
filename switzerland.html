@@ -11,6 +11,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
+            margin-bottom: 30px;
         }
         .photo-gallery img {
             max-width: 300px;
@@ -18,9 +19,53 @@
             object-fit: cover;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
         .photo-gallery img:hover {
             transform: scale(1.05);
+        }
+        
+        /* 幻燈片樣式 */
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .slide {
+            display: none;
+            text-align: center;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide img {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 10px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .slide-caption {
+            margin-top: 10px;
+            color: #333;
         }
     </style>
 </head>
@@ -30,6 +75,7 @@
             <nav>
                 <a href="index.html">首頁</a>
                 <a href="travel.html">返回旅行</a>
+                <a href="europe.html">返回歐洲</a>
             </nav>
         </header>
 
@@ -43,11 +89,24 @@
 
             <section>
                 <h2>旅行相簿</h2>
+                <!-- 幻燈片展示 -->
+                <div class="slideshow-container" v-if="currentSlideIndex !== null">
+                    <div v-for="(image, index) in images" :key="index" 
+                         class="slide" :class="{ active: index === currentSlideIndex }">
+                        <img :src="image.src" :alt="image.alt">
+                        <div class="slide-caption">{{ image.alt }}</div>
+                    </div>
+                    <button class="prev" @click="prevSlide">&lt;</button>
+                    <button class="next" @click="nextSlide">&gt;</button>
+                </div>
+                
+                <!-- 縮略圖畫廊 -->
                 <div class="photo-gallery">
                     <img v-for="(image, index) in images" 
                          :key="index" 
                          :src="image.src" 
-                         :alt="image.alt">
+                         :alt="image.alt"
+                         @click="openSlideshow(index)">
                 </div>
             </section>
 
@@ -67,20 +126,41 @@
             el: '#app',
             data: {
                 title: '瑞士旅行日記',
-                description: '瑞士，一個令人著迷的阿爾卑斯山國度，以其壯麗的山景、精緻的鐘錶和美味的巧克力而聞名。',
+                description: '瑞士，一個令人著迷的阿爾卑斯山國度，以其壯麗的山景、精緻的鐘錶和美味的巧克力而聞名。在這裡，您可以體驗到令人嘆為觀止的自然風光、高效的交通系統以及舒適的度假勝地。',
+                currentSlideIndex: null,
                 images: [
-                    { src: 'docs/image/switzerland/swiss_train1.jpg', alt: '瑞士風景1' },
-                    { src: 'docs/image/switzerland/swiss_train2.jpg', alt: '瑞士風景2' },
-                    { src: 'docs/image/switzerland/swiss_m.jpg', alt: '瑞士風景3' },
-                    { src: 'docs/image/switzerland/cableCar.jpg', alt: '瑞士風景4' },
-                    { src: 'docs/image/switzerland/resort.jpg', alt: '瑞士風景5' }
+                    { src: 'images/switzerland/img1.jpg', alt: '瑞士阿爾卑斯山風景' },
+                    { src: 'images/switzerland/img1.jpg', alt: '瑞士火車之旅' },
+                    { src: 'images/switzerland/img1.jpg', alt: '日內瓦湖景色' },
+                    { src: 'images/switzerland/img1.jpg', alt: '策馬特雪景' },
+                    { src: 'images/switzerland/img1.jpg', alt: '瑞士度假勝地' }
                 ],
                 highlights: [
-                    '策馬特滑雪勝地',
-                    '琉森湖風景',
-                    '茵特拉根山區',
-                    '蘇黎世城市風光'
+                    '策馬特滑雪勝地體驗',
+                    '琉森湖風景遊覽',
+                    '阿爾卑斯山健行',
+                    '瑞士特色火車之旅',
+                    '日內瓦湖遊船與美景'
                 ]
+            },
+            methods: {
+                openSlideshow(index) {
+                    this.currentSlideIndex = index;
+                },
+                prevSlide() {
+                    if (this.currentSlideIndex > 0) {
+                        this.currentSlideIndex--;
+                    } else {
+                        this.currentSlideIndex = this.images.length - 1;
+                    }
+                },
+                nextSlide() {
+                    if (this.currentSlideIndex < this.images.length - 1) {
+                        this.currentSlideIndex++;
+                    } else {
+                        this.currentSlideIndex = 0;
+                    }
+                }
             }
         });
     </script>
