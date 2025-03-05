@@ -235,7 +235,9 @@ title: 旅行見聞
   margin-top: 15px;
 }
 
+/* 修正按鈕的CSS，使用Tailwind CSS風格的類名命名方式 */
 .photo-button {
+  @apply inline-flex items-center justify-center;
   background-color: var(--vp-c-brand);
   color: white;
   padding: 8px 16px;
@@ -243,6 +245,15 @@ title: 旅行見聞
   text-decoration: none;
   font-size: 0.9rem;
   transition: background-color 0.2s;
+  /* 確保文字顯示 */
+  position: relative;
+  z-index: 10;
+  min-width: 120px;
+  min-height: 36px;
+  /* 防止文字過長被截斷 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .photo-button:hover {
@@ -252,20 +263,22 @@ title: 旅行見聞
 .photo-button.highlight {
   background-color: #ff5722;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* 更改為visible以確保標籤顯示 */
 }
 
+/* 修改NEW標籤避免覆蓋文字 */
 .photo-button.highlight::after {
   content: "NEW";
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -8px;
+  right: -8px;
   background-color: #ffeb3b;
   color: #333;
   font-size: 0.6rem;
   font-weight: bold;
   padding: 2px 5px;
-  transform: rotate(45deg);
+  transform: rotate(30deg);
   border-radius: 2px;
+  z-index: 20; /* 確保標籤在文字上方 */
 }
 </style>
