@@ -133,7 +133,10 @@ export default defineConfig({
       '/self/': [
         {
           text: '自我認識',
-          items: []
+          items: [
+            { text: '為什麼我是我', link: '/self/why-i-am-me' },
+            { text: '高敏感系統的底層解碼', link: '/self/highly-sensitive-system' }
+          ]
         }
       ],
       '/system/': [
@@ -150,10 +153,9 @@ export default defineConfig({
           text: '真實實踐',
           items: [
             { text: '實踐總覽', link: '/practice/' },
-            { text: '瑞士之旅', link: '/practice/switzerland' },
-            { text: '日本之旅', link: '/practice/japan' },
-            { text: '東京見聞', link: '/practice/tokyo' },
-            { text: '歐洲漫遊', link: '/practice/europe' }
+            { text: '睽違八年，重訪京阪神', link: '/practice/japan-revisit' },
+            { text: '香港不值得去，但…', link: '/practice/hongkong' },
+            { text: '格拉納達的遺憾', link: '/practice/spain-granada' }
           ]
         }
       ],
@@ -161,7 +163,9 @@ export default defineConfig({
         {
           text: '資源庫',
           items: [
-            { text: '我的工具棧', link: '/library/tech-stack' }
+            { text: '我的工具棧', link: '/library/tech-stack' },
+            { text: '《之前的我們》觀後', link: '/library/past-lives' },
+            { text: '《徬徨少年時》讀後', link: '/library/demian' }
           ]
         }
       ],

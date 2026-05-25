@@ -10,10 +10,9 @@ description: 系統指引我做出的真實決定。旅行、選擇、生活方�
 
 ## 旅行紀錄
 
-- [瑞士之旅](/practice/switzerland) — 阿爾卑斯山，為什麼我需要垂直空間
-- [歐洲漫遊](/practice/europe) — 古城密度，邊界感的另一面
-- [日本之旅](/practice/japan) — 秩序美學，給結構主導者的鏡子
-- [東京見聞](/practice/tokyo) — 大都市裡的安靜，獨處的高密度版本
+- [睽違八年，重訪京阪神](/practice/japan-revisit) — 披風是隨身攜帶的自由
+- [香港不值得去，但…](/practice/hongkong) — 地方不重要，是跟誰去
+- [格拉納達的遺憾](/practice/spain-granada) — 慢一點，風景才能真的進入心裡
 
 ## 接下來想寫的
 
