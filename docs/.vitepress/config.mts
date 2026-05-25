@@ -8,6 +8,9 @@ export default defineConfig({
   description: "教你用 AI 打造一個比你更懂你的第二大腦／個人作業系統，然後讓這個系統指引你過上真正屬於你的生活。",
   lastUpdated: true,
 
+  // 排除非公開內容（agent 配置、ADR 等）
+  srcExclude: ['agents/**', 'adr/**'],
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'keywords', content: 'AI, 第二大腦, second brain, 自我認識, 個人作業系統, 系統思考, Notion, Claude, INTJ, 印度占星' }],
