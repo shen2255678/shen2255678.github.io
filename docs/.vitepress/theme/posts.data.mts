@@ -2,10 +2,11 @@
 // Scans all five Pillars, filters to entries with a `date` (so pillar index
 // pages and other static markdown are excluded), normalizes shape.
 //
-// Consumed by ArchiveView, TagsView, CategoriesView. See CONTEXT.md > Post.
+// Consumed by ArchiveLayout, TagsLayout, CategoriesLayout, HomeLayout, PostCard.
+// See CONTEXT.md > Post.
 
 import { createContentLoader } from 'vitepress'
-import type { PillarSlug } from './pillars'
+import type { PillarSlug } from '../data/pillars'
 
 export interface Post {
   url: string
@@ -14,8 +15,9 @@ export interface Post {
   dateTimestamp: number
   tags: string[]
   pillar: PillarSlug
-  description?: string
-  pin?: boolean
+  excerpt: string
+  cover: string | null
+  pin: boolean
 }
 
 declare const data: Post[]
@@ -39,6 +41,8 @@ export default createContentLoader(
         const fm = page.frontmatter ?? {}
         if (!fm.date) continue // skip non-post pages (resources without dates)
         const tags = Array.isArray(fm.tags) ? fm.tags.map((t: unknown) => String(t)) : []
+        const excerpt = String(fm.description ?? fm.desc ?? '')
+        const cover = fm.cover ? String(fm.cover) : fm.bgImg ? String(fm.bgImg) : null
         posts.push({
           url: page.url,
           title: String(fm.title ?? page.url),
@@ -46,7 +50,8 @@ export default createContentLoader(
           dateTimestamp: +new Date(String(fm.date)),
           tags,
           pillar,
-          description: fm.description ? String(fm.description) : undefined,
+          excerpt,
+          cover,
           pin: Boolean(fm.pin)
         })
       }

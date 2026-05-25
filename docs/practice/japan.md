@@ -7,6 +7,7 @@ tags:
   - Culture
   - Food
 description: 探索日本的傳統文化與現代文明，體驗獨特的日式美學
+cover: /image/college.jpg
 ---
 
 日本，這個東方島國以其獨特的文化魅力、精緻的料理和現代科技的完美融合而令人著迷。

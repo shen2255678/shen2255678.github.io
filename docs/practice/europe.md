@@ -7,6 +7,7 @@ tags:
   - History
   - Culture
 description: 探索歐洲古老文明與現代魅力的完美融合，體驗多元文化的精彩
+cover: /image/river.jpg
 ---
 
 歐洲，這片孕育了西方文明的古老大陸，以其豐富的歷史文化、精美的建築藝術和多樣的生活方式而聞名於世。

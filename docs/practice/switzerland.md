@@ -7,6 +7,7 @@ tags:
   - Photography
   - Alps
 description: 探索阿爾卑斯山的壯麗風光，體驗瑞士的自然美景與文化魅力
+cover: /image/swiss_m.jpg
 ---
 
 瑞士，這個被阿爾卑斯山環繞的美麗國度，以其壯觀的自然風光、精密的製錶工藝和濃厚的文化氛圍而聞名世界。

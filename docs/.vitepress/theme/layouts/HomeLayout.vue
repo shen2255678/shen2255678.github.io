@@ -18,8 +18,14 @@
     </section>
 
     <section class="home-section">
-      <h2 class="home-h2">從這裡開始</h2>
-      <FeaturedPosts :posts="featured" />
+      <div class="home-section__head">
+        <h2 class="home-h2">最新文章</h2>
+        <a :href="withBase('/archive')" class="home-section__more">查看全部 →</a>
+      </div>
+      <div v-if="latest.length" class="home-cards">
+        <PostCard v-for="p in latest" :key="p.url" :post="p" />
+      </div>
+      <p v-else class="home-empty">還沒有 Post — 寫作中。</p>
     </section>
 
     <section class="home-section">
@@ -36,33 +42,20 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import NewsletterInlineForm from '../components/NewsletterInlineForm.vue'
 import PillarCard from '../components/PillarCard.vue'
-import FeaturedPosts from '../components/FeaturedPosts.vue'
+import PostCard from '../components/PostCard.vue'
 import { pillars } from '../../data/pillars'
+import { data as posts } from '../posts.data.mts'
 
-const featured = [
-  {
-    slug: 'system/mcp-introduction',
-    title: 'MCP 架構：現代 AI 開發的新範式',
-    desc: 'Model–Controller–Producer 為什麼比 MVC 更適合 AI 應用。'
-  },
-  {
-    slug: 'system/enterprise-ai',
-    title: '企業級 AI 應用：從理論到實踐',
-    desc: '把 AI 從實驗室帶進實際業務的策略與框架。'
-  },
-  {
-    slug: 'library/tech-stack',
-    title: '我的工具棧',
-    desc: 'VitePress、Notion、Claude、Beehiiv — 一人公司的軟體選型。'
-  }
-]
+const latest = computed(() => posts.slice(0, 6))
 </script>
 
 <style scoped>
 .home-wrap {
-  max-width: 880px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 2rem 1.25rem 4rem;
 }
@@ -98,16 +91,45 @@ const featured = [
 .home-section--cta {
   margin-top: 2rem;
 }
-.home-h2 {
-  margin: 0 0 1.25rem;
-  font-size: 1.4rem;
-  font-weight: 600;
+.home-section__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 1.5rem;
   border-top: 1px solid var(--vp-c-divider);
   padding-top: 1.5rem;
+}
+.home-h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.home-section > .home-h2 {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.home-section__more {
+  font-size: 0.9rem;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+.home-section__more:hover {
+  text-decoration: underline;
+}
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
 }
 .home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
+}
+.home-empty {
+  color: var(--vp-c-text-3);
+  font-style: italic;
+  padding: 1rem 0;
 }
 </style>
