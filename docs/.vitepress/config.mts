@@ -37,6 +37,14 @@ export default defineConfig({
       { text: '資源', link: '/library/' },
       { text: '隨筆', link: '/journal/' },
       {
+        text: '索引',
+        items: [
+          { text: '分類', link: '/categories' },
+          { text: '標籤', link: '/tags' },
+          { text: '歸檔', link: '/archive' }
+        ]
+      },
+      {
         text: '關於',
         items: [
           { text: '我是誰', link: '/about' },

@@ -38,11 +38,28 @@ The Vue component that renders the subscription form. Lives at `docs/.vitepress/
 
 Imports `subscribe` from the `NewsletterAdapter` barrel; never references Beehiiv directly.
 
+### Post
+
+A markdown file under one of the five **Pillars** that carries a `date` in its frontmatter. The data loader at `docs/.vitepress/data/posts.data.ts` scans all five Pillar folders and emits one `Post` per file that has a date. Files without a date (pillar index pages, the resource overview, the `library/tech-stack.md` reference doc) are intentionally excluded — they're pages, not posts.
+
+A Post has exactly one **Pillar** (derived from URL prefix) and zero-or-more **Tags** (from `tags:` frontmatter array). Pillar = primary axis (one per post). Tag = secondary axis (many per post, may cross Pillars). The Archive page groups by date, Categories groups by Pillar, Tags groups by tag.
+
+## Classification rules
+
+The site has three orthogonal ways to slice content. Keep them distinct — drifting between them creates duplicated navigation that doesn't help readers.
+
+- **Pillar (primary, mandatory)** — one of `self / system / practice / library / journal`. Determined by folder placement, not frontmatter. Every Post belongs to exactly one Pillar. This is the main navigation axis and the unit of DocTail injection.
+- **Tag (secondary, optional, cross-cutting)** — free-form strings in frontmatter `tags: []`. A tag MAY appear under multiple Pillars (e.g. `AI` shows up in both `system/` and `practice/`). Tags exist to surface affinity that the folder structure doesn't capture. Keep the tag vocabulary small — under ~30 distinct tags total — or the Tags page becomes noise.
+- **Archive (derived)** — chronological view by year + month, computed from `date:` frontmatter. No author action needed beyond writing the date.
+
+Pages that surface each axis: `/categories` (Pillar), `/tags`, `/archive`. All three read from the same `posts.data.ts` source.
+
 ## Words to avoid
 
 When talking about this codebase, do not drift into these synonyms — they suggest concepts the project doesn't use:
 
 - "Newsletter service" / "subscription service" → use **NewsletterAdapter**.
 - "Footer hook" / "article footer plugin" / "after-content slot" → use **DocTail**.
-- "Category" / "topic" / "section" for content folders → use **Pillar**.
+- "Category" / "topic" / "section" for content folders → use **Pillar** (the `/categories` page exists, but the *concept* is Pillar).
 - "ESP wrapper" / "Beehiiv client" → use **NewsletterAdapter** (the implementation is `BeehiivAdapter` but the seam is `NewsletterAdapter`).
+- "Article" / "entry" for files under a Pillar → use **Post** (and remember: a markdown file without a `date:` is a *page*, not a Post).
