@@ -1,6 +1,6 @@
 <template>
   <a :href="link" class="pillar-card">
-    <div class="pillar-card__icon" aria-hidden="true">{{ pillar.icon }}</div>
+    <span class="pillar-card__eyebrow">{{ pillar.navLabel }}</span>
     <h3 class="pillar-card__title">{{ pillar.title }}</h3>
     <p class="pillar-card__desc">{{ pillar.description }}</p>
     <span class="pillar-card__cta">進入 →</span>
@@ -33,9 +33,12 @@ const link = computed(() => withBase(`/${props.pillar.slug}/`))
   transform: translateY(-2px);
   border-color: var(--vp-c-brand-1);
 }
-.pillar-card__icon {
-  font-size: 2rem;
-  line-height: 1;
+.pillar-card__eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+  font-weight: 500;
 }
 .pillar-card__title {
   margin: 0;

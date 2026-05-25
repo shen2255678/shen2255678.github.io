@@ -2,7 +2,7 @@
   <a :href="withBase(post.url)" class="pc">
     <div class="pc__media" :class="{ 'pc__media--placeholder': !post.cover }">
       <img v-if="post.cover" :src="withBase(post.cover)" :alt="post.title" loading="lazy" />
-      <span v-else class="pc__placeholder">{{ pillarIcon }}</span>
+      <span v-else class="pc__placeholder">{{ pillarLabel }}</span>
     </div>
 
     <div class="pc__body">
@@ -31,7 +31,7 @@ const props = withDefaults(
 
 const visibleTags = computed(() => props.post.tags.slice(0, props.maxTags))
 const overflow = computed(() => Math.max(0, props.post.tags.length - props.maxTags))
-const pillarIcon = computed(() => pillarsBySlug[props.post.pillar]?.icon ?? '◆')
+const pillarLabel = computed(() => pillarsBySlug[props.post.pillar]?.title ?? '')
 
 const formattedDate = computed(() => {
   const d = new Date(props.post.date)
@@ -78,11 +78,13 @@ const formattedDate = computed(() => {
   transform: scale(1.04);
 }
 .pc__media--placeholder {
-  background: linear-gradient(135deg, var(--vp-c-brand-soft, #e8f5ed), var(--vp-c-bg-soft));
+  background: var(--vp-c-bg-soft);
 }
 .pc__placeholder {
-  font-size: 3rem;
-  opacity: 0.45;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
 }
 .pc__body {
   padding: 1rem 1.1rem 1.25rem;

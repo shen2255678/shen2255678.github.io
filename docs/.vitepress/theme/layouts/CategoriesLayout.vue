@@ -11,7 +11,6 @@
 
     <div v-for="pillar in pillars" :key="pillar.slug" class="cat-pillar">
       <div class="cat-pillar__head">
-        <span class="cat-pillar__icon" aria-hidden="true">{{ pillar.icon }}</span>
         <h2 class="cat-pillar__title">
           <a :href="withBase(`/${pillar.slug}/`)">{{ pillar.title }}</a>
           <span class="cat-pillar__count">{{ countByPillar(pillar.slug) }} 篇</span>
@@ -78,9 +77,6 @@ function countByPillar(slug: PillarSlug): number {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-}
-.cat-pillar__icon {
-  font-size: 1.75rem;
 }
 .cat-pillar__title {
   margin: 0;
