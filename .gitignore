@@ -6,3 +6,7 @@ docs/.vitepress/dist/
 
 # Cache
 docs/.vitepress/cache/
+
+# Local tooling artifacts
+.claude/
+.playwright-mcp/

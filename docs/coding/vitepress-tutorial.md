@@ -262,7 +262,6 @@ export default {
  
   // 如果你有其他配置或增強，可以在這裡添加
 }
-
 ```
 ## 部屬至GitHub1
 VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:

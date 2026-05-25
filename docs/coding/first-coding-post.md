@@ -12,7 +12,7 @@ Guide content
 
 <script setup>
 import { ref } from 'vue'
-import CustomComponent from '../../components/BookingForm.vue'
+import CustomComponent from '../../../components/BookingForm.vue'
 const count = ref(0)
 </script>
 
