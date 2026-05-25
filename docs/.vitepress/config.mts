@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 import baseConfig from 'vitepress-theme-open17/config'
+import { SITE_URL } from './data/site'
+import { buildHead } from './data/seo-head'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,6 +12,13 @@ export default defineConfig({
 
   // 排除非公開內容（agent 配置、ADR 等）
   srcExclude: ['agents/**', 'adr/**'],
+
+  // 自動生成 sitemap.xml 到 dist 根目錄
+  sitemap: { hostname: SITE_URL },
+
+  // Per-page <head> 注入：canonical、Open Graph、JSON-LD structured data。
+  // 見 docs/.vitepress/data/seo-head.ts 跟 CONTEXT.md > SeoHead。
+  transformHead: ({ pageData }) => buildHead(pageData),
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],

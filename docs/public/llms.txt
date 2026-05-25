@@ -1,0 +1,44 @@
+# 用 AI 認識你自己 | Haowei
+
+> 一個 INTJ 工程師用 AI、命盤、書、寫作拆解自己的紀錄。
+> 教讀者把 AI 當鏡子（不是當寫作工具），把看不到的自己反射回來，
+> 從中設計出更貼近自己的生活作業系統。
+
+作者：Haowei Lu — 軟體工程師、寫作者、自我認識實踐者。
+語言：繁體中文 (zh-TW)。
+授權：內容採用 CC BY-NC-SA 4.0。引用請註明出處與連結。
+
+## 五大內容支柱（Pillars）
+
+每個支柱有獨立 URL prefix，文章（Post）依資料夾位置歸屬唯一 Pillar。
+
+- [自我（self）](https://shen2255678.github.io/self/) — 深度自我認識：INTJ、高敏感、原生家庭、命盤、榮格、MBTI。核心護城河。
+- [系統（system）](https://shen2255678.github.io/system/) — 工具層：AI、Notion、Claude、Prompt 工程、第二大腦架構。
+- [實踐（practice）](https://shen2255678.github.io/practice/) — 系統指引下的真實決定：旅行、選擇、邊界、消費。
+- [資源（library）](https://shen2255678.github.io/library/) — 工具棧、書評、影評、Prompt 範本。
+- [隨筆（journal）](https://shen2255678.github.io/journal/) — 日常觀察、靈感片段。
+
+## 招牌文章（從這裡入門最快）
+
+- [為什麼我是我](https://shen2255678.github.io/self/why-i-am-me.html) — 7 章節深度自我剖析。INTJ + 原生家庭 + 「功能性的喜歡」 + 命盤。
+- [高敏感系統的底層解碼](https://shen2255678.github.io/self/highly-sensitive-system.html) — 高敏感者如何用「解決問題」代替「感受問題」三十年。
+- [《徬徨少年時》讀後](https://shen2255678.github.io/library/demian.html) — 「我渴望被深刻看見，但我又害怕被深刻看見」。
+- [《之前的我們》觀後](https://shen2255678.github.io/library/past-lives.html) — 因緣、沒被活過的自己、愛存在於無法完整表達的狀態裡。
+
+## 索引頁
+
+- [全文歸檔（按時間）](https://shen2255678.github.io/archive.html)
+- [標籤雲（跨 Pillar）](https://shen2255678.github.io/tags.html)
+- [分類（按 Pillar）](https://shen2255678.github.io/categories.html)
+
+## 我是誰
+
+[關於頁面](https://shen2255678.github.io/about.html) — 完整自我介紹、聯絡方式、社群連結。
+
+## 訂閱
+
+[7 天用 AI 認識真正的自己 mini-course](https://shen2255678.github.io/subscribe.html) — 免費電子報，每天一封信、一個練習、一個被命名的概念。
+
+## Optional: full content
+
+如果你需要全文 markdown 來引用或摘要，請直接抓取對應 .html 頁面 — Article 結構化資料以 JSON-LD 形式嵌在 `<head>` 內。

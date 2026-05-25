@@ -54,6 +54,24 @@ The site has three orthogonal ways to slice content. Keep them distinct — drif
 
 Pages that surface each axis: `/categories` (Pillar), `/tags`, `/archive`. All three read from the same `posts.data.ts` source.
 
+### SITE_URL
+
+Single source of truth for the site's public origin. Defined in `docs/.vitepress/data/site.ts` alongside `SITE_AUTHOR`, `SITE_NAME`, `SITE_DESCRIPTION`, `SITE_DEFAULT_OG_IMAGE`, `AUTHOR_SOCIALS`.
+
+Used by sitemap generation, canonical URLs, Open Graph tags, and every JSON-LD schema. A custom-domain swap is a one-constant change here — never hard-code the origin elsewhere.
+
+### SeoHead
+
+The per-page head-tag generator at `docs/.vitepress/data/seo-head.ts`. Exposes `buildHead(pageData: PageData): HeadConfig[]`, called from `config.mts` via VitePress's `transformHead` hook.
+
+`buildHead` is a pure function: same input → same output, no side effects. It dispatches on the page's `relativePath` to emit the right combination of canonical, Open Graph, Twitter Card, `article:*` meta, and JSON-LD scripts.
+
+### GEO
+
+Generative Engine Optimization — discoverability for AI search/answer engines (ChatGPT browse, Perplexity, Claude search, Google AI Overview, Bing Copilot). Distinct from classic SEO because AI engines extract semantic structure, not keywords; they prefer JSON-LD over `<meta>` and follow `llms.txt` for site-level summaries.
+
+This site's GEO surface = **JSON-LD `Article` / `Person` / `WebSite` / `BreadcrumbList`** injected by `SeoHead` + `public/llms.txt` + standard `public/robots.txt` + `sitemap.xml`. No dynamic OG image generation yet (Phase 4+).
+
 ## Words to avoid
 
 When talking about this codebase, do not drift into these synonyms — they suggest concepts the project doesn't use:
@@ -63,3 +81,7 @@ When talking about this codebase, do not drift into these synonyms — they sugg
 - "Category" / "topic" / "section" for content folders → use **Pillar** (the `/categories` page exists, but the *concept* is Pillar).
 - "ESP wrapper" / "Beehiiv client" → use **NewsletterAdapter** (the implementation is `BeehiivAdapter` but the seam is `NewsletterAdapter`).
 - "Article" / "entry" for files under a Pillar → use **Post** (and remember: a markdown file without a `date:` is a *page*, not a Post).
+- "SEO tags" / "meta tags" / "structured data injection" → use **SeoHead** (the function that emits them).
+- "AI sitemap" / "ChatGPT discovery file" → use **llms.txt** (the actual file format name).
+- "Search engine optimization for AI" → use **GEO**.
+- Hard-coding `https://shen2255678.github.io` anywhere except `data/site.ts` → import **SITE_URL** instead.

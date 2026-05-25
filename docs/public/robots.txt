@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# 內部 agent / ADR / scratch 文件不要被索引（雖然 srcExclude 已防止它們進 dist，
+# 但若未來 srcExclude 拿掉，這層仍然防護）
+Disallow: /agents/
+Disallow: /adr/
+Disallow: /.scratch/
+
+Sitemap: https://shen2255678.github.io/sitemap.xml
