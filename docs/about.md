@@ -49,14 +49,3 @@ description: 了解更多關於Haowei的信息
 ## 💡 座右銘
 
 > "經營自己的同時，紀錄生活上的點滴。人的一生中有兩個時期不應投機；無力投機時，以及有能力投機時。"
-
-<style>
-  img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin: 0 auto;
-    display: block;
-  }
-</style>
