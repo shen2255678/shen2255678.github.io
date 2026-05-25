@@ -181,7 +181,6 @@ AI成功需要多學科協作：
 3. Harvard Business Review (2024). "Building the AI-Powered Organization"
 4. Gartner (2025). "Top Strategic Technology Trends for Enterprise AI"
 
-<ImageSlider />
 <BackToTop />
 
 <style>

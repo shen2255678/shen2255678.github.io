@@ -148,7 +148,6 @@ MCP架構為AI應用開發提供了一種優雅的組織方式，通過明確區
 2. [Design Patterns for LLM Applications](https://medium.com/@johndoe/design-patterns-for-llm-applications-7381f1e5b606)
 3. [Software Architecture for AI Systems](https://www.oreilly.com/library/view/software-architecture-for/9781492085409/)
 
-<ImageSlider />
 <BackToTop />
 
 <style>
