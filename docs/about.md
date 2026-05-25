@@ -1,51 +1,53 @@
 ---
-title: 關於我
-description: 了解更多關於Haowei的信息
+layout: page
+customLayout: about
+title: 關於 | Haowei
+description: 一個工程師、寫作者、INTJ — 把自我認識當成系統來建構。
+subscribe: false
+comments: false
+
+heroTitle: 哈囉，我是 Haowei。
+
+profile:
+  name: Haowei
+  # 想加大頭照：把檔案放到 docs/image/ 然後寫 avatar: /image/your-file.jpg
+  # 不填就會顯示首字母當預設圖。
+  avatar: ""
+  tagline: 軟體工程師 / 寫作者 / INTJ / 第二大腦實踐者
+  location: 台北，台灣
+  email: shen2255678@gmail.com
+
+socials:
+  - { label: GitHub, url: https://github.com/shen2255678 }
+  - { label: LinkedIn, url: https://www.linkedin.com/in/haowei-lu/ }
+  - { label: Twitter, url: https://twitter.com/haoweitech }
+
+# Intro 是右欄的正文段落。每個 item 是一段，支援 HTML（粗體、連結都可以）。
+# 之後會用 /writer-style skill 重寫成深度版本。
+intro:
+  - 我是一個寫軟體十幾年、最近三年把同樣的工程腦拿來拆自己的人。
+  - 在這之前我用 Notion 試了五年「第二大腦」，發現大部分時間都在整理工具，不是在認識自己。
+  - 直到我開始用 <strong>AI 當鏡子</strong>——不是讓它幫我寫東西，而是讓它把我看不到的自己反射回來——一切才動起來。
+  - 這個 site 是我把那套系統公開出來的紀錄。內容散落在五個支柱：<a href="/self/">自我</a>、<a href="/system/">系統</a>、<a href="/practice/">實踐</a>、<a href="/library/">資源</a>、<a href="/journal/">隨筆</a>。
+  - 寫作目標只有一個：<strong>把混亂的內在解構成可指認的概念，再給讀者一個可以隨身帶走的解藥</strong>。
+
+roles:
+  - 軟體工程師
+  - 系統設計
+  - 寫作者
+  - 自我認識實踐者
+  - INTJ / 印度占星愛好者
+
+# 經歷 — 自己填，未填會自動隱藏這個 section。
+experience: []
+# experience:
+#   - { org: 公司或專案名, role: 角色描述, period: 2023 ~ now, url: optional }
+
+# 寫過的東西 — 文章、書、影片、開源專案都可以。
+publications: []
+# publications:
+#   - { title: 標題, url: https://... }
+
+footerLine: © 2024-present Haowei Lu
+footerNote: 本站使用 VitePress 打造 — 內容採 CC BY-NC-SA 4.0 授權。
 ---
-
-# 關於我
-
-## 👋 您好，我是Haowei
-
-我是一名熱愛技術的開發者和寫作者，專注於AI和網頁開發領域。這個部落格是我記錄思考、分享知識和連接志同道合朋友的地方。
-
-## 👨‍💻 專業領域
-
-- **前端開發**：Vue.js, React, TypeScript
-- **後端開發**：Node.js, .NET, Python
-- **AI開發**：LLM應用開發, 機器學習模型整合
-- **DevOps**：CI/CD, 自動化測試, 雲端部署
-
-## 🌱 正在學習
-
-目前我正在深入研究大語言模型的應用開發和企業級AI架構，特別是如何將AI技術實際應用到企業解決方案中。
-
-## 📝 寫作與分享
-
-除了編程，我也喜歡寫作和分享知識。在這個部落格上，您可以找到關於：
-
-- 技術教程和最佳實踐
-- AI和機器學習的見解
-- 個人成長和生產力提升的思考
-- 旅行和生活體驗
-
-## 🏆 項目和成就
-
-- 參與開發多個大型企業AI應用
-- 貢獻開源項目
-- 技術演講和工作坊
-
-## 📫 聯繫我
-
-如果您有任何問題、建議或合作機會，請隨時通過以下方式聯繫我：
-
-- 電子郵件：haowei@example.com
-- LinkedIn：[Haowei Lu](https://www.linkedin.com/in/haowei-lu/)
-- GitHub：[shen2255678](https://github.com/shen2255678)
-- Twitter：[@haoweitech](https://twitter.com/haoweitech)
-
-感謝您訪問我的部落格！希望您能找到有價值的內容，也歡迎留下評論和建議。
-
-## 💡 座右銘
-
-> "經營自己的同時，紀錄生活上的點滴。人的一生中有兩個時期不應投機；無力投機時，以及有能力投機時。"

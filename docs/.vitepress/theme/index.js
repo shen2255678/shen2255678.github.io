@@ -18,6 +18,7 @@ import FeaturedPosts from './components/FeaturedPosts.vue'
 
 import HomeLayout from './layouts/HomeLayout.vue'
 import SubscribeLayout from './layouts/SubscribeLayout.vue'
+import AboutLayout from './layouts/AboutLayout.vue'
 import ArchiveLayout from './layouts/ArchiveLayout.vue'
 import TagsLayout from './layouts/TagsLayout.vue'
 import CategoriesLayout from './layouts/CategoriesLayout.vue'
@@ -29,6 +30,7 @@ import { pillars } from '../data/pillars'
 const customLayouts = {
   home: HomeLayout,
   subscribe: SubscribeLayout,
+  about: AboutLayout,
   archive: ArchiveLayout,
   tags: TagsLayout,
   categories: CategoriesLayout
