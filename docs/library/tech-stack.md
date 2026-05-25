@@ -173,9 +173,6 @@ description: 探索我日常使用的技術工具和框架
 5. **學習曲線和團隊熟悉度**：平衡新技術的優勢與團隊適應性
 
 <BackToTop />
-<script setup>
-import BackToTop from '../../components/BackToTop.vue'
-</script>
 
 <style>
 .tech-category {

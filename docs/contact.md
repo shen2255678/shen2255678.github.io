@@ -64,9 +64,6 @@ haowei@example.com
 非常感謝您的訪問和支持！
 
 <BackToTop />
-<script setup>
-import BackToTop from '../../components/BackToTop.vue'
-</script>
 
 <style>
 .form-container {

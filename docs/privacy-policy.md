@@ -92,6 +92,3 @@ description: 本網站的隱私政策
 如果您對本隱私政策有任何疑問或顧慮，請通過[聯繫頁面](/contact)與我聯繫。
 
 <BackToTop />
-<script setup>
-import BackToTop from '../../components/BackToTop.vue'
-</script>

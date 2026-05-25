@@ -3,29 +3,33 @@
 layout: home
 
 hero:
-  name: "Haowei Blog"
-  text: "程式開發與AI技術探索"
-  tagline: 經營自己的同時，紀錄生活上的點滴
+  name: "Haowei"
+  text: "用 AI 打造一個比你更懂你的系統"
+  tagline: 一個工程師如何用 AI × 第二大腦 × 深度自我認識，重新設計自己的生活作業系統
   actions:
     - theme: brand
-      text: 閱讀文章
-      link: /posts/ai/mcp-introduction
+      text: 訂閱電子報
+      link: /subscribe
     - theme: alt
-      text: 關於我
+      text: 我是誰
       link: /about
 features:
-  - icon: 🤖
-    title: AI技術
-    details: 探索最新的AI技術和應用，深入了解LLM、機器學習與MCP架構
-  - icon: 💻
-    title: 程式開發
-    details: 分享前後端開發技巧、最佳實踐和實用教程
+  - icon: 🪞
+    title: 自我認識
+    details: 表層普世語言、深層揭露框架——一個工程師如何用系統思維認識自己
+    link: /self/
   - icon: 🧠
-    title: 思考隨筆
-    details: 關於技術、生活和個人成長的思考
-  - icon: 🌍
-    title: 旅行見聞
-    details: 記錄旅途中的所見所聞，分享不同文化的體驗
+    title: 系統建構
+    details: AI × 第二大腦 × 個人作業系統的具體做法。Notion、Claude、Prompt 工程
+    link: /system/
+  - icon: 🧭
+    title: 真實實踐
+    details: 系統指引我做出的真實決定。旅行、選擇、生活方式背後的揭露
+    link: /practice/
+  - icon: 📚
+    title: 資源庫
+    details: 模板、Prompt、工具棧——把方法論轉成可立即使用的資產
+    link: /library/
 ---
 
 
@@ -33,30 +37,5 @@ features:
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(128deg, #3eaf7c, #41d1ff);
-}
-
-.full-width-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.feature-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin: 40px 0;
-}
-
-.feature-card {
-  background-color: var(--vp-c-bg-soft);
-  border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
 }
 </style>

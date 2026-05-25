@@ -3,13 +3,13 @@
   
    class="mySwiper">
     <swiper-slide>
-        <img src="../docs//image/resort.jpg" alt="Image 1" />
+        <img src="/image/resort.jpg" alt="Image 1" />
       </swiper-slide>
       <swiper-slide>
-        <img src="../docs/image/sky.jpg" alt="Image 2" />
+        <img src="/image/sky.jpg" alt="Image 2" />
       </swiper-slide>
       <swiper-slide>
-        <img src="../docs/image/lion.jpg" alt="Image 3" />
+        <img src="/image/lion.jpg" alt="Image 3" />
       </swiper-slide>
   </swiper>
 </template>

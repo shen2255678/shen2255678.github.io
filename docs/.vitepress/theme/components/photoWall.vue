@@ -17,9 +17,9 @@
 <script setup>
 import { ref } from 'vue'
 import VueEasyLightbox from 'vue-easy-lightbox'
-import river from '../docs/image/river.jpg'
-import train1 from '../docs/image/swiss_train1.jpg'
-import college from '../docs/image/college.jpg'
+import river from '../../../image/river.jpg'
+import train1 from '../../../image/swiss_train1.jpg'
+import college from '../../../image/college.jpg'
 
 const images = ref([river, train1, college])
 

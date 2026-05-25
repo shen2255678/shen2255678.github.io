@@ -11,12 +11,12 @@ description: 記錄旅途中的所見所聞，分享不同文化的體驗
 ## 🌍 旅行目的地
 
 ### 歐洲之旅
-- [瑞士之旅](/travel/switzerland) - 阿爾卑斯山的壯麗風光
-- [歐洲漫遊](/travel/europe) - 歐洲古城與文化探索
+- [瑞士之旅](/practice/switzerland) - 阿爾卑斯山的壯麗風光
+- [歐洲漫遊](/practice/europe) - 歐洲古城與文化探索
 
 ### 亞洲探索
-- [日本之旅](/travel/japan) - 傳統與現代的完美融合
-- [東京見聞](/travel/tokyo) - 大都市的活力與魅力
+- [日本之旅](/practice/japan) - 傳統與現代的完美融合
+- [東京見聞](/practice/tokyo) - 大都市的活力與魅力
 
 ## 📸 旅行攝影
 

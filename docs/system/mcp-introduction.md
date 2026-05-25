@@ -150,11 +150,6 @@ MCP架構為AI應用開發提供了一種優雅的組織方式，通過明確區
 
 <ImageSlider />
 <BackToTop />
-<script setup>
-import { ref } from 'vue'
-import ImageSlider  from '../../../components/photoWall.vue'
-import BackToTop from '../../../components/BackToTop.vue'
-</script>
 
 <style>
 .custom-image {

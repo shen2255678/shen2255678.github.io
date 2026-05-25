@@ -183,11 +183,6 @@ AI成功需要多學科協作：
 
 <ImageSlider />
 <BackToTop />
-<script setup>
-import { ref } from 'vue'
-import ImageSlider  from '../../../components/photoWall.vue'
-import BackToTop from '../../../components/BackToTop.vue'
-</script>
 
 <style>
 .custom-image {

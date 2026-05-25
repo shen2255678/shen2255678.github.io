@@ -76,6 +76,3 @@ Haowei Lu保留隨時修改這些使用條款的權利。修改後的條款將�
 如果您對這些使用條款有任何疑問，請通過[聯繫頁面](/contact)與我聯繫。
 
 <BackToTop />
-<script setup>
-import BackToTop from '../../components/BackToTop.vue'
-</script>
