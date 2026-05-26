@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 完整歷史給 sitemap lastmod / lastUpdated 用
+        # 暫時不要 fetch-depth: 0 — 似乎在這 repo 觸發 403。
+        # 代價：sitemap lastmod 跟 lastUpdated 會用最近的 commit 時間而非檔案歷史。可接受。
 
       - name: Setup Node
         uses: actions/setup-node@v4
