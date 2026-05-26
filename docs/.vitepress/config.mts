@@ -101,7 +101,7 @@ export default defineConfig({
     // Giscus — 啟用前需到 https://giscus.app 取得 repoId 與 categoryId 填入
     comments: {
       provider: 'giscus',
-      repo: 'shen2255678/vitepress',
+      repo: 'shen2255678/shen2255678.github.io',
       repoId: 'your-repo-id',
       category: 'Announcements',
       categoryId: 'your-category-id'
@@ -119,7 +119,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/shen2255678/vitepress/edit/main/docs/:path',
+      pattern: 'https://github.com/shen2255678/shen2255678.github.io/edit/main/docs/:path',
       text: '在 GitHub 上編輯此頁'
     },
 
