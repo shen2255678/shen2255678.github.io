@@ -19,7 +19,13 @@ export function registerDocTail(rule: DocTailRule): void {
 }
 
 export function resolveDocTail(path: string): DocTailRule[] {
-  return rules.filter((r) => path.startsWith(r.prefix))
+  return rules.filter((r) => {
+    if (!path.startsWith(r.prefix)) return false
+    // Skip pillar index pages (e.g. /practice/, /practice/index.html).
+    // Articles match because something follows the prefix.
+    const rest = path.slice(r.prefix.length)
+    return rest !== '' && rest !== 'index.html'
+  })
 }
 
 export function clearDocTail(): void {
