@@ -10,7 +10,7 @@ heroTitle: 哈囉，我是 Haowei。
 
 profile:
   name: Haowei
-  # 想加大頭照：把檔案放到 docs/image/ 然後寫 avatar: /image/your-file.jpg
+  # 想加大頭照：把檔案放到 docs/public/images/ 然後寫 avatar: /images/your-file.jpg
   # 不填就會顯示首字母當預設圖。
   avatar: ""
   tagline: INTJ / 軟體工程 / 用工程腦拆自己

@@ -7,7 +7,7 @@ tags:
   - 格拉納達
   - 慢下來
 description: 西班牙之旅的最愛，也是最大的遺憾。正因為太喜歡，回來後遲遲捨不得發文。
-cover: /image/river.jpg
+cover: /images/trips/spain/river.jpg
 ---
 
 格拉納達 (Granada)，是我西班牙之旅的最愛，卻也是最大的遺憾。正因為太喜歡，回來後遲遲捨不得發文，總想著要好好梳理這些思緒。

@@ -6,6 +6,7 @@ import { buildHead } from './data/seo-head'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   extends: baseConfig,
+  lang: 'zh-TW',
   title: "用 AI 認識你自己 | Haowei",
   description: "教你用 AI 打造一個比你更懂你的第二大腦／個人作業系統，然後讓這個系統指引你過上真正屬於你的生活。",
   lastUpdated: true,
@@ -164,7 +165,9 @@ export default defineConfig({
             { text: '實踐總覽', link: '/practice/' },
             { text: '睽違八年，重訪京阪神', link: '/practice/japan-revisit' },
             { text: '香港不值得去，但…', link: '/practice/hongkong' },
-            { text: '格拉納達的遺憾', link: '/practice/spain-granada' }
+            { text: '格拉納達的遺憾', link: '/practice/spain-granada' },
+            { text: '安達魯西亞深度與生存指南', link: '/practice/spain-andalusia' },
+            { text: '西班牙 10 日深度之旅', link: '/practice/spain-10days' }
           ]
         }
       ],

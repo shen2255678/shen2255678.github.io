@@ -17,11 +17,11 @@
 <script setup>
 import { ref } from 'vue'
 import VueEasyLightbox from 'vue-easy-lightbox'
-import river from '../../../image/river.jpg'
-import train1 from '../../../image/swiss_train1.jpg'
-import college from '../../../image/college.jpg'
-
-const images = ref([river, train1, college])
+const images = ref([
+  '/images/trips/spain/river.jpg',
+  '/images/trips/switzerland/swiss_train1.jpg',
+  '/images/trips/japan/college.jpg'
+])
 
 const titles = ref([
   '松本 上高地',

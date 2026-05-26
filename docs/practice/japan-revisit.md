@@ -7,7 +7,7 @@ tags:
   - 京阪神
   - 自我觀察
 description: 人生第一次自助旅行的起點。再次回來，更多的是看清了自己在旅途中的喜惡。
-cover: /image/college.jpg
+cover: /images/trips/japan/college.jpg
 ---
 
 睽違八年，重訪京阪神。

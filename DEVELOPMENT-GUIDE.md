@@ -215,23 +215,40 @@ const title = '我的博客'
 
 ## 🖼️ 圖片管理
 
-### 圖片存放
+### 唯一存放位置：`docs/public/images/`
 
-1. **靜態圖片**：放在 `/docs/public/images/` 目錄
-```markdown
-![描述](/images/photo.jpg)
-```
+所有圖片**只走** `docs/public/images/{主題}/{子分類}/...`。沒有第二個目錄。Vite import 跟 public/ 不能混用，所以連元件用的圖也都從這裡走絕對 URL。
 
-2. **文章配圖**：放在 `/docs/image/` 目錄
-```markdown
-![描述](../image/photo.jpg)
-```
+目前的主題分類：
+- `images/trips/{country}/` — 旅行照片（已有 spain / japan / switzerland）
+- 未來新增類別時依「能讓人一眼看懂在哪」原則命名（例如 `images/talks/`、`images/avatar/`、`images/portraits/`）。
 
-### 圖片優化建議
+### 引用語法（都是絕對路徑）
 
-- 使用 WebP 格式以獲得更好壓縮
-- 添加適當的 alt 文字
-- 考慮使用 `loading="lazy"` 延遲加載
+- Markdown 文章內：
+  ```markdown
+  ![描述](/images/trips/spain/granada-alhambra-1.jpg)
+  ```
+- Frontmatter `cover`（會出現在卡片與 OG 圖）：
+  ```yaml
+  cover: /images/trips/japan/college.jpg
+  ```
+- Vue 元件內：直接用字串路徑，不要 `import`（避免 public 與 import 分裂）。
+
+### 命名規範
+
+- 只允許 lowercase、數字、連字號（hyphen）。**禁底線、空白、中文、大寫**。
+- 格式：`{地點|主題}-{描述}-{序號}.jpg`
+  - ✅ `granada-alhambra-1.jpg`、`sevilla-cathedral-1.jpg`
+  - ❌ `swiss_train1.jpg`（底線）、`cableCar.jpg`（駝峰）、`river.jpg`（無前綴會撞名）
+- 既有違反規範的舊圖暫時保留，下次寫到該文章時順手改名 + 改引用。
+
+### 圖片優化
+
+- 上 git 的版本目標 ≤ 500KB。原圖另存本機 source 資料夾，不進 repo。
+- 用 [squoosh.app](https://squoosh.app/) 手動壓，或等 Cloudflare Pages 上線後開 Polish 自動轉 WebP。
+- 加 alt 文字（`![alt](url)` 的 alt 部分）。
+- VitePress 已自動為 `<img>` 加 `loading="lazy"`，不用手動寫。
 
 ## 🔧 自定義組件開發
 

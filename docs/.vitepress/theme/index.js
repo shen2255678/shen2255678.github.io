@@ -15,6 +15,7 @@ import NewsletterInlineForm from './components/NewsletterInlineForm.vue'
 import Comments from './components/Comments.vue'
 import PillarCard from './components/PillarCard.vue'
 import FeaturedPosts from './components/FeaturedPosts.vue'
+import RelatedPosts from './components/RelatedPosts.vue'
 
 import HomeLayout from './layouts/HomeLayout.vue'
 import SubscribeLayout from './layouts/SubscribeLayout.vue'
@@ -59,6 +60,10 @@ export default {
           props: { variant: 'inline', source: `${pillar.slug}-pillar` }
         })
       }
+      registerDocTail({
+        prefix: `/${pillar.slug}/`,
+        component: RelatedPosts
+      })
       // Comments on every Pillar (escapable per-page via frontmatter `comments: false`).
       registerDocTail({
         prefix: `/${pillar.slug}/`,

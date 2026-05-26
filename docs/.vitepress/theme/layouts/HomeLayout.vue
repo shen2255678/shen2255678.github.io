@@ -17,6 +17,16 @@
       </NewsletterInlineForm>
     </section>
 
+    <section v-if="featured.length" class="home-section">
+      <div class="home-section__head">
+        <h2 class="home-h2">從這裡開始</h2>
+        <span class="home-section__hint">如果你是第一次來，先讀這幾篇</span>
+      </div>
+      <div class="home-cards">
+        <PostCard v-for="p in featured" :key="p.url" :post="p" />
+      </div>
+    </section>
+
     <section class="home-section">
       <div class="home-section__head">
         <h2 class="home-h2">最新文章</h2>
@@ -50,7 +60,8 @@ import PostCard from '../components/PostCard.vue'
 import { pillars } from '../../data/pillars'
 import { data as posts } from '../posts.data.mts'
 
-const latest = computed(() => posts.slice(0, 6))
+const featured = computed(() => posts.filter((p) => p.pin).slice(0, 3))
+const latest = computed(() => posts.filter((p) => !p.pin).slice(0, 6))
 </script>
 
 <style scoped>
@@ -116,6 +127,11 @@ const latest = computed(() => posts.slice(0, 6))
 }
 .home-section__more:hover {
   text-decoration: underline;
+}
+.home-section__hint {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-3);
+  font-style: italic;
 }
 .home-cards {
   display: grid;
