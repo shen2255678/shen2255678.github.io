@@ -98,13 +98,13 @@ export default defineConfig({
       { icon: 'twitter', link: 'https://twitter.com/haoweitech' }
     ],
 
-    // Giscus — 啟用前需到 https://giscus.app 取得 repoId 與 categoryId 填入
+    // Giscus — 啟用：https://giscus.app/zh-TW 設定後填入 repoId / categoryId。
     comments: {
       provider: 'giscus',
       repo: 'shen2255678/shen2255678.github.io',
-      repoId: 'your-repo-id',
+      repoId: 'R_kgDOMcHZjA',
       category: 'Announcements',
-      categoryId: 'your-category-id'
+      categoryId: 'DIC_kwDOMcHZjM4Chvjy'
     },
 
     footer: {
