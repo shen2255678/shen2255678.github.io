@@ -10,3 +10,12 @@ docs/.vitepress/cache/
 # Local tooling artifacts
 .claude/
 .playwright-mcp/
+
+# Ad-hoc screenshots dropped at repo root (date-prefixed)
+/*.png
+/*.jpg
+/*.jpeg
+
+# Env (Beehiiv publication ID etc)
+.env
+.env.local
