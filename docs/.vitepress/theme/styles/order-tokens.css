@@ -1,0 +1,66 @@
+/* ============================================================
+   order-tokens.css — 秩序 design tokens for VitePress
+   Import FIRST in theme/index.js (before overrides).
+   Defines the 秩序 palette as --o-* vars AND remaps VitePress's
+   own --vp-c-* vars so default chrome inherits the same tone.
+   Dark mode keys off VitePress's html.dark class.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+:root {
+  --o-serif: "Noto Serif TC", Songti TC, serif;
+  --o-sans: "Noto Sans TC", -apple-system, "PingFang TC", sans-serif;
+  --o-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --o-bg: #fbfbfa;
+  --o-bg-soft: #f4f3f1;
+  --o-bg-wash: #f0eeea;
+  --o-t1: #1a1a1a;
+  --o-t2: #57534e;
+  --o-t3: #8c8884;
+  --o-divider: #e7e5e2;
+  --o-line: #d9d6d1;
+  --o-sand: oklch(0.58 0.028 70);
+  --o-slate: oklch(0.56 0.032 245);
+  --o-ink: #18181b;
+
+  /* remap VitePress chrome to the 秩序 palette */
+  --vp-c-bg: var(--o-bg);
+  --vp-c-bg-alt: var(--o-bg);
+  --vp-c-bg-soft: var(--o-bg-soft);
+  --vp-c-bg-elv: var(--o-bg);
+  --vp-c-text-1: var(--o-t1);
+  --vp-c-text-2: var(--o-t2);
+  --vp-c-text-3: var(--o-t3);
+  --vp-c-divider: var(--o-divider);
+  --vp-c-border: var(--o-line);
+  --vp-c-gutter: var(--o-divider);
+  --vp-c-brand-1: var(--o-slate);
+  --vp-c-brand-2: var(--o-slate);
+  --vp-c-brand-3: var(--o-slate);
+  --vp-c-brand-soft: color-mix(in srgb, var(--o-slate) 12%, var(--o-bg));
+
+  --vp-font-family-base: var(--o-sans);
+  --vp-font-family-mono: var(--o-mono);
+}
+
+html.dark {
+  --o-bg: #161617;
+  --o-bg-soft: #1e1e20;
+  --o-bg-wash: #222225;
+  --o-t1: #ededec;
+  --o-t2: #a8a29e;
+  --o-t3: #78716c;
+  --o-divider: #2c2c2f;
+  --o-line: #34343a;
+  --o-sand: oklch(0.7 0.03 70);
+  --o-slate: oklch(0.7 0.035 245);
+  --o-ink: #ededec;
+}
+
+body { font-family: var(--o-sans); -webkit-font-smoothing: antialiased; }
+
+/* Smooth scroll, but honour users who ask for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}

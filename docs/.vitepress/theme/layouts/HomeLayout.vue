@@ -1,151 +1,117 @@
 <template>
-  <div class="home-wrap">
-    <header class="home-hero">
-      <h1 class="home-hero__name">用 AI 認識真正的你自己</h1>
-      <p class="home-hero__tag">
-        一個工程師如何用
-        <strong>AI × 第二大腦 × 深度自我認識</strong>
-        ，重新設計自己的生活作業系統。
-      </p>
-      <p class="home-hero__sub">這裡記錄的不是技術教學，是一個人怎麼用系統的方式，活成自己。</p>
+  <div class="home">
+    <header class="hero">
+      <p class="hero__eyebrow">{{ eyebrow }}</p>
+      <h1 class="hero__title">{{ heroTitle }}</h1>
+      <p class="hero__sub" v-html="heroSub"></p>
     </header>
 
-    <section class="home-section home-section--cta">
-      <NewsletterInlineForm variant="inline" source="home-hero">
-        <template #title>免費電子報：「7 天用 AI 認識真正的自己」</template>
-        <template #desc>留下 email，立刻收到第一封信。每天一個練習，連續 7 天。</template>
-      </NewsletterInlineForm>
+    <section v-if="projects.length" class="sec">
+      <div class="sec__head">
+        <span class="sec__no">{{ nums.projects }}</span>
+        <h2 class="sec__label">正在打造</h2>
+        <span class="sec__hint">Building in public</span>
+      </div>
+      <ProjectCard
+        v-for="(p, i) in projects"
+        :key="p.link"
+        :index="String(i + 1).padStart(2, '0')"
+        :title="p.title"
+        :description="p.description"
+        :link="p.link"
+        :stack="p.stack || []"
+        :status="p.status || ''"
+      />
     </section>
 
-    <section v-if="featured.length" class="home-section">
-      <div class="home-section__head">
-        <h2 class="home-h2">從這裡開始</h2>
-        <span class="home-section__hint">如果你是第一次來，先讀這幾篇</span>
+    <section v-if="featured.length" class="sec">
+      <div class="sec__head">
+        <span class="sec__no">{{ nums.featured }}</span>
+        <h2 class="sec__label">從這裡開始</h2>
+        <span class="sec__hint">第一次來，先讀這幾篇</span>
       </div>
-      <div class="home-cards">
+      <div class="posts">
         <PostCard v-for="p in featured" :key="p.url" :post="p" />
       </div>
     </section>
 
-    <section class="home-section">
-      <div class="home-section__head">
-        <h2 class="home-h2">最新文章</h2>
-        <a :href="withBase('/archive')" class="home-section__more">查看全部 →</a>
+    <section class="sec">
+      <div class="sec__head">
+        <span class="sec__no">{{ nums.latest }}</span>
+        <h2 class="sec__label">最新文章</h2>
+        <a class="sec__hint sec__hint--link" :href="withBase('/archive')">查看全部 →</a>
       </div>
-      <div v-if="latest.length" class="home-cards">
+      <div v-if="latest.length" class="posts">
         <PostCard v-for="p in latest" :key="p.url" :post="p" />
       </div>
       <p v-else class="home-empty">還沒有 Post — 寫作中。</p>
     </section>
 
-    <section class="home-section">
-      <h2 class="home-h2">五個寫作支柱</h2>
-      <div class="home-grid">
-        <PillarCard v-for="p in pillars" :key="p.slug" :pillar="p" />
-      </div>
+    <section class="sec">
+      <BeehiivSubscribeForm variant="band" source="home" />
     </section>
 
-    <section class="home-section">
-      <NewsletterInlineForm variant="footer" source="home-bottom" />
-    </section>
+    <PillarIndex :section-no="nums.pillars" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { withBase } from 'vitepress'
-import NewsletterInlineForm from '../components/NewsletterInlineForm.vue'
-import PillarCard from '../components/PillarCard.vue'
+import { useData, withBase } from 'vitepress'
+import ProjectCard from '../components/ProjectCard.vue'
 import PostCard from '../components/PostCard.vue'
-import { pillars } from '../../data/pillars'
+import BeehiivSubscribeForm from '../components/BeehiivSubscribeForm.vue'
+import PillarIndex from '../components/PillarIndex.vue'
 import { data as posts } from '../posts.data.mts'
+
+interface Project { title: string; description: string; link: string; stack?: string[]; status?: string }
+interface HomeFrontmatter {
+  eyebrow?: string
+  heroTitle?: string
+  heroSub?: string
+  projects?: Project[]
+}
+
+const { frontmatter } = useData()
+const fm = computed<HomeFrontmatter>(() => frontmatter.value as HomeFrontmatter)
+
+const eyebrow = computed(() => fm.value.eyebrow || 'SYSTEM / SELF / JOURNEY')
+const heroTitle = computed(() => fm.value.heroTitle || '把人生當成一套可以重構的系統')
+const heroSub = computed(
+  () => fm.value.heroSub || '全端開發、<strong>系統化思維</strong>與深度旅行交織的筆記。'
+)
+const projects = computed<Project[]>(() => fm.value.projects ?? [])
 
 const featured = computed(() => posts.filter((p) => p.pin).slice(0, 3))
 const latest = computed(() => posts.filter((p) => !p.pin).slice(0, 6))
+
+// Section numbers stay sequential no matter which sections are present.
+const nums = computed(() => {
+  let n = 0
+  const pad = () => String(++n).padStart(2, '0')
+  const out: Record<string, string> = {}
+  if (projects.value.length) out.projects = pad()
+  if (featured.value.length) out.featured = pad()
+  out.latest = pad()
+  out.pillars = pad()
+  return out
+})
 </script>
 
 <style scoped>
-.home-wrap {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
-}
-.home-hero {
-  text-align: center;
-  padding: 3rem 0 2.5rem;
-}
-.home-hero__name {
-  margin: 0 0 1rem;
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.25;
-  background: linear-gradient(128deg, #3eaf7c, #41d1ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.home-hero__tag {
-  margin: 0 0 0.75rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--vp-c-text-1);
-}
-.home-hero__sub {
-  margin: 0;
-  color: var(--vp-c-text-2);
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-.home-section {
-  margin-top: 3rem;
-}
-.home-section--cta {
-  margin-top: 2rem;
-}
-.home-section__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin: 0 0 1.5rem;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 1.5rem;
-}
-.home-h2 {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-.home-section > .home-h2 {
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-.home-section__more {
-  font-size: 0.9rem;
-  color: var(--vp-c-brand-1);
-  text-decoration: none;
-}
-.home-section__more:hover {
-  text-decoration: underline;
-}
-.home-section__hint {
-  font-size: 0.85rem;
-  color: var(--vp-c-text-3);
-  font-style: italic;
-}
-.home-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
-}
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-.home-empty {
-  color: var(--vp-c-text-3);
-  font-style: italic;
-  padding: 1rem 0;
-}
+.home { max-width: 1000px; margin: 0 auto; padding: clamp(2.5rem, 7vw, 5rem) clamp(1.15rem, 5vw, 2rem) 6rem; }
+.hero { display: grid; gap: 1.8rem; padding-bottom: clamp(2.5rem, 6vw, 4rem); border-bottom: 1px solid var(--o-divider); }
+.hero__eyebrow { font-family: var(--o-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--o-slate); margin: 0; }
+.hero__title { font-family: var(--o-serif); font-weight: 600; color: var(--o-t1); font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.28; margin: 0; max-width: 13em; letter-spacing: 0.01em; text-wrap: balance; }
+.hero__sub { font-family: var(--o-sans); font-weight: 300; color: var(--o-t2); font-size: 1.05rem; line-height: 1.85; max-width: 34em; margin: 0; }
+.hero__sub :deep(strong) { font-weight: 500; color: var(--o-t1); }
+.sec { padding-top: clamp(2.8rem, 6vw, 4.2rem); }
+.sec__head { display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 2rem; }
+.sec__no { font-family: var(--o-mono); font-size: 0.78rem; color: var(--o-slate); letter-spacing: 0.05em; }
+.sec__label { font-family: var(--o-serif); font-weight: 600; font-size: 1.25rem; color: var(--o-t1); margin: 0; }
+.sec__hint { margin-left: auto; font-family: var(--o-sans); font-weight: 300; font-size: 0.84rem; color: var(--o-t3); text-decoration: none; }
+.sec__hint--link { color: var(--o-slate); transition: color 0.2s; }
+.sec__hint--link:hover { color: var(--o-t1); }
+.posts { display: flex; flex-direction: column; }
+.home-empty { color: var(--o-t3); font-weight: 300; padding: 1rem 0; font-family: var(--o-sans); }
 </style>

@@ -1,0 +1,150 @@
+/* ============================================================
+   order-overrides.css — VitePress chrome + prose overrides
+   Import AFTER order-tokens.css in theme/index.js.
+   Strips default-theme decoration (gradient hero, feature
+   borders, brand-blue nav links) to match the 秩序 system,
+   and styles markdown content (.vp-doc) incl. image figures.
+   ============================================================ */
+
+/* ---------- .VPNav (top bar) ---------- */
+.VPNavBar { border-bottom: 1px solid var(--o-divider) !important; }
+.VPNavBar.has-sidebar .content,
+.VPNavBar .container { backdrop-filter: blur(16px); }
+.VPNavBarTitle .title {
+  font-family: var(--o-serif) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  border-bottom: none !important;
+}
+/* nav menu links: monochrome, slate underline on active */
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .text {
+  font-family: var(--o-sans) !important;
+  color: var(--o-t2) !important;
+  font-size: 0.9rem !important;
+}
+.VPNavBarMenuLink:hover { color: var(--o-t1) !important; }
+.VPNavBarMenuLink.active {
+  color: var(--o-t1) !important;
+  font-weight: 500;
+  position: relative;
+}
+.VPNavBarMenuLink.active::after {
+  content: "";
+  position: absolute;
+  left: 12px; right: 12px; bottom: 6px;
+  height: 1.5px; border-radius: 2px;
+  background: var(--o-slate);
+}
+/* search box: ghost */
+.DocSearch-Button {
+  background: var(--o-bg-soft) !important;
+  border-radius: 7px !important;
+  border: 1px solid transparent !important;
+}
+.DocSearch-Button:hover { border-color: var(--o-line) !important; box-shadow: none !important; }
+/* social icons stay as VitePress brand glyphs (icons kept on purpose) */
+.VPSocialLink { color: var(--o-t3) !important; }
+.VPSocialLink:hover { color: var(--o-t1) !important; }
+
+/* ---------- .VPHero (only if a default hero is used) ---------- */
+.VPHero .VPImage,
+.VPHero .image-bg { display: none !important; }
+.VPHero .name,
+.VPHero .text {
+  font-family: var(--o-serif) !important;
+  font-weight: 600 !important;
+  background: none !important;
+  -webkit-text-fill-color: var(--o-t1) !important;
+  color: var(--o-t1) !important;
+  letter-spacing: 0.01em;
+}
+.VPHero .tagline {
+  font-family: var(--o-sans) !important;
+  font-weight: 300 !important;
+  color: var(--o-t2) !important;
+}
+.VPHero .VPButton.brand {
+  background: var(--o-slate) !important;
+  border-color: var(--o-slate) !important;
+  border-radius: 5px !important;
+}
+.VPHero .VPButton.alt {
+  background: transparent !important;
+  border: 1px solid var(--o-line) !important;
+  border-radius: 5px !important;
+}
+
+/* ---------- .VPFeatures (replaced by <PillarIndex>, but tamed) ---------- */
+.VPFeatures .VPFeature {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-top: 1px solid var(--o-divider) !important;
+  border-radius: 0 !important;
+}
+.VPFeatures .VPFeature .icon { display: none !important; }
+.VPFeatures .VPFeature .title {
+  font-family: var(--o-serif) !important;
+  font-weight: 600 !important;
+}
+
+/* ---------- .vp-doc (markdown article content + images) ---------- */
+.vp-doc { font-family: var(--o-sans); }
+.vp-doc h1, .vp-doc h2, .vp-doc h3, .vp-doc h4 {
+  font-family: var(--o-serif);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.vp-doc h2 { border-top: none; padding-top: 0; margin-top: 2.8rem; }
+.vp-doc p, .vp-doc li {
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--o-t1);
+}
+.vp-doc a {
+  color: var(--o-slate);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--o-slate) 35%, transparent);
+  font-weight: 400;
+}
+.vp-doc a:hover { border-bottom-color: var(--o-slate); }
+.vp-doc blockquote {
+  font-family: var(--o-serif);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--o-t2);
+  border-left: 2px solid var(--o-slate);
+  padding-left: 1.4rem;
+}
+.vp-doc code:not(pre code) {
+  font-family: var(--o-mono);
+  background: var(--o-bg-soft);
+  color: var(--o-t1);
+}
+
+/* images: ![alt](src) renders full-width rounded; <figure> adds caption */
+.vp-doc img { width: 100%; border-radius: 6px; display: block; margin: 2.4rem auto; cursor: zoom-in; }
+/* linked images navigate (don't pretend to zoom); opt-out via data-no-zoom */
+.vp-doc a img,
+.vp-doc img[data-no-zoom] { cursor: default; }
+.vp-doc a img { cursor: pointer; }
+.vp-doc figure { margin: 2.6rem 0; }
+.vp-doc figure img { margin: 0; }
+.vp-doc figure figcaption {
+  font-family: var(--o-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--o-t3);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+/* full-bleed: <figure class="full"> */
+.vp-doc figure.full { margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; }
+.vp-doc figure.full img { border-radius: 0; }
+.vp-doc figure.full figcaption { max-width: 688px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+/* side-by-side: <div class="img-row"> with two <figure> */
+.vp-doc .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2.6rem 0; }
+.vp-doc .img-row figure { margin: 0; }
+@media (max-width: 560px) { .vp-doc .img-row { grid-template-columns: 1fr; } }

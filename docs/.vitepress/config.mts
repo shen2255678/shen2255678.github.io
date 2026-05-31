@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import baseConfig from 'vitepress-theme-open17/config'
 import { SITE_URL } from './data/site'
 import { buildHead } from './data/seo-head'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+// withMermaid() wraps the config so ```mermaid code fences render as diagrams.
+export default withMermaid(defineConfig({
   extends: baseConfig,
   lang: 'zh-TW',
   title: "用 AI 認識你自己 | Haowei",
@@ -23,6 +25,9 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
+    // 秩序 design system fonts (Noto Serif TC / Noto Sans TC) — warm up the connection.
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['meta', { name: 'keywords', content: 'AI, 第二大腦, second brain, 自我認識, 個人作業系統, 系統思考, Notion, Claude, INTJ, 印度占星' }],
     ['meta', { name: 'author', content: 'Haowei Lu' }],
     ['meta', { property: 'og:title', content: "用 AI 認識你自己" }],
@@ -110,7 +115,7 @@ export default defineConfig({
 
     footer: {
       message: '本站文字採用 CC BY-NC-SA 4.0 授權。',
-      copyright: 'Copyright © 2024-present Haowei Lu',
+      copyright: `Copyright © ${new Date().getFullYear()} Haowei Lu`,
       links: [
         { text: '隱私政策', link: '/privacy-policy' },
         { text: '使用條款', link: '/terms-of-service' },
@@ -153,6 +158,7 @@ export default defineConfig({
         {
           text: '系統建構',
           items: [
+            { text: '用大白話搞懂 RAG', link: '/system/rag-explained' },
             { text: 'MCP 架構：現代 AI 開發的新範式', link: '/system/mcp-introduction' },
             { text: '企業級 AI 應用：從理論到實踐', link: '/system/enterprise-ai' }
           ]
@@ -189,4 +195,4 @@ export default defineConfig({
       ]
     }
   }
-})
+}))
