@@ -194,6 +194,34 @@ GPU  Gemma ─ base_url=localhost:8000  model=gemma-3-4b   ← vLLM
 
 ---
 
+## 常見問題（FAQ）
+
+**Q：我單人使用、但有 GPU，該用 vLLM 還是 Ollama？我不是多人，可是 vLLM 有 KV Cache 跟 PagedAttention 欸。**
+
+先破一個誤會：**KV Cache 不是 vLLM 獨有的，Ollama（llama.cpp）也有。** 它是自迴歸生成的基本配備，每個現代引擎都有，不然一個字一個字吐會慢到不能用。所以「想要 KV Cache」不構成選 vLLM 的理由。
+
+vLLM 真正特有的是 **PagedAttention + Continuous Batching**，但它們**幾乎只在「很多請求同時在跑」時才發威**：
+
+- **Continuous batching**：一次只有一個請求 → 沒東西可併批 → 等於沒作用。
+- **PagedAttention**：主要省「很多條 KV Cache 擠同一張卡」的記憶體；你單請求只有一條，能省的有限。
+
+所以關鍵**不是「幾個人」，是「同時有幾個請求在飛」**——「單人」不等於「單請求」：
+
+| 你的用法 | 選誰 |
+|---|---|
+| 單人、**一次問一句**（聊天、互動式 RAG） | **Ollama** |
+| 單人、但**一次丟一大批**（批次跑整個資料集、agent 並發、要榨最大吞吐） | **vLLM**（這時就算單人也值得） |
+
+再加一個硬體現實：**小顯存會放大 Ollama 的優勢。** 例如 8GB 的 RTX 3060 Ti——vLLM 會預先佔走一大塊 VRAM 當 KV Cache 池、又不太能 offload 到 CPU；Ollama（GGUF 量化 + 自動 CPU offload）在小卡上舒服很多、還能跑更大的模型。
+
+**結論**：單人、互動、小卡 → **Ollama**（你要的 KV Cache 它本來就有）。哪天要「一次跑一大批」或「變成多人服務」→ 再上 **vLLM**。兩個不衝突：日常用 Ollama，有批次任務才搬 vLLM。
+
+**Q：那 vLLM 一定比 Ollama 快嗎？**
+
+不一定。**單一請求**下兩者差不多（有時 Ollama 還更省事）；vLLM 的「快」是**高併發吞吐量**的快——一張 GPU 同時服務很多請求時，它才會大幅領先。**延遲**（單一請求多快回）跟**吞吐**（每秒總共吐多少字）是兩回事，別把後者的數字套到前者的期待上。
+
+---
+
 ## 結語
 
 把一句話再說一次：**Ollama 和 vLLM 都不是模型，是「把模型跑起來」的工具——Ollama 給本地單人、vLLM 給生產高併發；模型（Gemma/Llama/Qwen）是被它們跑的那坨權重。** 要錢的從來不是工具，是雲端 API。
