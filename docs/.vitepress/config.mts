@@ -159,6 +159,8 @@ export default withMermaid(defineConfig({
           text: '系統建構',
           items: [
             { text: '用大白話搞懂 RAG', link: '/system/rag-explained' },
+            { text: 'Ollama 與 vLLM：跑模型的工具', link: '/system/ollama-vllm-explained' },
+            { text: 'Ollama 與 llama.cpp：引擎與外殼', link: '/system/ollama-vs-llamacpp' },
             { text: 'MCP 架構：現代 AI 開發的新範式', link: '/system/mcp-introduction' },
             { text: '企業級 AI 應用：從理論到實踐', link: '/system/enterprise-ai' }
           ]
