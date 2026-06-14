@@ -129,6 +129,20 @@ vllm serve google/gemma-3-4b-it     # 起一個 OpenAI 相容的 server（連 :8
 
 **它們不是對手，是「不同場景的工具」**——就像 SQLite vs PostgreSQL：一個輕便、一個扛量。
 
+### 等等——為什麼一個叫「外殼」、一個叫「引擎」？
+
+這是我自己卡過的點：上面那張表說 Ollama 是「外殼」、vLLM 是「引擎」，但它們用起來明明都一樣（`serve` 開一個 API）？關鍵是——**「會不會自己算數學（引擎）」跟「有沒有下載／管理／API（外殼）」是兩個獨立的軸**：
+
+| | 自己算數學（引擎）？ | 有外殼（下載／管理／API）？ |
+|---|---|---|
+| **llama.cpp** | ✅ 自己算（純 C++ 一套） | ❌ 很裸，要自己搞 |
+| **Ollama** | ❌ **叫 llama.cpp 算** | ✅ 完整外殼 |
+| **vLLM** | ✅ **自己算**（自帶引擎 + 自寫 CUDA kernel） | ✅ 自帶 server |
+
+所以：**Ollama 只有外殼、引擎是「借」llama.cpp 的；vLLM 引擎是「自己造」的，外面剛好也包了一層 server。** 「有沒有 API server」跟「是不是引擎」是兩回事——vLLM 用起來像 Ollama，但它骨子裡是引擎。
+
+那 vLLM 為什麼不直接包 llama.cpp 就好？因為**目標不同**：`llama.cpp` 是為了「**筆電 / 小顯卡也能跑**」的省油引擎；vLLM 是為了「**一張 GPU 同時扛超多人**」的高吞吐引擎——為此它得自己發明 PagedAttention、自己刻 CUDA kernel，只能從頭打造自己的引擎。它們是**兩顆為不同賽道造的引擎**，不是誰包誰。
+
 ---
 
 ## 它們有個共同點：都講「同一種語言」
@@ -165,8 +179,8 @@ GPU  Gemma ─ base_url=localhost:8000  model=gemma-3-4b   ← vLLM
 不一定。量化後的小模型在筆電上就堪用；vLLM 在 GPU 上更是**生產級**。本地跑還有雲端給不了的好處：**資料不外流、不算 token 錢**。
 
 **誤會六：以為「Ollama 完全碰不到 Claude」。**
-其實 Ollama 新增了 `ollama launch claude`——但它是**啟動 Claude Code 這個「工具」**（並幫你接好模型後端），**不是**在本地跑 Claude 的「模型權重」（那不開源）。記住界線：**`launch` 啟動的是工具，`run` 跑的才是模型**（`ollama run gemma4:12b`）。
-（作者註：本文初版誤寫「ollama 不能 launch claude」，經讀者用截圖指正後更新——這也示範了「不確定先查證、別憑舊假設斷言」。）
+其實 Ollama 新增了 `ollama launch claude`——但它是**啟動 Claude Code 這個「工具」**（並幫你接好模型後端），**不是**在本地跑 Claude 的「模型權重」（那不開源）。
+
 
 ---
 
