@@ -26,7 +26,7 @@ cover: /images/system/ollama-vllm/cover.webp
 
 問題來了：**這坨檔案怎麼「跑起來」、變成一個你能對話、能用程式呼叫的服務？**
 
-這就是 **Ollama** 和 **vLLM** 在做的事。它們是**推論引擎（inference engine）**——把靜態的模型權重，變成「會回話的服務」。
+這就是 **Ollama** 和 **vLLM** 在做的事。它們是**拿來跑模型的工具（推論／部署工具）**——把靜態的模型權重，變成「會回話的服務」。
 
 - **Ollama**：在**你自己電腦**上，一行指令就能跑模型——方便、單人、開發用。
 - **vLLM**：在**伺服器的 GPU** 上，扛得住**很多人同時打**——高吞吐、生產用。
@@ -47,7 +47,7 @@ cover: /images/system/ollama-vllm/cover.webp
 | | 它是什麼 | 例子 | 免費嗎 |
 |---|---|---|---|
 | **模型（權重）** | 真正「會思考」的那坨檔案 | Gemma、Llama、Qwen | 開源權重免費下載 |
-| **推論引擎（工具）** | 把模型跑起來的軟體 | **Ollama、vLLM** | 免費、開源 |
+| **跑模型的工具（推論／部署）** | 把模型跑起來的軟體 | **Ollama、vLLM** | 免費、開源 |
 | **雲端 API（服務）** | 別人幫你跑好、你只管呼叫 | OpenAI、Claude | **要錢**（按 token 計費） |
 
 所以「免費 vs 付費」的真正分界，不是 Ollama vs Gemma——**是「自己跑（Ollama/vLLM + 開源模型，免費）」vs「用雲端（OpenAI/Claude，付費）」。**
@@ -77,7 +77,7 @@ flowchart TD
 
 ## Ollama 怎麼用（本地、最簡單）
 
-裝好 Ollama 之後，**真正的指令長這樣**：
+裝好 Ollama 之後，**真正的指令長這樣**：  
 
 ```bash
 ollama run gemma3          # 下載 + 開對話（第一次會抓權重檔）
@@ -120,7 +120,7 @@ vllm serve google/gemma-3-4b-it     # 起一個 OpenAI 相容的 server（連 :8
 
 | | **Ollama** | **vLLM** |
 |---|---|---|
-| 它是什麼 | 推論引擎（工具） | 推論引擎（工具） |
+| 它是什麼 | 管理外殼（內含 llama.cpp 引擎） | 推論引擎（自帶） |
 | 定位 | 本地 / 單人 / 方便 | 生產 / 高併發 |
 | 底層 | llama.cpp + GGUF 量化 | PagedAttention + continuous batching |
 | 硬體 | CPU / 小 GPU 都行 | 要 NVIDIA GPU（CUDA） |
